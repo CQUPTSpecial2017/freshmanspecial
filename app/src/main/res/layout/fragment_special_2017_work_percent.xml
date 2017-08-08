@@ -4,9 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="special_2017_man_and_woman_academy"
+            name="special_2017_work_percent_academy"
             type="String"
-            ></variable>
+            >
+
+        </variable>
+        <variable
+            name="special_2017_work_percent_presenter"
+            type="com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent.Presenter">
+
+        </variable>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,9 +45,9 @@
                     android:hint="请选择学院"
                     android:textColorHint="#969494"
                     android:textSize="14sp"
-                    android:text="@{special_2017_man_and_woman_academy}"
-                    android:textColor="#000"
-                    />
+                    android:text="@{special_2017_work_percent_academy}"
+                    android:textColor="#fe353434"
+                    android:onClick="@{() -> special_2017_work_percent_presenter.onClick()}" />
             </android.support.v7.widget.CardView>
 
         </RelativeLayout>
@@ -94,9 +101,9 @@
                 />
             <com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView
                 android:id="@+id/special_2017_data_work_percent_blue"
-                android:layout_marginTop="20dp"
-                android:layout_width="@dimen/Special_2017_small_circle"
-                android:layout_height="@dimen/Special_2017_small_circle"
+                android:layout_marginTop="10dp"
+                android:layout_width="@dimen/Special_2017_normal_circle"
+                android:layout_height="@dimen/Special_2017_normal_circle"
                 android:layout_centerHorizontal="true"
                 />
 

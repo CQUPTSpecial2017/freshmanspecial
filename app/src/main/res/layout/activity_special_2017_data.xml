@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/special_2017_data_inter"
                 android:layout_width="match_parent"
-                android:layout_height="28dp"/>
+                android:layout_height="30dp"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:id="@+id/data_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            ></android.support.v4.view.ViewPager>
+            ></android.support.v4.view.ViewPager>>
 
     </LinearLayout>
 </layout>

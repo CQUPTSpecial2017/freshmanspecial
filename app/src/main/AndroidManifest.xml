@@ -18,6 +18,8 @@
         <activity android:name=".Ui.Special_2017_DataActivity">
            </activity>
         <activity android:name=".Ui.Special_2017_StrategyActivity"></activity>
+        <activity android:name=".Ui.Special_2017_BeautyActivity">
+           </activity>
     </application>
 
 </manifest>

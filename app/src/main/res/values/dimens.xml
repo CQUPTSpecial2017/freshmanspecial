@@ -2,11 +2,23 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="Special_2017_activity_horizontal_margin">18dp</dimen>
     <dimen name="Special_2017_activity_vertical_margin">18dp</dimen>
-    <dimen name="Special_2017_card_view_vertical_margin">27dp</dimen>
-    <dimen name="Special_2017_card_view_height">130dp</dimen>
+    <dimen name="Special_2017_card_view_vertical_margin">10dp</dimen>
+    <dimen name="Special_2017_card_view_height">135dp</dimen>
     <dimen name="Special_2017_title">17sp</dimen>
     <dimen name="Special_2017_content">13sp</dimen>
-    <dimen name="Special_2017_big_circle">200dp</dimen>
-    <dimen name="Special_2017_normal_circle">180dp</dimen>
-    <dimen name="Special_2017_small_circle">160dp</dimen>
+    <dimen name="Special_2017_big_circle">220dp</dimen>
+    <dimen name="Special_2017_normal_circle">200dp</dimen>
+
+    <dimen name="circleImageView_weight">60dp</dimen>
+    <!-- 顶部按钮栏高度 -->
+    <dimen name="pickerview_topbar_height">44dp</dimen>
+
+    <!-- 顶部按钮padding -->
+    <dimen name="pickerview_topbar_padding">20dp</dimen>
+
+    <!-- 顶部按钮文字大小 -->
+    <dimen name="pickerview_topbar_btn_textsize">17sp</dimen>
+    <dimen name="pickerview_topbar_title_textsize">18sp</dimen>
+    <!-- 选项文字大小 -->
+    <dimen name="pickerview_textsize">20sp</dimen>
 </resources>

@@ -3,7 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable
+            name="special_2017_man_and_woman_academy"
+            type="String"
+            >
 
+        </variable>
+        <variable
+            name="special_2017_man_and_woman_presenter"
+            type="com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent.Presenter">
+
+        </variable>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,9 +100,9 @@
                 />
             <com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView
                 android:id="@+id/special_2017_data_man_and_woman_blue"
-                android:layout_marginTop="20dp"
-                android:layout_width="@dimen/Special_2017_small_circle"
-                android:layout_height="@dimen/Special_2017_small_circle"
+                android:layout_marginTop="10dp"
+                android:layout_width="@dimen/Special_2017_normal_circle"
+                android:layout_height="@dimen/Special_2017_normal_circle"
                 android:layout_centerHorizontal="true"
                 />
 

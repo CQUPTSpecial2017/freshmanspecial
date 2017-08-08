@@ -5,10 +5,17 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Shader;
+import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.mredrock.freshmanspecial.Model.Special_2017_Circle;
@@ -23,19 +30,23 @@ public class Special_2017_MyCircleView extends View {
 
     private Context mContext;
     private float radius;
-    private int percent;
+    private int percent = 0 ;
     private Paint mStrokePaint = new Paint();
     private Paint mFillPaint = new Paint();
-    private Paint mTextPant = new Paint();
-    private Paint mCircleStrokePant = new Paint();
-    private Paint mCircleContentFillPant = new Paint();
+    private Paint mTextPaint = new Paint();
+    private Paint mCircleStrokePaint = new Paint();
+    private Paint mCircleContentFillPaint = new Paint();
+    private Paint mShadowStrokePaint = new Paint();
 
-    private Path mPath = new Path();
+    private Path mPath;
     private Path mFullPath = new Path();
+    private Path mShadowPath ;
     private ArrayList<RectF> mRectFs = new ArrayList<>();
-    private ArrayList<RectF> mLastRectFs = new ArrayList<>();
+    private RectF mShadowOutRectF ;
+    private RectF mShadowInRectF ;
     private float circleWeight = 15 ;
     private float angle ;
+    private float maxAngle;
     private int currentPercent = 0;
     private boolean isFirst = true;
     private int width,height;
@@ -74,20 +85,21 @@ public class Special_2017_MyCircleView extends View {
 
     public Special_2017_MyCircleView setPercent(int percent) {
         this.percent = percent;
-
+        maxAngle = percent/100*360;
         return this;
     }
-    public Special_2017_MyCircleView setColor(String contentColor,String color,String lastContentColor,String lastColor){
+    public Special_2017_MyCircleView setColor(String contentColor,String color,String lastContentColor,String lastColor,String shadowColor){
         mFillPaint.setColor(Color.parseColor(contentColor));
         mStrokePaint.setColor(Color.parseColor(color));
-        mTextPant.setColor(Color.parseColor(color));
-        mCircleStrokePant.setColor(Color.parseColor(lastColor));
-        mCircleContentFillPant.setColor(Color.parseColor(lastContentColor));
+        mTextPaint.setColor(Color.parseColor(color));
+        mCircleStrokePaint.setColor(Color.parseColor(lastColor));
+        mCircleContentFillPaint.setColor(Color.parseColor(lastContentColor));
+        mShadowStrokePaint.setColor(Color.parseColor(shadowColor));
         return this;
     }
     public void setCircle(Special_2017_Circle circle){
         setRadius(circle.getRadius()) ;
-        setColor(circle.getContentColor(),circle.getColor(),circle.getLastContentColor(),circle.getLastColor());
+        setColor(circle.getContentColor(),circle.getColor(),circle.getLastContentColor(),circle.getLastColor(),circle.getShadowColor());
         setPercent(circle.getPercent());
 
     }
@@ -126,6 +138,9 @@ public class Special_2017_MyCircleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         if (isFirst) {
+            mPath = new Path();
+            mFullPath = new Path();
+            mShadowPath = new Path();
             setPaint();
 
 
@@ -139,9 +154,9 @@ public class Special_2017_MyCircleView extends View {
             isFirst = false;
             startAnimation();
 
-        } else {
+        }else {
 
-           drawPath(canvas);
+            drawPath(canvas);
         }
 
     }
@@ -154,23 +169,74 @@ public class Special_2017_MyCircleView extends View {
             pathAddRectFs(mRectFs, mPath);
             canvas.drawPath(mPath, mStrokePaint);
             canvas.drawPath(mPath, mFillPaint);
-            canvas.drawText("%" + percent, width / 2 - 80, height / 2 - radius + 30, mTextPant);
+            canvas.drawText("%" + percent, width / 2 - 80, mRectFs.get(0).bottom - 5, mTextPaint);
 
 
             if (currentPercent == percent){
+                //画尾圈
                 mFullPath.arcTo(mRectFs.get(2),angle-90,180,false);
                 mFullPath.arcTo(mRectFs.get(1),angle-90,360 - angle,false);
                 mFullPath.arcTo(mRectFs.get(0),270,-180,false);
                 mFullPath.arcTo(mRectFs.get(3),270,angle-360,false);
-                canvas.drawPath(mFullPath, mCircleStrokePant);
-                canvas.drawPath(mFullPath, mCircleContentFillPant);
+                canvas.drawPath(mFullPath, mCircleStrokePaint);
+                canvas.drawPath(mFullPath, mCircleContentFillPaint);
                 canvas.drawPath(mPath, mStrokePaint);
                 canvas.drawPath(mPath, mFillPaint);
-                canvas.drawText("%" + percent, width / 2 - 80, height / 2 - radius + 30, mTextPant);
+                canvas.drawText("%" + percent, width / 2 - 80, mRectFs.get(0).bottom-5, mTextPaint);
+                mFullPath.reset();
+
+//                //画阴影
+//                if (angle<=120 ){
+//                    for (int i = 0; i <20 ; i++) {
+//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
+//                        mShadowPath.arcTo(mShadowOutRectF,270,angle,true);
+//                        mShadowStrokePaint.setAlpha(200 - 10*i);
+//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
+//                        mShadowPath.reset();
+//                    }
+//
+//
+//                }
+//                else if (angle>120&&angle<=180){
+//                    for (int i = 0; i <20 ; i++) {
+//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
+//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
+//                        mShadowStrokePaint.setAlpha(200 - 10*i);
+//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
+//                        mShadowPath.reset();
+//                    }
+//                }
+//                else if (angle>180&&angle<=300){
+//                    for (int i = 0; i <20 ; i++) {
+//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
+//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
+//                        mShadowInRectF = new RectF(mRectFs.get(3).left-(i+1),mRectFs.get(3).top-(i+1),mRectFs.get(3).right+(i+1),mRectFs.get(3).bottom+(i+1));
+//                        mShadowPath.arcTo(mShadowInRectF,90,angle-180,true);
+//                        mShadowStrokePaint.setAlpha(255 - 10*i);
+//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
+//                        mShadowPath.reset();
+//                    }
+//
+//                }else if (angle>300&&angle<=360){
+//                    for (int i = 0; i <20 ; i++) {
+//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
+//                        mShadowInRectF = new RectF(mRectFs.get(3).left-(i+1),mRectFs.get(3).top-(i+1),mRectFs.get(3).right+(i+1),mRectFs.get(3).bottom+(i+1));
+//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
+//                        mShadowPath.arcTo(mShadowInRectF,90,120,true);
+//                        mShadowStrokePaint.setAlpha(255 - 10*i);
+//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
+//                        mShadowPath.reset();
+//
+//                    }
+//                }
+
+                LinearGradient linearGradient = new LinearGradient(width/2+radius,height/2-radius,width/2+radius-circleWeight*Math.abs(2),height/2-radius+circleWeight*Math.abs(2),
+                        new int[]{Color.parseColor("#7bf9e6"),mFillPaint.getColor(),Color.parseColor("#b1fef1")},
+                        null, Shader.TileMode.CLAMP);
+
+                mFillPaint.setShader(linearGradient);
+                canvas.drawPath(mPath, mFillPaint);
             }
-
-
-
     }
 
     private ArrayList<RectF> getRectFs(float radius,float width,int percent,ArrayList<RectF> mLast){
@@ -238,15 +304,19 @@ public class Special_2017_MyCircleView extends View {
         mStrokePaint.setAntiAlias(true);
         mStrokePaint.setStrokeWidth(2);
 
-        mTextPant.setTextSize(dip2px(mContext,10));
+        mTextPaint.setTextSize(dip2px(mContext,10));
 
-        mCircleContentFillPant.setStyle(Paint.Style.FILL);
-        mCircleContentFillPant.setAntiAlias(true);
+        mCircleContentFillPaint.setStyle(Paint.Style.FILL);
+        mCircleContentFillPaint.setAntiAlias(true);
 
 
-        mCircleStrokePant.setStyle(Paint.Style.STROKE);
-        mCircleStrokePant.setAntiAlias(true);
-        mCircleStrokePant.setStrokeWidth(2);
+        mCircleStrokePaint.setStyle(Paint.Style.STROKE);
+        mCircleStrokePaint.setAntiAlias(true);
+        mCircleStrokePaint.setStrokeWidth(2);
+
+        mShadowStrokePaint.setStyle(Paint.Style.STROKE);
+        mShadowStrokePaint.setAntiAlias(true);
+        mShadowStrokePaint.setStrokeWidth(1);
 
     }
 
@@ -257,7 +327,7 @@ public class Special_2017_MyCircleView extends View {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    private void startAnimation() {
+    public void startAnimation() {
 
         animation = ValueAnimator.ofInt(0,percent);
         animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -267,7 +337,6 @@ public class Special_2017_MyCircleView extends View {
                 invalidate();
             }
         });
-        animation.setRepeatMode(ValueAnimator.RESTART);
         animation.setDuration(800);
         animation.start();
     }
@@ -283,5 +352,11 @@ public class Special_2017_MyCircleView extends View {
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         this.clearAnimation();
         super.onWindowFocusChanged(hasWindowFocus);
+    }
+
+    @Override
+    protected void onAnimationEnd() {
+        isFirst = true;
+        super.onAnimationEnd();
     }
 }

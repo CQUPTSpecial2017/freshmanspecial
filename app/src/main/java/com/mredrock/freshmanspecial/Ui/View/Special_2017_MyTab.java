@@ -5,7 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.WindowManager;
 
@@ -14,6 +18,7 @@ import android.view.WindowManager;
  */
 
 public class Special_2017_MyTab extends TabLayout {
+
     public Special_2017_MyTab(Context context) {
         super(context);
     }
@@ -50,4 +55,10 @@ public class Special_2017_MyTab extends TabLayout {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
+
+
+
+
+
 }

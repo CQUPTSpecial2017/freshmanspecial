@@ -10,17 +10,29 @@ public class Special_2017_Circle {
     private String contentColor;
     private String color;
     private String lastContentColor;
+    private String lastColor;
 
-    public Special_2017_Circle(float radius, int percent, String contentColor, String color, String lastContentColor, String lastColor) {
+    public String getShadowColor() {
+        return shadowColor;
+    }
+
+    public void setShadowColor(String shadowColor) {
+        this.shadowColor = shadowColor;
+    }
+
+    private String shadowColor ;
+
+    public Special_2017_Circle(float radius, int percent, String contentColor, String color, String lastContentColor, String lastColor,String shadowColor) {
         this.radius = radius;
         this.percent = percent;
         this.contentColor = contentColor;
         this.color = color;
         this.lastContentColor = lastContentColor;
         this.lastColor = lastColor;
+        this.shadowColor = shadowColor;
     }
 
-    private String lastColor;
+
 
     public String getLastContentColor() {
         return lastContentColor;
