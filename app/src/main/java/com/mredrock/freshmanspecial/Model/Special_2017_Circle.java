@@ -1,4 +1,4 @@
-package com.mredrock.freshmanspecial.Model;
+package com.mredrock.freshmanspecial.Model.Data;
 
 /**
  * Created by Administrator on 2017/8/4 0004.
@@ -11,6 +11,16 @@ public class Special_2017_Circle {
     private String color;
     private String lastContentColor;
     private String lastColor;
+    private String shadowColor ;
+    private String lightColor;
+    public String getLightColor() {
+        return lightColor;
+    }
+
+    public void setLightColor(String lightColor) {
+        this.lightColor = lightColor;
+    }
+
 
     public String getShadowColor() {
         return shadowColor;
@@ -20,9 +30,9 @@ public class Special_2017_Circle {
         this.shadowColor = shadowColor;
     }
 
-    private String shadowColor ;
 
-    public Special_2017_Circle(float radius, int percent, String contentColor, String color, String lastContentColor, String lastColor,String shadowColor) {
+
+    public Special_2017_Circle(float radius, int percent, String contentColor, String color, String lastContentColor, String lastColor,String shadowColor,String lightColor) {
         this.radius = radius;
         this.percent = percent;
         this.contentColor = contentColor;
@@ -30,6 +40,7 @@ public class Special_2017_Circle {
         this.lastContentColor = lastContentColor;
         this.lastColor = lastColor;
         this.shadowColor = shadowColor;
+        this.lastColor = lightColor;
     }
 
 
