@@ -1,14 +1,18 @@
 package com.mredrock.freshmanspecial.httptools;
 
+import android.content.Context;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -18,14 +22,17 @@ import rx.schedulers.Schedulers;
 
 public class GetDataFromServer<T> {
     private static final int DEFAULT_TIMEOUT = 5;
-    public static String baseUrl = "http://www.yangruixin.com/test/apiRatio.php/";
+    public static String BASE_URL = "http://www.yangruixin.com/test/apiRatio.php/";
     private Retrofit retrofit;
     private DataService dataService;
+    public HttpLoggingInterceptor mHttpLogInterceptor;
+    private Context mContext;
+    private Action1<String> onNextAction;
 
     private GetDataFromServer() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
-        retrofit = new Retrofit.Builder().baseUrl(baseUrl).
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).
                 addConverterFactory(GsonConverterFactory.create()).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         dataService = retrofit.create(DataService.class);

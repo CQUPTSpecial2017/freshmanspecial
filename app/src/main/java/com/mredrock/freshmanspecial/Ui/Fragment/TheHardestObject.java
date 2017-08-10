@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class TheHardestObject extends Fragment {
                 for (int i = 0; i < failPluses.size(); i++) {
                     collegeItems.add(failPluses.get(i).getCollege());
                     for (int j = 0; j < failPluses.get(i).getMajor().size(); j++) {
+                        Log.d("size",failPluses.size()+"");
                         departmentItems.get(i).add( failPluses.get(i).getMajor().get(j).getMajor());
                     }
 
@@ -123,8 +125,8 @@ public class TheHardestObject extends Fragment {
             public void onDismiss(Object o) {
                 int position1 = mPickerView.getOption1();
                 int position2 = mPickerView.getOption2();
-                binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
-                binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
+              //  binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
+              //  binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
                 yellowCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(0).getRatio()*100));
                 greenCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(1).getRatio()*100));
                 blueCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(2).getRatio()*100));
