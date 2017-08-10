@@ -7,6 +7,8 @@
     <color name="Special_2017_onChoice">#65B2FF</color>
     <color name="Special_2017_onTextNoChoice">#949494</color>
     <color name="Special_2017_cqupt_beauty_background">#f7f7f7</color>
+    <color name="Special_2017_content">#B0B0B0</color>
+    <color name="Special_2017_distinct">#cecdcd</color>
 
     <color name="pickerview_timebtn_nor">#057dff</color>
     <color name="pickerview_timebtn_pre">#c2daf5</color>

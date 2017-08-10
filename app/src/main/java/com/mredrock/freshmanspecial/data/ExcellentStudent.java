@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
-
+    //优秀学生
 public class ExcellentStudent implements Serializable{
     private String name;
     private String information;

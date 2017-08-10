@@ -3,7 +3,7 @@ package com.mredrock.freshmanspecial.data;
 /**
  * Created by Administrator on 2017/8/10 0010.
  */
-
+    //周边美食
 public class FoodAroundCqupt {
     private String name;
     private String describe;

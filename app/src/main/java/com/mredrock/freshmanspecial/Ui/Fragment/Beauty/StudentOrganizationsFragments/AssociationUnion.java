@@ -14,16 +14,15 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.StudentOrganizationAdapter;
-import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.StudentOrganization;
 
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2017/8/7 0007.
+ * Created by Administrator on 2017/8/10 0010.
  */
 
-public class ArtGroup extends Fragment{
+public class AssociationUnion extends Fragment {
     private ViewDataBinding mDataBinding;
     private RecyclerView mRecyclerView;
     private StudentOrganizationAdapter mAdapter ;
@@ -31,7 +30,7 @@ public class ArtGroup extends Fragment{
     private ArrayList<StudentOrganization> mStudentOrganizations  = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_art_group,container,false);
+        mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_association_union,container,false);
         return mDataBinding.getRoot();
     }
 

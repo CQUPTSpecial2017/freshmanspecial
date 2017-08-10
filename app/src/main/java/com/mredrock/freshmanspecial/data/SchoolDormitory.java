@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
-
+        //校园宿舍
 public class SchoolDormitory implements Serializable{
     private String imageUrl;
     private String title;

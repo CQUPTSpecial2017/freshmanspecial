@@ -3,7 +3,7 @@ package com.mredrock.freshmanspecial.data;
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
-
+    //美在重邮
 public class BeautyInCqupt {
     private String imageUrl;
     private String title;

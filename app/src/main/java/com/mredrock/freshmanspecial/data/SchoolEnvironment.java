@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
-
+        //校园环境
 public class SchoolEnvironment implements Serializable {
     private String imageUrl;
     private String title;

@@ -4,14 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="special_2017_the_hardest_object_academy"
+            name="special_2017_the_hardest_object_college"
+            type="String"
+            ></variable>
+        <variable
+            name="special_2017_the_hardest_object_major"
             type="String"
             >
-
         </variable>
         <variable
             name="special_2017_the_hardest_object_presenter"
-            type="com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent.Presenter">
+            type="com.mredrock.freshmanspecial.Ui.Fragment.TheHardestObject.Presenter">
 
         </variable>
 
@@ -29,6 +32,7 @@
         android:background="@color/Special_2017_whileBack"
         android:layout_marginTop="20dp">
         <android.support.v7.widget.CardView
+
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
@@ -36,12 +40,13 @@
             app:cardElevation ="0dp"
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#EBF5FA"
-
+            android:onClick="@{() -> special_2017_the_hardest_object_presenter.onClick()}"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:text="@{special_2017_the_hardest_object_college}"
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择学院"
                 android:textColorHint="#969494"
@@ -64,11 +69,14 @@
             android:layout_marginRight="40dp"
             app:cardElevation ="0dp"
             app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="#EBF5FA">
+            app:cardBackgroundColor="#EBF5FA"
+            android:onClick="@{() -> special_2017_the_hardest_object_presenter.onClick()}"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:text="@{special_2017_the_hardest_object_major}"
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择专业"
                 android:textColorHint="#969494"

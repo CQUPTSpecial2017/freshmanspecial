@@ -28,7 +28,7 @@ public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_special_2017_image_click);
+        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_special_2017__beauty_image_click);
         initView();
 
     }

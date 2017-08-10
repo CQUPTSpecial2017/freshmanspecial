@@ -19,8 +19,9 @@ import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.ExcellentTeacher;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizations;
 import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolCanteen;
 import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolDormitory;
-import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolEnviroment;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolEnvironment;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017StrategyBinding;
+;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
     }
     private void initView(){
         mFragments = new ArrayList<>();
-        mFragments.add(new SchoolEnviroment());
+        mFragments.add(new SchoolEnvironment());
         mFragments.add(new SchoolDormitory());
         mFragments.add(new SchoolCanteen());
         mFragments.add(new ExcellentTeacher());

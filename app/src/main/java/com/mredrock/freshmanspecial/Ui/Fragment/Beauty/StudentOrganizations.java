@@ -10,18 +10,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
+import com.mredrock.freshmanspecial.databinding.FragmentSpecial2017StudentOrganizationsBinding;
 
 /**
  * Created by Administrator on 2017/8/7 0007.
  */
 
 public class StudentOrganizations extends Fragment{
-    ViewDataBinding mDataBinding;
+    FragmentSpecial2017StudentOrganizationsBinding mDataBinding;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_student_organizations,container,false);
         return mDataBinding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 }

@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:textColor="#B0B0B0"/>
+        android:textColor="@color/Special_2017_content"/>
     <ImageView
         android:id="@+id/item_excellent_teachers_details"
         android:layout_marginRight="25dp"
@@ -51,7 +51,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
         android:layout_below="@id/item_excellent_teachers_circle_image"
-        android:background="#cecdcd"
+        android:background="@color/Special_2017_distinct"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         />

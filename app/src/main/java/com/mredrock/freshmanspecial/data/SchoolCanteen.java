@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
-
+    //学校食堂
 public class SchoolCanteen implements Serializable {
     private String imageUrl;
     private String title;
