@@ -1,6 +1,6 @@
 package com.mredrock.freshmanspecial.httptools;
 
-import com.mredrock.freshmanspecial.data.FailRatio;
+import com.mredrock.freshmanspecial.data.FailPlus;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.data.SexRatio;
 import com.mredrock.freshmanspecial.data.WorkRatio;
@@ -22,8 +22,8 @@ public interface DataService<T> {
     Observable<HttpResult<List<SexRatio>>> postSexRatio(@Field("RequestType") String dataName);
 
     @FormUrlEncoded
-    @POST("FailRatio")
-    Observable<HttpResult<List<FailRatio>>> postFailRatio(@Field("RequestType") String dataName);
+    @POST("FailPlus")
+    Observable<HttpResult<List<FailPlus>>> postFailRatio(@Field("RequestType") String dataName);
 
     @FormUrlEncoded
     @POST("QQGroupNumber")
