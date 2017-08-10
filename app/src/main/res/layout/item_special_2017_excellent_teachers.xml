@@ -7,7 +7,7 @@
 <RelativeLayout 
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="90dp"
+              android:layout_height="wrap_content"
     android:background="@color/Special_2017_whileBack">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_excellent_teachers_circle_image"
@@ -18,34 +18,40 @@
         android:layout_marginBottom="16dp"
         />
     <TextView
-        android:id="@+id/item_excellent_teachers_circle_name"
+        android:id="@+id/item_excellent_teachers_name"
         android:layout_toRightOf="@+id/item_excellent_teachers_circle_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/Special_2017_title"
         android:layout_marginTop="27dp"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="15dp"
+        android:textColor="#000"/>
     <TextView
+        android:id="@+id/item_excellent_teachers_major"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginBottom="26dp"
         android:layout_toRightOf="@id/item_excellent_teachers_circle_image"
-        android:layout_below="@+id/item_excellent_teachers_circle_name"
+        android:layout_below="@+id/item_excellent_teachers_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="#B0B0B0"/>
     <ImageView
-        android:layout_marginRight="23dp"
+        android:id="@+id/item_excellent_teachers_details"
+        android:layout_marginRight="25dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_width="9dp"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
+        android:background="@drawable/information"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@id/item_excellent_teachers_circle_image"
-        android:background="#000"
+        android:background="#cecdcd"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         />

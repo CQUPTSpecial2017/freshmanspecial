@@ -18,4 +18,5 @@
     <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
     <color name="pickerview_bgColor_overlay">#60000000</color>
     <color name="pickerview_bgColor_default">#FFFFFFFF</color>
+    <color name="all_inter">#6e6e6e</color>
 </resources>

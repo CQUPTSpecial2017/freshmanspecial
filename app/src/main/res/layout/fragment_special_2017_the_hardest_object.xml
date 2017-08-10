@@ -45,7 +45,7 @@
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择学院"
                 android:textColorHint="#969494"
-                android:textSize="14sp"
+                android:textSize="@dimen/Special_2017_text_title"
                 android:textColor="#000"
                 />
         </android.support.v7.widget.CardView>
@@ -72,7 +72,7 @@
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择专业"
                 android:textColorHint="#969494"
-                android:textSize="14sp"
+                android:textSize="@dimen/Special_2017_text_title"
                 android:textColor="#000"
                 />
         </android.support.v7.widget.CardView>

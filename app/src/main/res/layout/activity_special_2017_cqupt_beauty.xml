@@ -12,7 +12,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/special_2017_change_color"
         >
 
@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/special_2017_beauty_inter"
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="25dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +31,8 @@
                 android:layout_centerInParent="true"
                 android:text="重邮风采"
                 android:textColor="@color/Special_2017_whileBack"
-                android:textSize="@dimen/Special_2017_title"/>
+                android:textSize="@dimen/Special_2017_title"
+                android:layout_marginBottom="20dp"/>
             <ImageView
                 android:layout_width="13dp"
                 android:layout_height="23dp"

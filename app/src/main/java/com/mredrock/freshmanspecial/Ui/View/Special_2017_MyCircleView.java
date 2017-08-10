@@ -1,21 +1,16 @@
 package com.mredrock.freshmanspecial.Ui.View;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
+import android.graphics.EmbossMaskFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.mredrock.freshmanspecial.Model.Special_2017_Circle;
@@ -31,20 +26,21 @@ public class Special_2017_MyCircleView extends View {
     private Context mContext;
     private float radius;
     private int percent = 0 ;
+
     private Paint mStrokePaint = new Paint();
     private Paint mFillPaint = new Paint();
     private Paint mTextPaint = new Paint();
     private Paint mCircleStrokePaint = new Paint();
     private Paint mCircleContentFillPaint = new Paint();
     private Paint mShadowStrokePaint = new Paint();
-
+    private int contentColor , drakColor,lightColor;
     private Path mPath;
     private Path mFullPath = new Path();
     private Path mShadowPath ;
     private ArrayList<RectF> mRectFs = new ArrayList<>();
     private RectF mShadowOutRectF ;
     private RectF mShadowInRectF ;
-    private float circleWeight = 15 ;
+    private float circleWeight  ;
     private float angle ;
     private float maxAngle;
     private int currentPercent = 0;
@@ -58,16 +54,19 @@ public class Special_2017_MyCircleView extends View {
     public Special_2017_MyCircleView(Context context) {
         super(context);
         mContext = context;
+        circleWeight = dip2px(mContext,6);
     }
 
     public Special_2017_MyCircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        circleWeight = dip2px(mContext,6);
     }
 
     public Special_2017_MyCircleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
+        circleWeight = dip2px(mContext,6);
     }
     public Paint getStrokePaint() {
         return mStrokePaint;
@@ -88,18 +87,21 @@ public class Special_2017_MyCircleView extends View {
         maxAngle = percent/100*360;
         return this;
     }
-    public Special_2017_MyCircleView setColor(String contentColor,String color,String lastContentColor,String lastColor,String shadowColor){
+    public Special_2017_MyCircleView setColor(String contentColor,String color,String lastContentColor,String lastColor,String darkColor,String lightColor){
+        this.contentColor = Color.parseColor(contentColor);
         mFillPaint.setColor(Color.parseColor(contentColor));
         mStrokePaint.setColor(Color.parseColor(color));
         mTextPaint.setColor(Color.parseColor(color));
         mCircleStrokePaint.setColor(Color.parseColor(lastColor));
         mCircleContentFillPaint.setColor(Color.parseColor(lastContentColor));
-        mShadowStrokePaint.setColor(Color.parseColor(shadowColor));
+        this.drakColor = Color.parseColor(darkColor);
+        this.lightColor = Color.parseColor(lastColor);
         return this;
     }
     public void setCircle(Special_2017_Circle circle){
         setRadius(circle.getRadius()) ;
-        setColor(circle.getContentColor(),circle.getColor(),circle.getLastContentColor(),circle.getLastColor(),circle.getShadowColor());
+        setColor(circle.getContentColor(),circle.getColor(),circle.getLastContentColor(),circle.getLastColor(),
+                circle.getShadowColor(),circle.getLightColor());
         setPercent(circle.getPercent());
 
     }
@@ -148,6 +150,8 @@ public class Special_2017_MyCircleView extends View {
 
             mFullPath.setFillType(Path.FillType.EVEN_ODD);
 
+            mFullPath.addCircle(width/2,height/2,radius, Path.Direction.CW);
+            mFullPath.addCircle(width/2,height/2,radius-dip2px(mContext,circleWeight), Path.Direction.CW);
             drawPath(canvas);
 
 
@@ -163,7 +167,8 @@ public class Special_2017_MyCircleView extends View {
 
     private void drawPath(Canvas canvas) {
 
-
+            canvas.drawPath(mFullPath, mCircleStrokePaint);
+            canvas.drawPath(mFullPath, mCircleContentFillPaint);
             mRectFs.clear();
             getRectFs(radius, circleWeight, currentPercent,mRectFs);
             pathAddRectFs(mRectFs, mPath);
@@ -174,68 +179,78 @@ public class Special_2017_MyCircleView extends View {
 
             if (currentPercent == percent){
                 //画尾圈
-                mFullPath.arcTo(mRectFs.get(2),angle-90,180,false);
-                mFullPath.arcTo(mRectFs.get(1),angle-90,360 - angle,false);
-                mFullPath.arcTo(mRectFs.get(0),270,-180,false);
-                mFullPath.arcTo(mRectFs.get(3),270,angle-360,false);
-                canvas.drawPath(mFullPath, mCircleStrokePaint);
-                canvas.drawPath(mFullPath, mCircleContentFillPaint);
-                canvas.drawPath(mPath, mStrokePaint);
-                canvas.drawPath(mPath, mFillPaint);
-                canvas.drawText("%" + percent, width / 2 - 80, mRectFs.get(0).bottom-5, mTextPaint);
-                mFullPath.reset();
+//                mFullPath.arcTo(mRectFs.get(2),angle-90,180,false);
+//                mFullPath.arcTo(mRectFs.get(1),angle-90,360 - angle,false);
+//                mFullPath.arcTo(mRectFs.get(0),270,-180,false);
+//                mFullPath.arcTo(mRectFs.get(3),270,angle-360,false);
 
-//                //画阴影
-//                if (angle<=120 ){
-//                    for (int i = 0; i <20 ; i++) {
-//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
-//                        mShadowPath.arcTo(mShadowOutRectF,270,angle,true);
-//                        mShadowStrokePaint.setAlpha(200 - 10*i);
-//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
-//                        mShadowPath.reset();
-//                    }
+
+//                canvas.drawPath(mPath, mStrokePaint);
+//                canvas.drawPath(mPath, mFillPaint);
+//                canvas.drawText("%" + percent, width / 2 - 80, mRectFs.get(0).bottom-5, mTextPaint);
+//                mFullPath.reset();
+
+
+//                mFillPaint.setMaskFilter(new EmbossMaskFilter(new float[]{17,-10,37},28,23,0.925f*circleWeight));
+//                canvas.drawPath(mPath, mFillPaint);
+
+
+//                //画阴影和高亮
+//                if (percent != 0) {
+//                    RadialGradient mRadialGradient = new RadialGradient(width / 2, height / 2, radius, new int[]{
+//                            lightColor, contentColor, drakColor},
+//                            new float[]{0, .90f, .96f},
+//                            Shader.TileMode.REPEAT);
+//                    RadialGradient mRadialGradient1 = new RadialGradient(width / 2, height / 2, radius, new int[]{
+//                            drakColor, contentColor, lightColor},
+//                            new float[]{0, .90f, .96f},
+//                            Shader.TileMode.REPEAT);
 //
+//                    if (angle <= 120) {
+//                        mShadowPath.arcTo(mRectFs.get(0), 90, 180, true);
+//                        mShadowPath.arcTo(mRectFs.get(1), 270, 120, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), 30, -120, false);
+//                        mFillPaint.setShader(mRadialGradient);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                        mShadowPath.reset();
+//
+//                    } else if (angle > 120 && angle <= 180) {
+//                        mShadowPath.arcTo(mRectFs.get(0), 90, 180, true);
+//                        mShadowPath.arcTo(mRectFs.get(1), 270, 120, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), 30, -120, false);
+//                        mFillPaint.setShader(mRadialGradient);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                        mShadowPath.reset();
+//                    } else if (angle > 180 && angle <= 300) {
+////
+//                        mShadowPath.arcTo(mRectFs.get(0), 90, 180, true);
+//                        mShadowPath.arcTo(mRectFs.get(1), 270, 120, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), 30, -120, false);
+//                        mFillPaint.setShader(mRadialGradient);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                        mShadowPath.reset();
+//                        mShadowPath.arcTo(mRectFs.get(1), 90, angle - 180, false);
+//                        mShadowPath.arcTo(mRectFs.get(2), angle - 90, 180, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), angle - 90, -(angle - 180), false);
+//                        mFillPaint.setShader(mRadialGradient1);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                    } else if (angle > 300 && angle <= 360) {
+//                        mShadowPath.arcTo(mRectFs.get(0), 90, 180, true);
+//                        mShadowPath.arcTo(mRectFs.get(1), 270, 120, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), 30, -120, false);
+//                        mFillPaint.setShader(mRadialGradient);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                        mShadowPath.reset();
+//                        mShadowPath.arcTo(mRectFs.get(1), 90, 120, false);
+//                        mShadowPath.arcTo(mRectFs.get(2), angle - 90, 180, false);
+//                        mShadowPath.arcTo(mRectFs.get(3), angle - 90, -120, false);
+//                        mFillPaint.setShader(mRadialGradient1);
+//                        canvas.drawPath(mShadowPath, mFillPaint);
+//                    }
 //
 //                }
-//                else if (angle>120&&angle<=180){
-//                    for (int i = 0; i <20 ; i++) {
-//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
-//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
-//                        mShadowStrokePaint.setAlpha(200 - 10*i);
-//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
-//                        mShadowPath.reset();
-//                    }
-//                }
-//                else if (angle>180&&angle<=300){
-//                    for (int i = 0; i <20 ; i++) {
-//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
-//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
-//                        mShadowInRectF = new RectF(mRectFs.get(3).left-(i+1),mRectFs.get(3).top-(i+1),mRectFs.get(3).right+(i+1),mRectFs.get(3).bottom+(i+1));
-//                        mShadowPath.arcTo(mShadowInRectF,90,angle-180,true);
-//                        mShadowStrokePaint.setAlpha(255 - 10*i);
-//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
-//                        mShadowPath.reset();
-//                    }
 //
-//                }else if (angle>300&&angle<=360){
-//                    for (int i = 0; i <20 ; i++) {
-//                        mShadowOutRectF = new RectF(mRectFs.get(1).left+(i+1),mRectFs.get(1).top+(i+1),mRectFs.get(1).right-(i+1),mRectFs.get(1).bottom-(i+1));
-//                        mShadowInRectF = new RectF(mRectFs.get(3).left-(i+1),mRectFs.get(3).top-(i+1),mRectFs.get(3).right+(i+1),mRectFs.get(3).bottom+(i+1));
-//                        mShadowPath.arcTo(mShadowOutRectF,270,120,true);
-//                        mShadowPath.arcTo(mShadowInRectF,90,120,true);
-//                        mShadowStrokePaint.setAlpha(255 - 10*i);
-//                        canvas.drawPath(mShadowPath,mShadowStrokePaint);
-//                        mShadowPath.reset();
-//
-//                    }
-//                }
-
-                LinearGradient linearGradient = new LinearGradient(width/2+radius,height/2-radius,width/2+radius-circleWeight*Math.abs(2),height/2-radius+circleWeight*Math.abs(2),
-                        new int[]{Color.parseColor("#7bf9e6"),mFillPaint.getColor(),Color.parseColor("#b1fef1")},
-                        null, Shader.TileMode.CLAMP);
-
-                mFillPaint.setShader(linearGradient);
-                canvas.drawPath(mPath, mFillPaint);
+//                canvas.drawPath(mPath, mStrokePaint);
             }
     }
 
@@ -282,6 +297,7 @@ public class Special_2017_MyCircleView extends View {
     private void pathAddRectFs(ArrayList<RectF> rectFs, Path path){
         if (!path.isEmpty())
             path.reset();
+
         angle = currentPercent*360/100;
 
             path.arcTo(rectFs.get(0),90,180,false);
@@ -298,6 +314,7 @@ public class Special_2017_MyCircleView extends View {
 
         mFillPaint.setStyle(Paint.Style.FILL);
         mFillPaint.setAntiAlias(true);
+
 
 
         mStrokePaint.setStyle(Paint.Style.STROKE);
@@ -328,8 +345,10 @@ public class Special_2017_MyCircleView extends View {
     }
 
     public void startAnimation() {
-
-        animation = ValueAnimator.ofInt(0,percent);
+        if (percent>=95)
+            animation = ValueAnimator.ofInt(0,95);
+        else
+            animation = ValueAnimator.ofInt(0,percent);
         animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator ani) {

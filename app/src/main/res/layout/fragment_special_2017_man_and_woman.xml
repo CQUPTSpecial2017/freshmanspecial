@@ -11,7 +11,7 @@
         </variable>
         <variable
             name="special_2017_man_and_woman_presenter"
-            type="com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent.Presenter">
+            type="com.mredrock.freshmanspecial.Ui.Fragment.ManAndWoman.Presenter">
 
         </variable>
     </data>
@@ -35,6 +35,7 @@
                 app:cardElevation ="0dp"
                 app:cardCornerRadius="20dp"
                 app:cardBackgroundColor="#EBF5FA"
+                android:onClick="@{() -> special_2017_man_and_woman_presenter.onClick()}"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -42,8 +43,9 @@
                     android:gravity="center"
                     android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                     android:hint="请选择学院"
+                    android:text="@{special_2017_man_and_woman_academy}"
                     android:textColorHint="#969494"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/Special_2017_text_title"
                     android:textColor="#000"
                     />
             </android.support.v7.widget.CardView>
@@ -107,6 +109,7 @@
                 />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

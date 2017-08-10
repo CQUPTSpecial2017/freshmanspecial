@@ -7,10 +7,15 @@
         <item name="colorPrimary">@color/Special_2017_colorPrimary</item>
         <item name="colorPrimaryDark">@color/Special_2017_colorPrimaryDark</item>
         <item name="colorAccent">@color/Special_2017_colorAccent</item>
+
+
     </style>
+
+
     <declare-styleable name="LazyViewPager">
-        <attr name="init_lazy_item_offset" format="float" />
+        <attr name="init_lazy_item_offset" format="float"/>
     </declare-styleable>
+
     <style name="custom_dialog2" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <!-- Dialog的windowFrame框为无 -->
@@ -31,5 +36,31 @@
     <style name="pickerview_dialogAnim" mce_bogus="1" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/pickerview_dialog_scale_in</item>
         <item name="android:windowExitAnimation">@anim/pickerview_dialog_scale_out</item>
+    </style>
+
+    <style name="Special_2017_AppTheme.AppBarOverlay"
+           parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="Special_2017_AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+    <style name="dialogstyle" >
+        <!--设置dialog的背景-->
+        <item name="android:windowBackground">@color/Special_2017_whileBack</item>
+        <!--设置Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--设置无标题-->
+        <item name="android:windowNoTitle">true</item>
+
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--设置窗口内容不覆盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <!--设置动画，在这里使用让它继承系统的Animation.Dialog-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!--背景是否模糊显示-->
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 </resources>

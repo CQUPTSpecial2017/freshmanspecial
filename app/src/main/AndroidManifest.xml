@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.mredrock.freshmanspecial">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,10 +18,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ui.Special_2017_DataActivity">
-           </activity>
-        <activity android:name=".Ui.Special_2017_StrategyActivity"></activity>
+        </activity>
+        <activity android:name=".Ui.Special_2017_StrategyActivity"/>
         <activity android:name=".Ui.Special_2017_BeautyActivity">
-           </activity>
+        </activity>
+        <activity
+            android:name=".Ui.Special_2017_ImageClickActivity"
+            android:theme="@style/dialogstyle">
+        </activity>
+        <activity android:name=".Ui.Special_2017_BeautyImageClickActivity"
+            android:theme="@style/dialogstyle">
+        </activity>
     </application>
 
 </manifest>

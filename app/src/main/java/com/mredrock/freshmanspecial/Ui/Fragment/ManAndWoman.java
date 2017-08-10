@@ -10,14 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bigkoo.pickerview.listener.OnDismissListener;
+import com.mredrock.freshmanspecial.BR;
 import com.mredrock.freshmanspecial.Model.Special_2017_Circle;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Fragment.Presenterable.Presenterable;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.OptionsPickerView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
+import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
+import com.mredrock.freshmanspecial.data.SexRatio;
+import com.mredrock.freshmanspecial.httptools.GetDataFromServer;
 
 import java.util.ArrayList;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/3 0003.
@@ -25,10 +32,12 @@ import java.util.ArrayList;
 
 public class ManAndWoman extends Fragment  {
     private ViewDataBinding binding;
-    private ArrayList<String> optionItems ;
     private Special_2017_MyCircleView redCircleView;
     private Special_2017_MyCircleView blueCircleView;
     private OptionsPickerView mPickerView;
+    private ArrayList<SexRatio> mSexRatios = new ArrayList<>();
+    private Subscriber<ArrayList<SexRatio>> mSubscriber;
+    private ArrayList<String> optionItems = new ArrayList<>();
 
     @Nullable
     @Override
@@ -40,31 +49,55 @@ public class ManAndWoman extends Fragment  {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mSubscriber = new Subscriber<ArrayList<SexRatio>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(ArrayList<SexRatio> sexRatios) {
+                mSexRatios.addAll(sexRatios);
+                initOptionItem();
+            }
+        };
+        GetDataFromServer.getInstance().getSexRatio(mSubscriber,"SexRatio");
+        initOptionPicker();
+        binding.setVariable(BR.special_2017_man_and_woman_presenter,new ManAndWoman.Presenter());
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_blue);
-        blueCircleView.setCircle(new Special_2017_Circle(60,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a6e2ff"));
+        blueCircleView.setCircle(new Special_2017_Circle(80,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
         redCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_red);
-        redCircleView.setCircle(new Special_2017_Circle(80,0,"#FFD2E3","#ffabc8","#fffeff","#fff4f5","#FFDaE3"));
+        redCircleView.setCircle(new Special_2017_Circle(100,0,"#FFD2E3","#ffabc8","#fffeff","#fff4f5","#fec8db","#fedde9"));
+    }
+    public void initOptionItem(){
+        for (int i = 0; i <mSexRatios.size() ; i++) {
+            optionItems.add( mSexRatios.get(i).getCollege());
+        }
     }
     public void initOptionPicker(){
         mPickerView = new OptionsPickerView.Builder(this.getContext(), new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                String tx = optionItems.get(options1);
 
-                if (tx.equals("计算机")){
-                    blueCircleView.setPercent(40);
-                    blueCircleView.startAnimation();
-                    redCircleView.setPercent(54);
-                    redCircleView.startAnimation();
-                }
+
                 binding.invalidateAll();
+            }
+        }).setLayoutRes(R.layout.pickerview_academy, new CustomListener() {
+            @Override
+            public void customLayout(View v) {
+
             }
         })
                 .setTitleBgColor(Color.parseColor("#f2fafa"))
                 .setContentTextSize(16)
                 .setCancelText("")
                 .setCancelColor(Color.parseColor("#f2fafa"))
-                .setBgColor(Color.parseColor("#f2fafa"))
+                .setBgColor(Color.parseColor("#ffffff"))
                 .setContentTextSize(18)
                 .setLineSpacingMultiplier(2)
                 .setTextColorCenter(Color.BLACK)
@@ -75,6 +108,19 @@ public class ManAndWoman extends Fragment  {
                 .isDialog(false)
                 .build();
         mPickerView.setPicker(optionItems);
+        mPickerView.setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(Object o) {
+                int position = mPickerView.getOption1();
+                binding.setVariable(BR.special_2017_man_and_woman_academy,mSexRatios.get(position).getCollege());
+
+                blueCircleView.setPercent((int) (mSexRatios.get(position).getMenRatio()*100));
+                blueCircleView.startAnimation();
+                redCircleView.setPercent(100 - (int) (mSexRatios.get(position).getMenRatio()*100));
+                redCircleView.startAnimation();
+                binding.invalidateAll();
+            }
+        });
     }
     public class Presenter implements Presenterable {
         public void onClick(){

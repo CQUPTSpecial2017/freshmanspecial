@@ -23,7 +23,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/special_2017_change_color"
                 >
 
@@ -31,7 +31,7 @@
                 <TextView
                     android:id="@+id/special_2017_home_pager_inter"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"/>
+                    android:layout_height="25dp"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -42,7 +42,8 @@
                         android:layout_centerInParent="true"
                         android:text="@string/Special_2017_home_pager_title"
                         android:textColor="@color/Special_2017_whileBack"
-                        android:textSize="@dimen/Special_2017_title"/>
+                        android:textSize="@dimen/Special_2017_title"
+                        android:layout_marginBottom="20dp"/>
                     <ImageView
                     android:layout_width="13dp"
                     android:layout_height="23dp"
@@ -79,6 +80,7 @@
                 android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
                 android:layout_marginTop="@dimen/Special_2017_card_view_vertical_margin"
                 app:cardElevation = "0dp"
+                android:onClick="@{() -> onClick.onBeautyClick()}"
                 >
 
                 <ImageView

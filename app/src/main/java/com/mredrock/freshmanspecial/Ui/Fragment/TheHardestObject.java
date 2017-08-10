@@ -47,11 +47,11 @@ public class TheHardestObject extends Fragment {
         initOptionItems();
         initOptionPicker();
         yellowCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_yellow);
-        yellowCircleView.setCircle(new Special_2017_Circle(100,0,"#FBFEB9","#f1e28c","#fffffb","#fbf9e3","#fcfaa2"));
+        yellowCircleView.setCircle(new Special_2017_Circle(100,0,"#FBFEB9","#f1e28c","#fffffb","#fcfae6","#fef9a2","#fbffc7"));
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_blue);
-        blueCircleView.setCircle(new Special_2017_Circle(60,0,"#B9E5FE","#7ac9eb","#f8fdfe","#ccf5ff","#a6eaff"));
+        blueCircleView.setCircle(new Special_2017_Circle(60,0,"#B9E5FE","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
         greenCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_green);
-        greenCircleView.setCircle(new Special_2017_Circle(80,0,"#9dfced","#6de9d7","#f8fffe","#d7fff7","#86fae8"));
+        greenCircleView.setCircle(new Special_2017_Circle(80,0,"#9dfced","#6de9d7","#f8fffe","#d7fff7","#81f9e8","#a8fef0"));
     }
     public class Presenter implements Presenterable{
         public void onClick(){

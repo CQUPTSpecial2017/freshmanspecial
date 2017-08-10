@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Special_2017_cqupt_beauty_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/special_2017_change_color"
+            >
+
+
+            <TextView
+                android:id="@+id/special_2017_strategy_inter"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/special_2017_strategy_inter">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="重邮攻略"
+                    android:textColor="@color/Special_2017_whileBack"
+                    android:textSize="@dimen/Special_2017_title"
+                    android:layout_marginBottom="20dp"/>
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="23dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/special_2017_back"
+                    android:layout_marginLeft="18dp"
+                    /></RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/cqupt_strategy_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@color/Special_2017_whileBack"
+                app:tabIndicatorColor="@color/Special_2017_onChoice"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="@color/Special_2017_colorAccent"
+                app:tabTextColor="@color/Special_2017_onTextNoChoice"
+
+                >
+
+            </android.support.design.widget.TabLayout>
+
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/cqupt_strategy_viewpager"
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/Special_2017_cqupt_beauty_background"
+            ></android.support.v4.view.ViewPager>
+    </LinearLayout>
+</layout>

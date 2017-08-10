@@ -35,7 +35,7 @@
                 app:cardElevation ="0dp"
                 app:cardCornerRadius="20dp"
                 app:cardBackgroundColor="#EBF5FA"
-                >
+                android:onClick="@{() -> special_2017_work_percent_presenter.onClick()}">
                 <TextView
                     android:id="@+id/special_2017_data_work_percent_academy_text"
                     android:layout_width="wrap_content"
@@ -44,10 +44,10 @@
                     android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                     android:hint="请选择学院"
                     android:textColorHint="#969494"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/Special_2017_text_title"
                     android:text="@{special_2017_work_percent_academy}"
                     android:textColor="#fe353434"
-                    android:onClick="@{() -> special_2017_work_percent_presenter.onClick()}" />
+                     />
             </android.support.v7.widget.CardView>
 
         </RelativeLayout>

@@ -1,11 +1,14 @@
 package com.mredrock.freshmanspecial.Ui;
 
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
@@ -24,9 +27,11 @@ import java.util.List;
  */
 
 public class Special_2017_BeautyActivity extends FragmentActivity {
-    ActivitySpecial2017CquptBeautyBinding mBinding;
+    private ActivitySpecial2017CquptBeautyBinding mBinding;
+
     private List<Fragment> mFragments;
     private Special_2017_ViewPagerAdapter mBeautyViewPagerAdapter;
+    private TextView inter;
     private String[] mTitles = {"学生组织","原创重邮","美在重邮","优秀教师","优秀学生"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +47,11 @@ public class Special_2017_BeautyActivity extends FragmentActivity {
         mFragments.add(new ExcellentTeacher());
         mFragments.add(new ExcellentStudent());
 
+        inter = (TextView)mBinding.getRoot().findViewById(R.id.special_2017_beauty_inter);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+
+            inter.setVisibility(View.GONE);
+        }
         mBeautyViewPagerAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
         mBeautyViewPagerAdapter.setTitles(mTitles);
 

@@ -5,7 +5,8 @@
     <dimen name="Special_2017_card_view_vertical_margin">10dp</dimen>
     <dimen name="Special_2017_card_view_height">135dp</dimen>
     <dimen name="Special_2017_title">17sp</dimen>
-    <dimen name="Special_2017_content">13sp</dimen>
+    <dimen name="Special_2017_content">12sp</dimen>
+    <dimen name="Special_2017_text_title">14sp</dimen>
     <dimen name="Special_2017_big_circle">220dp</dimen>
     <dimen name="Special_2017_normal_circle">200dp</dimen>
 
@@ -21,4 +22,5 @@
     <dimen name="pickerview_topbar_title_textsize">18sp</dimen>
     <!-- 选项文字大小 -->
     <dimen name="pickerview_textsize">20sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

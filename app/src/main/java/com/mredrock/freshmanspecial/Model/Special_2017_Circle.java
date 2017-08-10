@@ -1,4 +1,4 @@
-package com.mredrock.freshmanspecial.Model.Data;
+package com.mredrock.freshmanspecial.Model;
 
 /**
  * Created by Administrator on 2017/8/4 0004.
