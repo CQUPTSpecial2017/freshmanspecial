@@ -17,6 +17,7 @@ import rx.Observable;
  */
 
 public interface DataService<T> {
+    
     @FormUrlEncoded
     @POST("SexRatio")
     Observable<HttpResult<List<SexRatio>>> postSexRatio(@Field("RequestType") String dataName);
