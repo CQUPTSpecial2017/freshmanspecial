@@ -5,22 +5,34 @@ package com.mredrock.freshmanspecial.data;
  */
         //qq群号
 public class QQGroupNumber {
-    private String GroupName;
-    private String Number;
+    private String type;
 
-    public String getGroupName() {
-        return GroupName;
+    public String getType() {
+        return type;
     }
 
-    public void setGroupName(String groupName) {
-        GroupName = groupName;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getNumber() {
-        return Number;
-    }
+    public class QQNumber{
+        private String GroupName;
+        private String Number;
 
-    public void setNumber(String number) {
-        Number = number;
+        public String getGroupName() {
+            return GroupName;
+        }
+
+        public void setGroupName(String groupName) {
+            GroupName = groupName;
+        }
+
+        public String getNumber() {
+            return Number;
+        }
+
+        public void setNumber(String number) {
+            Number = number;
+        }
     }
 }

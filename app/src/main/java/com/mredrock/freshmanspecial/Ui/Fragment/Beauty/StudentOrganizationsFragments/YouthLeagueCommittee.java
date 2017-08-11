@@ -36,17 +36,18 @@ public class YouthLeagueCommittee extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.beauty_in_cqupt_recycle);
-        //请求 获取
+        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.youth_league_committee_recycle);
 
+        // TODO: 2017/8/10 0010 获取信息
 
 
 
 
         mContext = getContext();
         mAdapter = new StudentOrganizationAdapter(mContext);
-
+        mStudentOrganizations.add(new StudentOrganization());
         mAdapter.setStudentOrganizations(mStudentOrganizations);
+
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

@@ -24,4 +24,12 @@ public class StudentOrganization {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public StudentOrganization(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
+    public StudentOrganization() {
+    }
 }

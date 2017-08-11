@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.bigkoo.pickerview.listener.OnDismissListener;
@@ -38,8 +39,15 @@ public class TheHardestObject extends Fragment {
     private Special_2017_MyCircleView greenCircleView;
     private Special_2017_MyCircleView blueCircleView;
     private OptionsPickerView mPickerView;
+    private OptionsPickerView mMajorPickerView;
+    private TextView yellowText;
+    private TextView greenText;
+    private TextView blueText;
+    int position1 ;
+    int position2 ;
     private ArrayList<String> collegeItems  = new ArrayList<>();
-    private ArrayList<ArrayList<String>> departmentItems =new ArrayList<ArrayList<String>>();
+    private ArrayList<ArrayList<String>> departmentItems = new ArrayList<ArrayList<String>>();
+
     private ArrayList<FailPlus> mData  = new ArrayList<>();
     private Subscriber<ArrayList<FailPlus>> mSubscriber;
 
@@ -69,18 +77,28 @@ public class TheHardestObject extends Fragment {
             @Override
             public void onNext(ArrayList<FailPlus> failPluses) {
                 mData.addAll(failPluses);
+
                 for (int i = 0; i < failPluses.size(); i++) {
                     collegeItems.add(failPluses.get(i).getCollege());
+                    ArrayList<String> test = new ArrayList<>();
                     for (int j = 0; j < failPluses.get(i).getMajor().size(); j++) {
-                        departmentItems.get(i).add( failPluses.get(i).getMajor().get(j).getMajor());
+
+                        test.add(failPluses.get(i).getMajor().get(j).getMajor());
                     }
 
+                    departmentItems.add(test);
+
                 }
+
             }
         };
 
         GetDataFromServer.getInstance().getFailRatio(mSubscriber,"FailPlus");
         initOptionPicker();
+        yellowText = (TextView) binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_yellow_text) ;
+        greenText = (TextView) binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_green_text) ;
+        blueText = (TextView) binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_blue_text) ;
+
         yellowCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_yellow);
         yellowCircleView.setCircle(new Special_2017_Circle(100,0,"#FBFEB9","#f1e28c","#fffffb","#fcfae6","#fef9a2","#fbffc7"));
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_blue);
@@ -107,7 +125,7 @@ public class TheHardestObject extends Fragment {
                 .setContentTextSize(16)
                 .setCancelText("")
                 .setCancelColor(Color.parseColor("#f2fafa"))
-                .setBgColor(Color.parseColor("#f2fafa"))
+                .setBgColor(Color.WHITE)
                 .setContentTextSize(18)
                 .setLineSpacingMultiplier(2)
                 .setTextColorCenter(Color.BLACK)
@@ -117,24 +135,79 @@ public class TheHardestObject extends Fragment {
                 .setSubmitColor(Color.parseColor("#81C0FE"))
                 .isDialog(false)
                 .build();
-        mPickerView.setPicker(collegeItems,departmentItems);
+
+        //TODO: 设置两个单栏
+        mPickerView.setPicker(collegeItems);
         mPickerView.setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(Object o) {
-                int position1 = mPickerView.getOption1();
-                int position2 = mPickerView.getOption2();
+                position1 = mPickerView.getOption1();
+
                 binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
+                mMajorPickerView.setPicker(departmentItems.get(position1));
+                mMajorPickerView.show();
+
+
+            }
+        });
+        mMajorPickerView = new OptionsPickerView.Builder(this.getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+
+
+            }
+        })      .setLayoutRes(R.layout.pickerview_academy, new CustomListener() {
+            @Override
+            public void customLayout(View v) {
+
+            }
+        })
+                .setTitleBgColor(Color.parseColor("#f2fafa"))
+                .setContentTextSize(16)
+                .setCancelText("")
+                .setCancelColor(Color.parseColor("#f2fafa"))
+                .setBgColor(Color.WHITE)
+                .setContentTextSize(18)
+                .setLineSpacingMultiplier(2)
+                .setTextColorCenter(Color.BLACK)
+                .setDividerType(WheelView.DividerType.FILL)
+                .setSubCalSize(14)
+                .setSubmitText("完成")
+                .setSubmitColor(Color.parseColor("#81C0FE"))
+                .isDialog(false)
+                .build();
+
+        //TODO: 设置两个单栏
+
+        mMajorPickerView.setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(Object o) {
+
+                position2 = mMajorPickerView.getOption1();
+
                 binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
                 yellowCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(0).getRatio()*100));
                 greenCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(1).getRatio()*100));
                 blueCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(2).getRatio()*100));
+                yellowCircleView.startAnimation();
+                greenCircleView.startAnimation();
+                blueCircleView.startAnimation();
+
+                yellowText.setText(mData.get(position1).getMajor().get(position2).getCourse().get(0).getCourse());
+                greenText.setText(mData.get(position1).getMajor().get(position2).getCourse().get(1).getCourse());
+                blueText.setText(mData.get(position1).getMajor().get(position2).getCourse().get(2).getCourse());
+                binding.invalidateAll();
 
             }
         });
+
     }
     public class Presenter implements Presenterable{
         public void onClick(){
             mPickerView.show();
+        }
+        public void onMajorClick(){
+            mMajorPickerView.show();
         }
     }
 }

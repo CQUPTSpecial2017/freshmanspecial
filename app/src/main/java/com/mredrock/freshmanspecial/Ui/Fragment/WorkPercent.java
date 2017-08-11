@@ -81,9 +81,9 @@ public class WorkPercent extends Fragment {
 
 
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_work_percent_blue);
-        blueCircleView.setCircle(new Special_2017_Circle(80,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
+        blueCircleView.setCircle(new Special_2017_Circle(60,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
         greenCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_work_percent_green);
-        greenCircleView.setCircle(new Special_2017_Circle(100,0,"#9EFCEE","#6decd6","#f8fffe","#defffa","#81f9e8","#a8fef0"));
+        greenCircleView.setCircle(new Special_2017_Circle(80,0,"#9EFCEE","#6decd6","#f8fffe","#defffa","#81f9e8","#a8fef0"));
 
     }
 

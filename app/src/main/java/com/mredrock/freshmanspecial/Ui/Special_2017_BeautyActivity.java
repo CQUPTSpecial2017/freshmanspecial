@@ -56,6 +56,7 @@ public class Special_2017_BeautyActivity extends FragmentActivity {
         mBeautyViewPagerAdapter.setTitles(mTitles);
 
         mBinding.cquptBeautyViewpager.setAdapter(mBeautyViewPagerAdapter);
+        mBinding.cquptBeautyViewpager.setOffscreenPageLimit(4);
         mBinding.cquptBeautyTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mBinding.cquptBeautyTabLayout.setupWithViewPager(mBinding.cquptBeautyViewpager);
     }

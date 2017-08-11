@@ -36,7 +36,7 @@ public class AssociationUnion extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.beauty_in_cqupt_recycle);
+        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.association_union_recycle);
         //请求 获取
 
 
@@ -45,6 +45,7 @@ public class AssociationUnion extends Fragment {
 
         mContext = getContext();
         mAdapter = new StudentOrganizationAdapter(mContext);
+        mStudentOrganizations.add(new StudentOrganization());
 
         mAdapter.setStudentOrganizations(mStudentOrganizations);
 
@@ -53,4 +54,5 @@ public class AssociationUnion extends Fragment {
 
         super.onActivityCreated(savedInstanceState);
     }
+
 }

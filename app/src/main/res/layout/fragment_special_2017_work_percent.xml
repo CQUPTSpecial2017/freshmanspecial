@@ -115,7 +115,7 @@
             android:layout_marginTop="30dp">
             <LinearLayout
                 android:id="@+id/special_2017_data_work_percent_work_button"
-                android:layout_toLeftOf="@+id/special_2017_data_work_percent_no_mean_button"
+                android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,26 +126,21 @@
                     android:src="#9EFCEE"
                     />
                 <TextView
+                    android:layout_marginTop="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="已就业"
                     android:textColor="#969494"
-                    android:textSize="13sp"/>
+                    android:textSize="@dimen/Special_2017_content"/>
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/special_2017_data_work_percent_no_mean_button"
-                android:orientation="horizontal"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
 
-
-            </LinearLayout>
             <LinearLayout
                 android:id="@+id/special_2017_data_work_percent_boy_button"
                 android:orientation="horizontal"
-                android:layout_toRightOf="@+id/special_2017_data_work_percent_no_mean_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/special_2017_data_work_percent_work_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
@@ -155,13 +150,13 @@
                     android:src="#B9E5FE"
                     />
                 <TextView
-
+                    android:layout_marginTop="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="未就业"
                     android:textColor="#969494"
-                    android:textSize="13sp"/>
+                    android:textSize="@dimen/Special_2017_content"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

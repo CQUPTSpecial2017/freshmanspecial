@@ -70,9 +70,9 @@ public class ManAndWoman extends Fragment  {
         initOptionPicker();
         binding.setVariable(BR.special_2017_man_and_woman_presenter,new ManAndWoman.Presenter());
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_blue);
-        blueCircleView.setCircle(new Special_2017_Circle(80,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
+        blueCircleView.setCircle(new Special_2017_Circle(60,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
         redCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_red);
-        redCircleView.setCircle(new Special_2017_Circle(100,0,"#FFD2E3","#ffabc8","#fffeff","#fff4f5","#fec8db","#fedde9"));
+        redCircleView.setCircle(new Special_2017_Circle(80,0,"#FFD2E3","#ffabc8","#fffeff","#fff4f5","#fec8db","#fedde9"));
     }
     public void initOptionItem(){
         for (int i = 0; i <mSexRatios.size() ; i++) {

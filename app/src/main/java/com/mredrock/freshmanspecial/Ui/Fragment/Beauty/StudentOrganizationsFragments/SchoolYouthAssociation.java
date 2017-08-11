@@ -36,15 +36,15 @@ public class SchoolYouthAssociation  extends Fragment{
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.beauty_in_cqupt_recycle);
+        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_youth_association_recycle);
         //请求 获取
-
 
 
 
 
         mContext = getContext();
         mAdapter = new StudentOrganizationAdapter(mContext);
+        mStudentOrganizations.add(new StudentOrganization("团支部","sssssssssssssssssssssssssssssssssssssss"));
 
         mAdapter.setStudentOrganizations(mStudentOrganizations);
 
@@ -53,4 +53,5 @@ public class SchoolYouthAssociation  extends Fragment{
 
         super.onActivityCreated(savedInstanceState);
     }
+
 }

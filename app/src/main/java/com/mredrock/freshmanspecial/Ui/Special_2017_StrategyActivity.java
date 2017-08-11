@@ -17,6 +17,11 @@ import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.CreateByCqupt;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.ExcellentStudent;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.ExcellentTeacher;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizations;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.BeautyAroundCqupt;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.DailyLife;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.FoodAroundSchool;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.QQTeam;
+import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.Requirements;
 import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolCanteen;
 import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolDormitory;
 import com.mredrock.freshmanspecial.Ui.Fragment.Strategy.SchoolEnvironment;
@@ -39,7 +44,7 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_cqupt_beauty);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_strategy);
         initView();
     }
     private void initView(){
@@ -47,8 +52,11 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         mFragments.add(new SchoolEnvironment());
         mFragments.add(new SchoolDormitory());
         mFragments.add(new SchoolCanteen());
-        mFragments.add(new ExcellentTeacher());
-        mFragments.add(new ExcellentStudent());
+        mFragments.add(new Requirements());
+        mFragments.add(new QQTeam());
+        mFragments.add(new DailyLife());
+        mFragments.add(new FoodAroundSchool());
+        mFragments.add(new BeautyAroundCqupt());
 
         inter = (TextView)mBinding.getRoot().findViewById(R.id.special_2017_beauty_inter);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {

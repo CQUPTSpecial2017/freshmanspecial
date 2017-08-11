@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
-import com.mredrock.freshmanspecial.data.BeautyAroundCqupt;
-import com.mredrock.freshmanspecial.data.DailyLife;
-import com.mredrock.freshmanspecial.data.FoodAroundCqupt;
+
 import com.mredrock.freshmanspecial.data.StudentOrganization;
 
 import java.util.ArrayList;
@@ -46,8 +44,8 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
         holder.mStudentOrganization = mStudentOrganizations.get(position);
         holder.title.setText(holder.mStudentOrganization.getTitle());
         holder.content.setText(holder.mStudentOrganization.getContent());
-        if (position == mStudentOrganizations.size()){
-            holder.distinct.setVisibility(View.INVISIBLE);
+        if (position == 0){
+            holder.distinct.setVisibility(View.GONE);
         }
     }
 
