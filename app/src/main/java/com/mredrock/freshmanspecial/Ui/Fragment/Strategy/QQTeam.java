@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +30,8 @@ import com.mredrock.freshmanspecial.httptools.PostDataToServer;
 import java.util.ArrayList;
 
 import rx.Subscriber;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -114,7 +117,7 @@ public class QQTeam extends Fragment {
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                mSearchAdapter.clearString();
             }
 
             @Override
@@ -127,6 +130,7 @@ public class QQTeam extends Fragment {
                 getSearch(editable.toString());
                 mSearchAdapter.setStrings(mSearchResult,0);
                 mSearchAdapter.notifyDataSetChanged();
+                mSearchResult.clear();
 
             }
         });
@@ -169,7 +173,9 @@ public class QQTeam extends Fragment {
             @Override
             public void onClick(View view) {
                 if (isSearching) {
-                   searchEdit.setText("");
+                    searchEdit.setText("");
+                    mSearchAdapter.clearString();
+
                 }
 
             }
@@ -190,6 +196,7 @@ public class QQTeam extends Fragment {
     }
 
     private void getSearch(String string){
+        if (!string.equals(""))
         for (int i = 1; i <mStrings.size() ; i++) {
             if (i == 21)
                 continue;
@@ -199,4 +206,5 @@ public class QQTeam extends Fragment {
         }
 
     }
+    
 }

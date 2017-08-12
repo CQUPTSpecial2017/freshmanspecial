@@ -44,7 +44,7 @@ public class QQGroupAdapter extends RecyclerView.Adapter<QQGroupAdapter.QQGroupV
     }
 
     public void setStrings(ArrayList<String> strings,int type  ) {
-        mStrings = strings;
+        mStrings.addAll(strings);
         this.type = type;
     }
 
@@ -96,7 +96,9 @@ public class QQGroupAdapter extends RecyclerView.Adapter<QQGroupAdapter.QQGroupV
 
     }
 
-
+    public void clearString(){
+        mStrings.clear();
+    }
 
     @Override
     public int getItemCount() {
