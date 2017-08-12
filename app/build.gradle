@@ -45,10 +45,10 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-<<<<<<< HEAD
+
     compile 'com.github.hackware1993:MagicIndicator:1.5.0'
 
-=======
+
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
->>>>>>> 922a1efeb4b5de7485663361aee4db8a8211875f
+
 }

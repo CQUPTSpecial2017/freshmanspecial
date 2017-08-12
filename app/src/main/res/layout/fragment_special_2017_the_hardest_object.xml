@@ -136,8 +136,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:src="#FBFEB9"
                 />
             <TextView
@@ -160,8 +160,8 @@
             android:layout_marginTop="10dp"
             >
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:src="#9EFCEE"/>
             <TextView
                 android:id="@+id/special_2017_data_the_hardest_object_green_text"
@@ -185,8 +185,8 @@
 
             android:layout_below="@+id/special_2017_data_the_hardest_object_green_button">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:src="#B9E5FE"
                 />
             <TextView

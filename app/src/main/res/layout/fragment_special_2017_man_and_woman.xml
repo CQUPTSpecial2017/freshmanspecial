@@ -117,7 +117,7 @@
             android:layout_marginTop="30dp">
             <LinearLayout
                 android:id="@+id/special_2017_data_man_and_woman_girl_button"
-                android:layout_toLeftOf="@+id/special_2017_data_man_and_woman_no_mean_button"
+                android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,9 @@
             <LinearLayout
                 android:id="@+id/special_2017_data_man_and_woman_boy_button"
                 android:orientation="horizontal"
-                android:layout_toRightOf="@+id/special_2017_data_man_and_woman_no_mean_button"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/special_2017_data_man_and_woman_girl_button"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >

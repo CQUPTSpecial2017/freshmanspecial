@@ -21,14 +21,21 @@ public class RequirementsAdapter extends RecyclerView.Adapter<RequirementsAdapte
     private ArrayList<RequirementTitle> mDatas = new ArrayList<>();
     private Context mContext;
     private RequirementsViewHolder mViewHolder ;
-    public RequirementsAdapter(Context context,ArrayList<RequirementTitle> content) {
+    private int type;
+    public RequirementsAdapter(Context context) {
         mContext = context;
-        mDatas = content;
+
     }
 
     public RequirementsAdapter() {
 
     }
+
+    public void setDatas(ArrayList<RequirementTitle> datas) {
+        mDatas = datas;
+        type = 0;
+    }
+
     @Override
     public RequirementsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_special_2017_requirement,parent,false);

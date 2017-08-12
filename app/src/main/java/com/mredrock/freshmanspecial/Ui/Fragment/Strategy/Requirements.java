@@ -41,7 +41,8 @@ public class Requirements extends Fragment {
 
 
 
-        mAdapter = new RequirementsAdapter(this.getContext(),mDatas);
+        mAdapter = new RequirementsAdapter(this.getContext());
+        mAdapter.setDatas(mDatas);
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.item_requirement_recycle);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));

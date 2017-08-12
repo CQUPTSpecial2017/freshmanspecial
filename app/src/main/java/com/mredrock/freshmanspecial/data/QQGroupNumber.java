@@ -1,38 +1,24 @@
 package com.mredrock.freshmanspecial.data;
 
+import java.util.ArrayList;
+
 /**
  * Created by 700-15isk on 2017/8/8.
  */
         //qq群号
 public class QQGroupNumber {
-    private String type;
 
-    public String getType() {
-        return type;
+    private ArrayList<String> mNumbers;
+
+    public ArrayList<String> getNumbers() {
+        return mNumbers;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setNumbers(ArrayList<String> numbers) {
+        mNumbers = numbers;
     }
 
-    public class QQNumber{
-        private String GroupName;
-        private String Number;
 
-        public String getGroupName() {
-            return GroupName;
-        }
 
-        public void setGroupName(String groupName) {
-            GroupName = groupName;
-        }
 
-        public String getNumber() {
-            return Number;
-        }
-
-        public void setNumber(String number) {
-            Number = number;
-        }
-    }
 }
