@@ -9,8 +9,8 @@ import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.BeautyImageClick;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
-import com.mredrock.freshmanspecial.data.Canteen;
-import com.mredrock.freshmanspecial.data.Dormitory;
+import com.mredrock.freshmanspecial.data.SchoolCanteen;
+import com.mredrock.freshmanspecial.data.SchoolDormitory;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017BeautyImageClickBinding;
 
@@ -19,9 +19,9 @@ import java.util.ArrayList;
 public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
     private ActivitySpecial2017BeautyImageClickBinding mBinding;
     private Special_2017_ViewPagerAdapter mAdapter;
-    private ArrayList<Canteen> mCanteens = new ArrayList<>() ;
+    private ArrayList<SchoolCanteen> mCanteens = new ArrayList<>() ;
     private ArrayList<SchoolBuilding> mEnvironments =  new ArrayList<>();
-    private ArrayList<Dormitory> mDormitories = new ArrayList<>();
+    private ArrayList<SchoolDormitory> mDormitories = new ArrayList<>();
     private ArrayList<BeautyInCqupt> mBeautyInCqupts = new ArrayList<>();
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     @Override
@@ -36,7 +36,7 @@ public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
         int length = getIntent().getIntExtra("length",0);
         if (type.equals("canteen")){
             for (int i = 0; i < length ; i++) {
-                mCanteens.add((Canteen) getIntent().getSerializableExtra(type+i));
+                mCanteens.add((SchoolCanteen) getIntent().getSerializableExtra("canteen"));
                 mFragments.add(new BeautyImageClick());
             }
             mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
@@ -52,7 +52,7 @@ public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
 
         } else if (type.equals("dormitory")){
             for (int i = 0; i < length ; i++) {
-                mDormitories.add((Dormitory) getIntent().getSerializableExtra(type+i));
+                mDormitories.add((SchoolDormitory) getIntent().getSerializableExtra(type+i));
                 mFragments.add(new BeautyImageClick());
             }
             mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);

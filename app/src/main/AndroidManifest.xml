@@ -3,10 +3,8 @@
           package="com.mredrock.freshmanspecial">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -30,8 +28,11 @@
             android:name=".Ui.Special_2017_ImageClickActivity"
             android:theme="@style/dialogstyle">
         </activity>
-        <activity android:name=".Ui.Special_2017_BeautyImageClickActivity"
+        <activity
+            android:name=".Ui.Special_2017_BeautyImageClickActivity"
             android:theme="@style/dialogstyle">
+        </activity>
+        <activity android:name=".Ui.Special_2017_SearchActivity">
         </activity>
     </application>
 
