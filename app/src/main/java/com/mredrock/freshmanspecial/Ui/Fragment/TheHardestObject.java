@@ -23,10 +23,10 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
 import com.mredrock.freshmanspecial.data.FailPlus;
-import com.mredrock.freshmanspecial.data.SexRatio;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServer;
+import com.mredrock.freshmanspecial.httptools.PostDataToServer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -64,7 +64,7 @@ public class TheHardestObject extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         binding.setVariable(BR.special_2017_the_hardest_object_presenter,new Presenter());
-        mSubscriber = new Subscriber<ArrayList<FailPlus>>() {
+        PostDataToServer.getInstance().getFailRatio(new Subscriber<List<FailPlus>>() {
             @Override
             public void onCompleted() {
 
@@ -72,11 +72,11 @@ public class TheHardestObject extends Fragment {
 
             @Override
             public void onError(Throwable e) {
-
+ e.printStackTrace();
             }
 
             @Override
-            public void onNext(ArrayList<FailPlus> failPluses) {
+            public void onNext(List<FailPlus> failPluses) {
                 mData.addAll(failPluses);
 
                 for (int i = 0; i < failPluses.size(); i++) {
@@ -94,11 +94,8 @@ public class TheHardestObject extends Fragment {
                     departmentItems.add(test);
 
                 }
-
             }
-        };
-
-        GetDataFromServer.getInstance().getFailRatio(mSubscriber,"FailPlus");
+        },"FailPlus");
         initOptionPicker();
         yellowText = (TextView) binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_yellow_text) ;
         greenText = (TextView) binding.getRoot().findViewById(R.id.special_2017_data_the_hardest_object_green_text) ;

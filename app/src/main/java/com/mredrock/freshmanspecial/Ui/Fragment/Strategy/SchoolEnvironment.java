@@ -26,7 +26,7 @@ public class SchoolEnvironment extends Fragment {
     private ViewDataBinding mDataBinding;
     private RecyclerView mRecyclerView;
     private Context mContext ;
-    private ArrayList<com.mredrock.freshmanspecial.data.SchoolEnvironment> mEnvironments = new ArrayList<>();
+    private ArrayList<SchoolBuilding> mEnvironments = new ArrayList<>();
     private BeautyInCquptAdapter mAdapter;
 
 

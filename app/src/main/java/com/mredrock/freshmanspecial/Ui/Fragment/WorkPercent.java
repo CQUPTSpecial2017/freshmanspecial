@@ -20,11 +20,11 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.OptionsPickerView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
-import com.mredrock.freshmanspecial.data.SexRatio;
 import com.mredrock.freshmanspecial.data.WorkRatio;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServer;
+import com.mredrock.freshmanspecial.httptools.PostDataToServer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -53,8 +53,26 @@ public class WorkPercent extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        PostDataToServer.getInstance().getWorkRatio(new Subscriber<List<WorkRatio>>() {
+            @Override
+            public void onCompleted() {
 
-        mSubscriber = new Subscriber<ArrayList<WorkRatio>>() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+   e.printStackTrace();
+            }
+
+            @Override
+            public void onNext(List<WorkRatio> workRatios) {
+                mWorkRatios.addAll(workRatios);
+                initOptionItems();
+                Log.d("WorkPercent",mWorkRatios.get(0).getCollege());
+            }
+        },"WorkRatio");
+
+     /*   mSubscriber = new Subscriber<ArrayList<WorkRatio>>() {
             @Override
             public void onCompleted() {
 
@@ -73,7 +91,7 @@ public class WorkPercent extends Fragment {
 
             }
         };
-        GetDataFromServer.getInstance().getWorkRatio(mSubscriber,"WorkRatio");
+        PostDataToServer.getInstance().getWorkRatio(mSubscriber,"WorkRatio");*/
         initOptionPicker();
 
 
