@@ -11,7 +11,7 @@
         </variable>
         <variable
             name="special_2017_man_and_woman_presenter"
-            type="com.mredrock.freshmanspecial.Ui.Fragment.ManAndWoman.Presenter">
+            type="com.mredrock.freshmanspecial.Ui.Fragment.MenAndWomen.Presenter">
 
         </variable>
     </data>

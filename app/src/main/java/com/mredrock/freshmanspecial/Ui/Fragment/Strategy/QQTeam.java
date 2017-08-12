@@ -24,8 +24,8 @@ import android.widget.TextView;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.QQGroupAdapter;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServe;
-import com.mredrock.freshmanspecial.httptools.PostDataToServer;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
+
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public class QQTeam extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        GetDataFromServe.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
+        DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
             @Override
             public void onCompleted() {
 
@@ -73,7 +73,7 @@ public class QQTeam extends Fragment {
 
             @Override
             public void onError(Throwable e) {
-
+              e.printStackTrace();
             }
 
             @Override

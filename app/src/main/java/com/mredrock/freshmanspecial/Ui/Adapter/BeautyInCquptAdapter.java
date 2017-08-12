@@ -16,6 +16,7 @@ import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.Canteen;
 import com.mredrock.freshmanspecial.data.Dormitory;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
 
@@ -74,10 +75,12 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
     }
 
     public ArrayList<SchoolBuilding> getEnvironments() {
+
         return mEnvironments;
     }
 
     public void setEnvironments(ArrayList<SchoolBuilding> environments) {
+
         mEnvironments = environments;
         type = 3;
     }
@@ -96,7 +99,6 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mDormitory = mDormitories.get(position);
                 holder.title.setText(holder.mDormitory.getName());
                 holder.information.setText(holder.mDormitory.getResume());
-
                 holder.mCountLayout.setVisibility(View.VISIBLE);
                 holder.mCount.setText(holder.mDormitory.getUrl().size()+"张");
                 holder.count = holder.mDormitory.getUrl().size();

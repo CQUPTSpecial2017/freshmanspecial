@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_ImageClickActivity;
 import com.mredrock.freshmanspecial.data.ExcellentStu;
-import com.mredrock.freshmanspecial.data.excellentTech;
+import com.mredrock.freshmanspecial.data.ExcellentTech;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeacherAdapter.TeacherViewHolder>{
     private LayoutInflater mLayoutInflater;
     private Context mContext;
-    private List<excellentTech> mTeachers = new ArrayList<>();
+    private List<ExcellentTech> mTeachers = new ArrayList<>();
     private List<ExcellentStu> mStudents = new ArrayList<>();
 
     private int type;
@@ -37,11 +37,11 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
     }
 
-    public List<excellentTech> getTeachers() {
+    public List<ExcellentTech> getTeachers() {
         return mTeachers;
     }
 
-    public void setTeachers(List<excellentTech> teachers) {
+    public void setTeachers(List<ExcellentTech> teachers) {
         mTeachers = teachers;
         type = 1;
     }
@@ -99,7 +99,7 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
         private TextView name;
         private TextView major;
         private CircleImageView avatar;
-        private excellentTech mTeacher;
+        private ExcellentTech mTeacher;
         private ExcellentStu mStudent;
 
 

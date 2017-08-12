@@ -16,7 +16,7 @@ import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
 import com.mredrock.freshmanspecial.data.SexRatio;
 import com.mredrock.freshmanspecial.data.WorkRatio;
-import com.mredrock.freshmanspecial.data.excellentTech;
+import com.mredrock.freshmanspecial.data.ExcellentTech;
 
 import java.util.List;
 
@@ -86,8 +86,8 @@ public interface DataService<T> {
 
 
     @Headers("Cache-Control: public, max-age=3600")
-    @GET("excellentTech")
-    Observable<HttpResult<List<excellentTech>>> getExcellentTech(@Query("RequestType") String dataName);
+    @GET("ExcellentTech")
+    Observable<HttpResult<List<ExcellentTech>>> getExcellentTech(@Query("RequestType") String dataName);
 
 
     @Headers("Cache-Control: public, max-age=3600")

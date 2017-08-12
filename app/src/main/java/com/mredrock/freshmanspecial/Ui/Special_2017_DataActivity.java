@@ -1,10 +1,6 @@
 package com.mredrock.freshmanspecial.Ui;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,13 +8,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
-import com.mredrock.freshmanspecial.Ui.Fragment.ManAndWoman;
+import com.mredrock.freshmanspecial.Ui.Fragment.MenAndWomen;
 import com.mredrock.freshmanspecial.Ui.Fragment.TheHardestObject;
 import com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017DataBinding;
@@ -45,7 +40,7 @@ public class Special_2017_DataActivity extends FragmentActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_data);
 
         mFragments = new ArrayList<>();
-        mFragments.add(new ManAndWoman());
+        mFragments.add(new MenAndWomen());
         mFragments.add(new TheHardestObject());
         mFragments.add(new WorkPercent());
         inter = (TextView)binding.getRoot().findViewById(R.id.special_2017_data_inter);

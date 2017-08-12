@@ -31,7 +31,7 @@ import rx.Subscriber;
  * Created by Administrator on 2017/8/3 0003.
  */
 
-public class ManAndWoman extends Fragment  {
+public class MenAndWomen extends Fragment  {
     private ViewDataBinding binding;
     private Special_2017_MyCircleView redCircleView;
     private Special_2017_MyCircleView blueCircleView;
@@ -70,7 +70,7 @@ public class ManAndWoman extends Fragment  {
 
 
         initOptionPicker();
-        binding.setVariable(BR.special_2017_man_and_woman_presenter,new ManAndWoman.Presenter());
+        binding.setVariable(BR.special_2017_man_and_woman_presenter,new MenAndWomen.Presenter());
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_blue);
         blueCircleView.setCircle(new Special_2017_Circle(60,0,"#b9e7fe","#7ac9eb","#f8fdfe","#ccf5ff","#a5e1fe","#c2eafe"));
         redCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_red);

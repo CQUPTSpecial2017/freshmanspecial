@@ -1,5 +1,7 @@
 package com.mredrock.freshmanspecial.httptools;
 
+import android.util.Log;
+
 import com.mredrock.freshmanspecial.data.BeautyInNear;
 import com.mredrock.freshmanspecial.data.Canteen;
 import com.mredrock.freshmanspecial.data.Cate;
@@ -41,17 +43,21 @@ public class DataAboutFresh<T> {
     public static String BASE_URL = "http://www.yangruixin.com/test/apiForGuide.php/";
     private Retrofit retrofit;
     private DataService dataService;
-    private long DEFAULT_CACHE_SIZE = 3 * 1024 * 1024;
-    private File cacheFile = new File(MyApp.context.getCacheDir(), "cacheData");
-    private Cache cache = new Cache(cacheFile, DEFAULT_CACHE_SIZE);
+
+
 
 
     private DataAboutFresh() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).cache(cache).addInterceptor(new mIntercept()).
-                addNetworkInterceptor(new mIntercept());
+        Log.d("Tag", String.valueOf(MyApp.context));
+       File cacheDir = new File(MyApp.context.getCacheDir(), "response");
+        Cache cache = new Cache(cacheDir, 1024 * 1024 * 3);
+        httpClient.cache(cache);
+
+       httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).addInterceptor(new CacheInterceptor()).
+               addNetworkInterceptor(new CacheInterceptor());
         OkHttpClient okHttpClient = httpClient.build();
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).
 
                 addConverterFactory(GsonConverterFactory.create()).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
@@ -64,10 +70,7 @@ public class DataAboutFresh<T> {
 
 
 
-    private static class SingletonHolder {
-        private static final DataAboutFresh
-         INSTANCE = new DataAboutFresh();
-    }
+
 
     public void getQQgroupNumber(Subscriber<QQGroupNumber> subscriber, String RequestType) {
         Observable<QQGroupNumber> observable = dataService.getQQGroup(RequestType)
@@ -152,34 +155,45 @@ public class DataAboutFresh<T> {
         }
     }
 
-    private class mIntercept implements Interceptor {
+    private static class SingletonHolder {
+        private static final DataAboutFresh INSTANCE = new DataAboutFresh();
+    }
+    public class CacheInterceptor implements Interceptor {
+
         @Override
-        public Response intercept(Chain chain) throws IOException {
+        public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+            boolean netAvailable = NetWorkUtil.isNetworkAvailable(MyApp.context);
+
+            if (netAvailable) {
                 request = request.newBuilder()
-                        .cacheControl(CacheControl.FORCE_CACHE)
-                        .build();
-
-            }
-            Response originalResponse = chain.proceed(request);
-            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-
-                String cacheControl = request.cacheControl().toString();
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", cacheControl)
-                        .removeHeader("Pragma")
+                        //网络可用 强制从网络获取数据
+                        .cacheControl(CacheControl.FORCE_NETWORK)
                         .build();
             } else {
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
-                        .removeHeader("Pragma")
+                request = request.newBuilder()
+                        //网络不可用 从缓存获取
+                        .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
-        }
+            Response response = chain.proceed(request);
+            if (netAvailable) {
+                response = response.newBuilder()
+                        .removeHeader("Pragma")
+                        .header("Cache-Control", "public, max-age=" + 60 * 60)
+                        .build();
+            } else {
+                response = response.newBuilder()
+                        .removeHeader("Pragma")
 
-        ;
+                        .header("Cache-Control", "public, only-if-cached, max-stale=" + 7 *24* 60 * 60)
+                        .build();
+            }
+            return response;
+        }
     }
+
+
 }
 
 
