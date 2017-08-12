@@ -4,7 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="onClick"
+            type="com.mredrock.freshmanspecial.Ui.Special_2017_DataActivity.Presenter"
+            ></variable>
     </data>
 
     <LinearLayout
@@ -43,6 +46,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/special_2017_back"
                     android:layout_marginLeft="18dp"
+                    android:onClick="@{() -> onClick.onBack()}"
                     /></RelativeLayout>
 
         </RelativeLayout>

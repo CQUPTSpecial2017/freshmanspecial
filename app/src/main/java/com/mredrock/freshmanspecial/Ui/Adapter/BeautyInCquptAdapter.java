@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_BeautyImageClickActivity;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
@@ -96,7 +97,10 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mDormitory = mDormitories.get(position);
                 holder.title.setText(holder.mDormitory.getName());
                 holder.information.setText(holder.mDormitory.getResume());
-
+                Glide.with(mContext)
+                        .load(holder.mDormitory.getUrl())
+                        .crossFade()
+                        .into(holder.image);
                 holder.mCountLayout.setVisibility(View.VISIBLE);
                 holder.mCount.setText(holder.mDormitory.getUrl().size()+"张");
                 holder.count = holder.mDormitory.getUrl().size();
@@ -105,7 +109,10 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mCanteen = mCanteens.get(position);
                 holder.title.setText(holder.mCanteen.getName());
                 holder.information.setText(holder.mCanteen.getResume());
-
+                Glide.with(mContext)
+                        .load(holder.mCanteen.getUrl())
+                        .crossFade()
+                        .into(holder.image);
                 holder.mCountLayout.setVisibility(View.VISIBLE);
                 holder.mCount.setText(holder.mCanteen.getUrl().size()+"张");
                 holder.count = holder.mCanteen.getUrl().size();
@@ -115,12 +122,21 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.title.setText(holder.mBeautyInCqupt.getTitle());
                 holder.information.setText(holder.mBeautyInCqupt.getContent());
 
+                Glide.with(mContext)
+                        .load(holder.mBeautyInCqupt.getUrl())
+                        .crossFade()
+                        .into(holder.image);
+
                 holder.mCountLayout.setVisibility(View.GONE);
                 break;
             case 4:
                 holder.mEnvironment = mEnvironments.get(position);
                 holder.title.setText(holder.mEnvironment.getTitle());
                 holder.information.setText(holder.mEnvironment.getContent());
+                Glide.with(mContext)
+                        .load(holder.mEnvironment.getUrl())
+                        .crossFade()
+                        .into(holder.image);
 
                 holder.mCountLayout.setVisibility(View.GONE);
                 break;

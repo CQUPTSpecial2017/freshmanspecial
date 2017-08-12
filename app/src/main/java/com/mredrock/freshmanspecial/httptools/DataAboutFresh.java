@@ -9,7 +9,7 @@ import com.mredrock.freshmanspecial.data.MilitaryTrainingPhoto;
 import com.mredrock.freshmanspecial.data.MilitaryTrainingVideo;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
-import com.mredrock.freshmanspecial.httptools.Interceptor.MyApp;
+//import com.mredrock.freshmanspecial.httptools.Interceptor.MyApp;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,14 +42,14 @@ public class DataAboutFresh<T> {
     private Retrofit retrofit;
     private DataService dataService;
     private long DEFAULT_CACHE_SIZE = 3 * 1024 * 1024;
-    private File cacheFile = new File(MyApp.context.getCacheDir(), "cacheData");
-    private Cache cache = new Cache(cacheFile, DEFAULT_CACHE_SIZE);
+//    private File cacheFile = new File(MyApp.context.getCacheDir(), "cacheData");
+   // private Cache cache = new Cache(cacheFile, DEFAULT_CACHE_SIZE);
 
 
     private DataAboutFresh() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).cache(cache).addInterceptor(new mIntercept()).
-                addNetworkInterceptor(new mIntercept());
+       // httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).cache(cache).addInterceptor(new mIntercept()).
+         //       addNetworkInterceptor(new mIntercept());
         OkHttpClient okHttpClient = httpClient.build();
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).
 
@@ -152,34 +152,34 @@ public class DataAboutFresh<T> {
         }
     }
 
-    private class mIntercept implements Interceptor {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            Request request = chain.request();
-            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-                request = request.newBuilder()
-                        .cacheControl(CacheControl.FORCE_CACHE)
-                        .build();
-
-            }
-            Response originalResponse = chain.proceed(request);
-            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-
-                String cacheControl = request.cacheControl().toString();
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", cacheControl)
-                        .removeHeader("Pragma")
-                        .build();
-            } else {
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
-                        .removeHeader("Pragma")
-                        .build();
-            }
-        }
-
-        ;
-    }
+//    private class mIntercept implements Interceptor {
+//        @Override
+//        public Response intercept(Chain chain) throws IOException {
+//            Request request = chain.request();
+//            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+//                request = request.newBuilder()
+//                        .cacheControl(CacheControl.FORCE_CACHE)
+//                        .build();
+//
+//            }
+//            Response originalResponse = chain.proceed(request);
+//            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+//
+//                String cacheControl = request.cacheControl().toString();
+//                return originalResponse.newBuilder()
+//                        .header("Cache-Control", cacheControl)
+//                        .removeHeader("Pragma")
+//                        .build();
+//            } else {
+//                return originalResponse.newBuilder()
+//                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
+//                        .removeHeader("Pragma")
+//                        .build();
+//            }
+//        }
+//
+//        ;
+//    }
 }
 
 

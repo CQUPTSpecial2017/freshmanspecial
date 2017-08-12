@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mredrock.freshmanspecial.BR;
+import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.BeautyInCqupt;
@@ -69,5 +71,12 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         mBinding.cquptStrategyViewpager.setAdapter(mBeautyViewPagerAdapter);
         mBinding.cquptStrategyTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mBinding.cquptStrategyTabLayout.setupWithViewPager(mBinding.cquptStrategyViewpager);
+        mBinding.setVariable(BR.onClick,new Special_2017_StrategyActivity.Presenter());
+    }
+    public class Presenter implements Presenterable {
+        public void onBack() {
+            finish();
+        }
+
     }
 }

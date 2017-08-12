@@ -24,8 +24,8 @@ import android.widget.TextView;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.QQGroupAdapter;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServe;
-import com.mredrock.freshmanspecial.httptools.PostDataToServer;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
+
 
 import java.util.ArrayList;
 
@@ -65,36 +65,40 @@ public class QQTeam extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        GetDataFromServe.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
-            @Override
-            public void onCompleted() {
+        if (mStrings.size() == 0 ){
+            DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
+                @Override
+                public void onCompleted() {
 
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(QQGroupNumber qqGroupNumber) {
-                mNumber =qqGroupNumber;
-                mStrings.add("新生群");
-                for (int i = 0; i <qqGroupNumber.getCollege().size() ; i++) {
-                    mStrings.add(qqGroupNumber.getCollege().get(i).getGroupName()+" : "+qqGroupNumber.getCollege().get(i).getNumber());
                 }
-                mStrings.add("老乡群");
-                for (int i = 0; i <qqGroupNumber.getHomeland().size() ; i++) {
-                    mStrings.add(qqGroupNumber.getHomeland().get(i).getGroupName()+" : "+qqGroupNumber.getHomeland().get(i).getNumber());
+
+                @Override
+                public void onError(Throwable e) {
+
                 }
-                mCollegeAdapter.setStrings(mStrings,1);
-                mCollegeAdapter.notifyDataSetChanged();
 
-                Log.d(TAG,qqGroupNumber.getCollege().size()+"");
-                Log.d(TAG,qqGroupNumber.getHomeland().size()+"");
+                @Override
+                public void onNext(QQGroupNumber qqGroupNumber) {
 
-            }
-        },"QQGroup");
+                    mNumber =qqGroupNumber;
+                    mStrings.add("新生群");
+                    for (int i = 0; i <qqGroupNumber.getCollege().size() ; i++) {
+                        mStrings.add(qqGroupNumber.getCollege().get(i).getGroupName()+" : "+qqGroupNumber.getCollege().get(i).getNumber());
+                    }
+                    mStrings.add("老乡群");
+                    for (int i = 0; i <qqGroupNumber.getHomeland().size() ; i++) {
+                        mStrings.add(qqGroupNumber.getHomeland().get(i).getGroupName()+" : "+qqGroupNumber.getHomeland().get(i).getNumber());
+                    }
+                    mCollegeAdapter.setStrings(mStrings,1);
+                    mCollegeAdapter.notifyDataSetChanged();
+
+                    Log.d(TAG,qqGroupNumber.getCollege().size()+"");
+                    Log.d(TAG,qqGroupNumber.getHomeland().size()+"");
+
+                }
+            },"QQGroup");
+        }
+
 
         mSearchContent = (LinearLayout)mDataBinding.getRoot().findViewById(R.id.special_2017_qq_group_search_content) ;
         searchEdit = (EditText)mDataBinding.getRoot().findViewById(R.id.special_2017_qq_group_search_edit);
@@ -165,6 +169,7 @@ public class QQTeam extends Fragment {
                    isSearching = false;
                    searchEdit.setText("");
                    mSearchResult.clear();
+                   hideInput(view);
                }
 
            }
@@ -175,7 +180,7 @@ public class QQTeam extends Fragment {
                 if (isSearching) {
                     searchEdit.setText("");
                     mSearchAdapter.clearString();
-
+                    hideInput(view);
                 }
 
             }
@@ -206,5 +211,16 @@ public class QQTeam extends Fragment {
         }
 
     }
-    
+    public static void hideInput(View v) {
+        InputMethodManager imm = (InputMethodManager) v.getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onPause() {
+        isSearching = false ;
+        mStrings.clear();
+        super.onPause();
+    }
 }

@@ -44,7 +44,7 @@ public class QQGroupAdapter extends RecyclerView.Adapter<QQGroupAdapter.QQGroupV
     }
 
     public void setStrings(ArrayList<String> strings,int type  ) {
-        mStrings.addAll(strings);
+        mStrings = strings;
         this.type = type;
     }
 

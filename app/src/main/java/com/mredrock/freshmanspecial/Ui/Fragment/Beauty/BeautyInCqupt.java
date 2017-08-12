@@ -14,8 +14,12 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.BeautyInCquptAdapter;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 
 /**
@@ -37,7 +41,27 @@ public class BeautyInCqupt extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.beauty_in_cqupt_recycle);
-        //请求 获取mBeautyInCqupts
+        if (mBeautyInCqupts.size() == 0){
+            CquptMienData.getInstance().getBeautyInCqupt(new Subscriber<List<com.mredrock.freshmanspecial.data.BeautyInCqupt>>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(List<com.mredrock.freshmanspecial.data.BeautyInCqupt> beautyInCqupts) {
+                    mBeautyInCqupts.addAll(beautyInCqupts);
+                    mAdapter.setBeautyInCqupts(mBeautyInCqupts);
+                    mAdapter.notifyDataSetChanged();
+                }
+            },"BeautyInCqupt");
+        }
+
 
         mContext = getContext();
         mAdapter = new BeautyInCquptAdapter(mContext);

@@ -15,8 +15,12 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.BeautyInCquptAdapter;
 import com.mredrock.freshmanspecial.data.*;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -42,11 +46,31 @@ public class SchoolEnvironment extends Fragment {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_environment_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
-        //请求数据
+        if (mEnvironments.size() == 0) {
+            DataAboutFresh.getInstance().getSchoolBuilding(new Subscriber<List<SchoolBuilding>>() {
+                @Override
+                public void onCompleted() {
 
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(List<SchoolBuilding> schoolBuildings) {
+                    mEnvironments.addAll(schoolBuildings);
+                    mAdapter.setEnvironments(mEnvironments);
+                    mAdapter.notifyDataSetChanged();
+                }
+            }, "SchoolBuilding");
+        }
 
         mAdapter = new BeautyInCquptAdapter(mContext);
         mAdapter.setEnvironments(mEnvironments);
+
+        mRecyclerView.setAdapter(mAdapter);
 
         super.onActivityCreated(savedInstanceState);
     }

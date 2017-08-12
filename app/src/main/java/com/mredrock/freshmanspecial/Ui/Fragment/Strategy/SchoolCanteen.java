@@ -14,9 +14,15 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.BeautyInCquptAdapter;
+import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.Canteen;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -40,11 +46,33 @@ public class SchoolCanteen extends Fragment {
         mContext = getContext();
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_canteen_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        //请求数据
+
+        if (mCanteens.size() == 0){
+            DataAboutFresh.getInstance().getCanteen(new Subscriber<List<Canteen>>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(List<com.mredrock.freshmanspecial.data.Canteen> canteens) {
+                    mCanteens.addAll(canteens);
+                    mAdapter.setCanteens(mCanteens);
+                    mAdapter.notifyDataSetChanged();
+                }
+            },"Canteen");
+        }
 
 
         mAdapter = new BeautyInCquptAdapter(mContext);
         mAdapter.setCanteens(mCanteens);
+        mRecyclerView.setAdapter(mAdapter);
+
 
         super.onActivityCreated(savedInstanceState);
     }
