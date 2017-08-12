@@ -15,8 +15,13 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.FoodAroundCquptAdapter;
 import com.mredrock.freshmanspecial.data.*;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -39,14 +44,36 @@ public class DailyLife extends Fragment {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.daily_life_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         //请求数据
-
-
-        mAdapter = new FoodAroundCquptAdapter(mContext);
-        mAdapter.setDailyLifes(mDailyLifes);
-
-
-
         mContext = getContext();
+       initView();
+
+
+
+
+
         super.onActivityCreated(savedInstanceState);
+    }
+    public void initView(){
+        mAdapter = new FoodAroundCquptAdapter(mContext);
+        DataAboutFresh.getInstance().getLifeInNear(new Subscriber<List<LifeInNear>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(List<LifeInNear> lifeInNears) {
+                mDailyLifes.addAll(lifeInNears);
+                mAdapter.setDailyLifes(mDailyLifes);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+        },"LifeInNear");
+
+
     }
 }
