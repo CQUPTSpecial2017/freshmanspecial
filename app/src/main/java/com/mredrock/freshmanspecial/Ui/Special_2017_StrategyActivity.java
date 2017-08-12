@@ -40,7 +40,7 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
     private List<Fragment> mFragments;
     private Special_2017_ViewPagerAdapter mBeautyViewPagerAdapter;
     private TextView inter;
-    private String[] mTitles = {"校园环境","学生寝室","学校食堂","入学须知","QQ群","日常生活","周边美食","周边美景"};
+    private String[] mTitles = {"校园环境","学生寝室","学校食堂","QQ群","日常生活","周边美食","周边美景"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         mFragments.add(new SchoolEnvironment());
         mFragments.add(new SchoolDormitory());
         mFragments.add(new SchoolCanteen());
-        mFragments.add(new Requirements());
+        //mFragments.add(new Requirements());
         mFragments.add(new QQTeam());
         mFragments.add(new DailyLife());
         mFragments.add(new FoodAroundSchool());

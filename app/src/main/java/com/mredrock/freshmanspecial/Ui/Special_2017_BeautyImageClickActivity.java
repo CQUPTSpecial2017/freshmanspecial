@@ -37,7 +37,7 @@ public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
         int length = getIntent().getIntExtra("length",0);
         if (type.equals("canteen")){
             for (int i = 0; i < length ; i++) {
-                mCanteens.add((SchoolCanteen) getIntent().getSerializableExtra(type+i));
+                mCanteens.add((SchoolCanteen) getIntent().getSerializableExtra("canteen"));
                 mFragments.add(new BeautyImageClick());
             }
             mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);

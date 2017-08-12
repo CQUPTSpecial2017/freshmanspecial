@@ -58,8 +58,13 @@ public class QQGroupNumber {
             this.GroupName = GroupName;
         }
 
+        public String getGroupName() {
+            return GroupName;
+        }
 
-
+        public String getNumber() {
+            return Number;
+        }
 
         public void setNumber(String Number) {
             this.Number = Number;
