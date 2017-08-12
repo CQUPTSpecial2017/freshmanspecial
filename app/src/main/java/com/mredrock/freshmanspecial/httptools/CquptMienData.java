@@ -45,7 +45,7 @@ public class CquptMienData<T> {
 
 
 
-    
+
     private CquptMienData() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         Log.d("Tag", String.valueOf(MyApp.context));
