@@ -65,6 +65,7 @@ public class QQTeam extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+<<<<<<< HEAD
         if (mStrings.size() == 0 ){
             DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
                 @Override
@@ -74,6 +75,18 @@ public class QQTeam extends Fragment {
 
                 @Override
                 public void onError(Throwable e) {
+=======
+        DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+              e.printStackTrace();
+            }
+>>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
 
                 }
 

@@ -1,10 +1,12 @@
 package com.mredrock.freshmanspecial.httptools;
 
+import android.util.Log;
+
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.ExcellentStu;
+import com.mredrock.freshmanspecial.data.ExcellentTech;
 import com.mredrock.freshmanspecial.data.NatureCQUPT;
 import com.mredrock.freshmanspecial.data.Organizations;
-import com.mredrock.freshmanspecial.data.excellentTech;
 import com.mredrock.freshmanspecial.httptools.Interceptor.MyApp;
 
 import java.io.File;
@@ -40,12 +42,20 @@ public class CquptMienData<T> {
     private long DEFAULT_CACHE_SIZE = 3 * 1024 * 1024;
     private File cacheFile = new File(MyApp.context.getCacheDir(), "cacheData");
     private Cache cache = new Cache(cacheFile, DEFAULT_CACHE_SIZE);
+
+
+
+
     private CquptMienData() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).cache(cache).addInterceptor(new mIntercept()).
-                addNetworkInterceptor(new mIntercept());
+        Log.d("Tag", String.valueOf(MyApp.context));
+        File cacheDir = new File(MyApp.context.getCacheDir(), "response");
+        Cache cache = new Cache(cacheDir, 1024 * 1024 * 3);
+        httpClient.cache(cache);
+        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).addInterceptor(new CacheInterceptor()).
+                addNetworkInterceptor(new CacheInterceptor());
         OkHttpClient okHttpClient = httpClient.build();
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).
 
                 addConverterFactory(GsonConverterFactory.create()).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
@@ -54,6 +64,8 @@ public class CquptMienData<T> {
     public static CquptMienData getInstance() {
         return SingletonHolder.INSTANCE;
     }
+
+
 
 
 
@@ -66,8 +78,8 @@ public class CquptMienData<T> {
         private static final CquptMienData INSTANCE = new CquptMienData();
     }
 
-    public void getexcellentTech(Subscriber<List<excellentTech>> subscriber, String RequestType) {
-        Observable<List<excellentTech>> observable = dataService.getExcellentTech(RequestType)
+    public void getexcellentTech(Subscriber<List<ExcellentTech>> subscriber, String RequestType) {
+        Observable<List<ExcellentTech>> observable = dataService.getExcellentTech(RequestType)
                 .map(new HttpResultFunc());
         initObservable(observable, subscriber);
     }
@@ -117,32 +129,38 @@ public class CquptMienData<T> {
 
 
 
-    private class mIntercept implements Interceptor {
+    public class CacheInterceptor implements Interceptor {
+
         @Override
-        public Response intercept(Chain chain) throws IOException {
+        public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+            boolean netAvailable = NetWorkUtil.isNetworkAvailable(MyApp.context);
+
+            if (netAvailable) {
                 request = request.newBuilder()
-                        .cacheControl(CacheControl.FORCE_CACHE)
-                        .build();
-
-            }
-            Response originalResponse = chain.proceed(request);
-            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-
-                String cacheControl = request.cacheControl().toString();
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", cacheControl)
-                        .removeHeader("Pragma")
+                        //网络可用 强制从网络获取数据
+                        .cacheControl(CacheControl.FORCE_NETWORK)
                         .build();
             } else {
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
-                        .removeHeader("Pragma")
+                request = request.newBuilder()
+                        //网络不可用 从缓存获取
+                        .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
-        }
+            Response response = chain.proceed(request);
+            if (netAvailable) {
+                response = response.newBuilder()
+                        .removeHeader("Pragma")
+                        .header("Cache-Control", "public, max-age=" + 60 * 60)
+                        .build();
+            } else {
+                response = response.newBuilder()
+                        .removeHeader("Pragma")
 
-        ;
+                        .header("Cache-Control", "public, only-if-cached, max-stale=" + 7 *24* 60 * 60)
+                        .build();
+            }
+            return response;
+        }
     }
 }

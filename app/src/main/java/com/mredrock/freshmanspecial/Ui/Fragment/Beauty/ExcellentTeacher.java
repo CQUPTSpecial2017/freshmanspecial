@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.ExcellentTeacherAdapter;
-import com.mredrock.freshmanspecial.data.excellentTech;
+import com.mredrock.freshmanspecial.data.ExcellentTech;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class ExcellentTeacher extends Fragment {
     private RecyclerView mRecyclerView;
     private ExcellentTeacherAdapter mAdapter;
     private Context mContext ;
-    private ArrayList<excellentTech> mTeachers = new ArrayList<>();
+    private ArrayList<ExcellentTech> mTeachers = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

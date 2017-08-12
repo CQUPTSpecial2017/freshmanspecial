@@ -7,14 +7,14 @@ import android.view.View;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.data.ExcellentStu;
-import com.mredrock.freshmanspecial.data.excellentTech;
+import com.mredrock.freshmanspecial.data.ExcellentTech;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017ImageClickBinding;
 
 
 public class Special_2017_ImageClickActivity extends Activity {
     private ActivitySpecial2017ImageClickBinding mBinding;
 
-    private excellentTech mTeacher ;
+    private ExcellentTech mTeacher ;
     private ExcellentStu mStudent ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Special_2017_ImageClickActivity extends Activity {
     private void initView(){
         String type = getIntent().getStringExtra("type");
         if (type.equals("teacher")){
-            mTeacher = (excellentTech) getIntent().getSerializableExtra(type);
+            mTeacher = (ExcellentTech) getIntent().getSerializableExtra(type);
             //mBinding.special2017ImageClickInformation.setText(mTeacher.getName());
             mBinding.special2017ImageClickName.setText(mTeacher.getName());
 
