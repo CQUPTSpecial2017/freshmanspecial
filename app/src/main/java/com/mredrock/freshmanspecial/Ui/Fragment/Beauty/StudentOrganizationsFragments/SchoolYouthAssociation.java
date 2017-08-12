@@ -44,7 +44,7 @@ public class SchoolYouthAssociation  extends Fragment{
 
         mContext = getContext();
         mAdapter = new StudentOrganizationAdapter(mContext);
-        mStudentOrganizations.add(new StudentOrganization("团支部","sssssssssssssssssssssssssssssssssssssss"));
+
 
         mAdapter.setStudentOrganizations(mStudentOrganizations);
 

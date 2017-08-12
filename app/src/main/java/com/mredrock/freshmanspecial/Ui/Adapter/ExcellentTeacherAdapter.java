@@ -72,11 +72,11 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
         if (type ==1 ) {
             holder.mTeacher = mTeachers.get(position);
             holder.name.setText(holder.mTeacher.getName());
-            holder.major.setText(holder.mTeacher.getMajor());
+
         }else {
             holder.mStudent = mStudents.get(position);
             holder.name.setText(holder.mStudent.getName());
-            holder.major.setText(holder.mStudent.getSays());
+
         }
 
 

@@ -44,7 +44,7 @@ import java.util.ArrayList;
 public class StudentOrganizations extends Fragment{
     private ViewDataBinding mDataBinding;
     private Special_2017_ViewPagerAdapter mViewPagerAdapter;
-    private Special_2017_NoScrollViewPager mViewPager;
+    private ViewPager mViewPager;
     private MagicIndicator mMagicIndicator;
     private String[] mTitles  = {"团委部门","红岩","校学生会","科联","社联","校青协","大艺团"};
     private ArrayList<Fragment> mFragments  =new ArrayList<>();
@@ -60,7 +60,7 @@ public class StudentOrganizations extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mMagicIndicator = (MagicIndicator) mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_magic_indicator);
-        mViewPager = (Special_2017_NoScrollViewPager) mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_viewpager);
+        mViewPager = (ViewPager) mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_viewpager);
 
         initView();
 

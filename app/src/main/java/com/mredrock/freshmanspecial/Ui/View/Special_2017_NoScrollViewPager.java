@@ -13,9 +13,9 @@ import android.view.VelocityTracker;
  */
 
 public class Special_2017_NoScrollViewPager extends ViewPager {
-    private boolean noScroll = true;
-    private float downX ;    //按下时 的X坐标
-    private float downY ;    //按下时 的Y坐标
+
+    private float lastx = 0 ;    //按下时 的X坐标
+    private float lasty = 0 ;    //按下时 的Y坐标
     VelocityTracker mVelocityTracker = VelocityTracker.obtain();
     private static final String TAG = "Special_2017_NoScrollVi";
     public Special_2017_NoScrollViewPager(Context context, AttributeSet attrs) {
@@ -23,13 +23,7 @@ public class Special_2017_NoScrollViewPager extends ViewPager {
         // TODO Auto-generated constructor stub
     }
 
-    public Special_2017_NoScrollViewPager(Context context) {
-        super(context);
-    }
 
-    public void setNoScroll(boolean noScroll) {
-        this.noScroll = noScroll;
-    }
 
     @Override
     public void scrollTo(int x, int y) {
@@ -37,63 +31,22 @@ public class Special_2017_NoScrollViewPager extends ViewPager {
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        int orientation = 0 ;
-        //在触发时回去到起始坐标
-        float x= ev.getX();
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        float x = ev.getX();
         float y = ev.getY();
-        mVelocityTracker.addMovement(ev);
-        mVelocityTracker.computeCurrentVelocity(1000);
-        switch (ev.getAction()){
-//            case MotionEvent.ACTION_DOWN:
-//                //将按下时的坐标存储
-//                downX = x;
-//                downY = y;
-//
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                //获取到距离差
-//                float dx= x-downX;
-//                float dy = y-downY;
-//
-//                    orientation = getOrientation(dx, dy);
-//
-//                break;
-            case MotionEvent.ACTION_MOVE:
-
-                break;
+        float deletx = x- lastx;
+        float delety = y - lasty;
+        if (getCurrentItem() == 0 &&Math.abs(deletx)>Math.abs(delety)&&ev.getAction()!= MotionEvent.ACTION_MOVE){
+            lastx = x;
+            lasty = y;
+            return true;
+        }else {
+            lastx = x;
+            lasty = y;
+            return super.onInterceptTouchEvent(ev);
         }
 
-
-            Log.d(TAG, "dispatchTouchEvent: "+(Math.abs(mVelocityTracker.getXVelocity()) >Math.abs(mVelocityTracker.getYVelocity())));
-            Log.d(TAG, "dispatchTouchEvent: "+Math.abs(mVelocityTracker.getXVelocity()) +"Y:"+Math.abs(mVelocityTracker.getYVelocity()));
-            if(Math.abs(mVelocityTracker.getXVelocity())>Math.abs(mVelocityTracker.getYVelocity())) {
-                Log.d(TAG, "dispatchTouchEvent: ");
-
-                return false;
-            }
-
-        return false;
-
     }
-
-//    @Override
-//    public boolean onTouchEvent(MotionEvent arg0) {
-//
-//
-//
-//        /* return false;//super.onTouchEvent(arg0); */
-//
-//        if (noScroll){
-//
-//            return false;
-//
-//        }
-//        else return super.onTouchEvent(arg0);
-//
-//    }
-
-
 
     @Override
     public void setCurrentItem(int item, boolean smoothScroll) {
@@ -105,15 +58,5 @@ public class Special_2017_NoScrollViewPager extends ViewPager {
         super.setCurrentItem(item);
     }
 
-    private int getOrientation(float dx, float dy) {
-
-        if (Math.abs(dx)>8){
-            //X轴移动
-            return 'x';
-        }else{
-            //Y轴移动
-            return 'y';
-        }
-    }
 
 }

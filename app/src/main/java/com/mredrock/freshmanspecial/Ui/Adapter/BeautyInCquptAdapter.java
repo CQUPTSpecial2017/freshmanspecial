@@ -96,21 +96,21 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
         switch (type){
             case 0:
                 holder.mDormitory = mDormitories.get(position);
-                holder.title.setText(holder.mDormitory.getTitle());
-                holder.information.setText(holder.mDormitory.getContent());
+                holder.title.setText(holder.mDormitory.getName());
+                holder.information.setText(holder.mDormitory.getResume());
 
                 holder.mCountLayout.setVisibility(View.VISIBLE);
-                holder.mCount.setText(holder.mDormitory.getImageCount()+"张");
-                holder.count = Integer.parseInt(holder.mDormitory.getImageCount());
+                holder.mCount.setText(holder.mDormitory.getUrl().size()+"张");
+                holder.count = holder.mDormitory.getUrl().size();
                 break;
             case 1:
                 holder.mCanteen = mCanteens.get(position);
-                holder.title.setText(holder.mCanteen.getTitle());
-                holder.information.setText(holder.mCanteen.getContent());
+                holder.title.setText(holder.mCanteen.getName());
+                holder.information.setText(holder.mCanteen.getResume());
 
                 holder.mCountLayout.setVisibility(View.VISIBLE);
-                holder.mCount.setText(holder.mCanteen.getImageCount()+"张");
-                holder.count = Integer.parseInt(holder.mCanteen.getImageCount());
+                holder.mCount.setText(holder.mCanteen.getUrl().size()+"张");
+                holder.count = holder.mCanteen.getUrl().size();
                 break;
             case 2:
                 holder.mBeautyInCqupt = mBeautyInCqupts.get(position);

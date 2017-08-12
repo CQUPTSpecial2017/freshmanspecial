@@ -33,13 +33,13 @@ public class Special_2017_ImageClickActivity extends Activity {
         String type = getIntent().getStringExtra("type");
         if (type.equals("teacher")){
             mTeacher = (ExcellentTeacher) getIntent().getSerializableExtra(type);
-            mBinding.special2017ImageClickInformation.setText(mTeacher.getInformation());
+            //mBinding.special2017ImageClickInformation.setText(mTeacher.getName());
             mBinding.special2017ImageClickName.setText(mTeacher.getName());
 
         }
         else {
             mStudent = (ExcellentStudent) getIntent().getSerializableExtra(type);
-            mBinding.special2017ImageClickInformation.setText(mStudent.getInformation());
+            //mBinding.special2017ImageClickInformation.setText(mStudent);
             mBinding.special2017ImageClickName.setText(mStudent.getName());
         }
         mBinding.special2017ImageClickCancel.setOnClickListener(new View.OnClickListener() {

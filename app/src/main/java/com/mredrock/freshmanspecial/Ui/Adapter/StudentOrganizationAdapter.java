@@ -42,8 +42,8 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
     @Override
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
         holder.mStudentOrganization = mStudentOrganizations.get(position);
-        holder.title.setText(holder.mStudentOrganization.getTitle());
-        holder.content.setText(holder.mStudentOrganization.getContent());
+        holder.title.setText(holder.mStudentOrganization.getDepartment().get(position).getName());
+        holder.content.setText(holder.mStudentOrganization.getDepartment().get(position).getResume());
         if (position == 0){
             holder.distinct.setVisibility(View.GONE);
         }

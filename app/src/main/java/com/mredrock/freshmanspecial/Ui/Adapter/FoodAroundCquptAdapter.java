@@ -79,21 +79,21 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
         if (type ==1 ) {
             holder.mBeautyAroundCqupt = mBeautyAroundCqupts.get(position);
             holder.name.setText(holder.mBeautyAroundCqupt.getName());
-            holder.describe.setText(holder.mBeautyAroundCqupt.getDescribe());
-            holder.way.setText(holder.mBeautyAroundCqupt.getWay());
+            holder.describe.setText(holder.mBeautyAroundCqupt.getResume());
+            holder.way.setText(holder.mBeautyAroundCqupt.getLocation());
 
 
         }else if (type == 0){
             holder.mFood = mFoods.get(position);
             holder.name.setText(holder.mFood.getName());
-            holder.describe.setText(holder.mFood.getDescribe());
-            holder.way.setText(holder.mFood.getWay());
+            holder.describe.setText(holder.mFood.getResume());
+            holder.way.setText(holder.mFood.getLocation());
 
         }else {
             holder.mDailyLife = mDailyLifes.get(position);
             holder.name.setText(holder.mDailyLife.getName());
-            holder.describe.setText(holder.mDailyLife.getDescribe());
-            holder.way.setText(holder.mDailyLife.getWay());
+            holder.describe.setText(holder.mDailyLife.getResume());
+            holder.way.setText(holder.mDailyLife.getLocation());
 
         }
 

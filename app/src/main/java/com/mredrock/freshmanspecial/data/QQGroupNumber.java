@@ -1,10 +1,10 @@
 package com.mredrock.freshmanspecial.data;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
-=======
+
 import java.util.List;
->>>>>>> 730ace2f12813ec2654bfc1763ac21a9878937ce
+
 
 /**
  * Created by 700-15isk on 2017/8/8.
@@ -12,7 +12,7 @@ import java.util.List;
         //qq群号
 public class QQGroupNumber {
 
-<<<<<<< HEAD
+
     private ArrayList<String> mNumbers;
 
     public ArrayList<String> getNumbers() {
@@ -22,7 +22,7 @@ public class QQGroupNumber {
     public void setNumbers(ArrayList<String> numbers) {
         mNumbers = numbers;
     }
-=======
+
     private List<HomelandBean> homeland;
     private List<CollegeBean> college;
 
@@ -50,19 +50,17 @@ public class QQGroupNumber {
 
         private String GroupName;
         private String Number;
->>>>>>> 730ace2f12813ec2654bfc1763ac21a9878937ce
 
 
-<<<<<<< HEAD
-=======
+
+
         public void setGroupName(String GroupName) {
             this.GroupName = GroupName;
         }
->>>>>>> 730ace2f12813ec2654bfc1763ac21a9878937ce
 
 
-<<<<<<< HEAD
-=======
+
+
         public void setNumber(String Number) {
             this.Number = Number;
         }
@@ -93,6 +91,6 @@ public class QQGroupNumber {
             this.Number = Number;
         }
     }
->>>>>>> 730ace2f12813ec2654bfc1763ac21a9878937ce
+
 }
 
