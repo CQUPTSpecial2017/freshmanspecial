@@ -1,21 +1,22 @@
 package com.mredrock.freshmanspecial.data;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/9 0009.
+ * Created by Administrator on 2017/8/10 0010.
  */
-    //学校食堂
-public class SchoolCanteen implements Serializable {
+        //周边美景
+public class BeautyInNear {
 
     /**
-     * name : 中心食堂
-     * resume : 地理位置的优越不仅来源于它历史的悠久，更是因为中心特色小面的支持，这里一砖一瓦都沉淀着岁月的气息。又大又好吃又便宜的素菜包子和肉花卷、馒头加豆浆，是早餐的不二选择。
-     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_xsst/中心食堂.jpg"]
+     * name : 大金鹰
+     * location :  重庆市南岸区南山路25路大金鹰园内
+     * resume : 数十里景物尽收眼底
+     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_zbmj/大金鹰.jpg"]
      */
 
     private String name;
+    private String location;
     private String resume;
     private List<String> url;
 
@@ -25,6 +26,14 @@ public class SchoolCanteen implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getResume() {

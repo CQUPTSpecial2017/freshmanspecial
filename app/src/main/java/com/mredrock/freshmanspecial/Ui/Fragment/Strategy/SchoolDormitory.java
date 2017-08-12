@@ -26,7 +26,7 @@ public class SchoolDormitory extends Fragment {
     private ViewDataBinding mDataBinding;
     private RecyclerView mRecyclerView;
     private Context mContext ;
-    private ArrayList<com.mredrock.freshmanspecial.data.SchoolDormitory> mDormitories = new ArrayList<>();
+    private ArrayList<Dormitory> mDormitories = new ArrayList<>();
     private BeautyInCquptAdapter mAdapter;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

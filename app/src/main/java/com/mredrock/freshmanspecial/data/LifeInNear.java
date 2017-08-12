@@ -5,14 +5,15 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/8/10 0010.
  */
-        //周边美景
-public class BeautyAroundCqupt {
+        //日常生活
+public class LifeInNear {
 
     /**
-     * name : 大金鹰
-     * location :  重庆市南岸区南山路25路大金鹰园内
-     * resume : 数十里景物尽收眼底
-     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_zbmj/大金鹰.jpg"]
+     * name : ZAKKA生活小铺
+     * location : 重庆邮电大学旁，新校门出门，左转直走，老校门出门，右转直走
+     * resume :
+     文具等用品齐全
+     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_rcsh/ZAKKA生活小铺.jpg"]
      */
 
     private String name;

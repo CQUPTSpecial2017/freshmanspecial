@@ -5,21 +5,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
-import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017HomePagerBinding;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServe;
-
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
-
-import rx.Subscriber;
 
 public class Special_2017_HomePagerActivity extends AppCompatActivity {
     private TextView inter;

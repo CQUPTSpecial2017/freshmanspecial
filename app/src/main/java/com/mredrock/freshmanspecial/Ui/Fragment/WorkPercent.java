@@ -21,7 +21,7 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
 import com.mredrock.freshmanspecial.data.WorkRatio;
-import com.mredrock.freshmanspecial.httptools.PostDataToServer;
+import com.mredrock.freshmanspecial.httptools.RatioData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class WorkPercent extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PostDataToServer.getInstance().getWorkRatio(new Subscriber<List<WorkRatio>>() {
+        RatioData.getInstance().getWorkRatio(new Subscriber<List<WorkRatio>>() {
             @Override
             public void onCompleted() {
 
@@ -91,7 +91,7 @@ public class WorkPercent extends Fragment {
 
             }
         };
-        PostDataToServer.getInstance().getWorkRatio(mSubscriber,"WorkRatio");*/
+        RatioData.getInstance().getWorkRatio(mSubscriber,"WorkRatio");*/
         initOptionPicker();
 
 

@@ -1,13 +1,10 @@
 package com.mredrock.freshmanspecial.Ui.Fragment.Beauty;
 
 import android.content.Context;
-import android.database.DatabaseUtils;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.ExcellentTeacherAdapter;
+import com.mredrock.freshmanspecial.data.excellentTech;
 
 import java.util.ArrayList;
 
@@ -29,7 +27,7 @@ public class ExcellentTeacher extends Fragment {
     private RecyclerView mRecyclerView;
     private ExcellentTeacherAdapter mAdapter;
     private Context mContext ;
-    private ArrayList<com.mredrock.freshmanspecial.data.ExcellentTeacher> mTeachers = new ArrayList<>();
+    private ArrayList<excellentTech> mTeachers = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

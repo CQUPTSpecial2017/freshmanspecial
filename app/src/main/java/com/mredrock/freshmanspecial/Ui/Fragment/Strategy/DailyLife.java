@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
-import com.mredrock.freshmanspecial.Ui.Adapter.ExcellentTeacherAdapter;
 import com.mredrock.freshmanspecial.Ui.Adapter.FoodAroundCquptAdapter;
 import com.mredrock.freshmanspecial.data.*;
 
@@ -28,7 +27,7 @@ public class DailyLife extends Fragment {
     private RecyclerView mRecyclerView;
     private Context mContext ;
     private FoodAroundCquptAdapter mAdapter;
-    private ArrayList<com.mredrock.freshmanspecial.data.DailyLife> mDailyLifes = new ArrayList<>();
+    private ArrayList<LifeInNear> mDailyLifes = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_daily_life,container,false);

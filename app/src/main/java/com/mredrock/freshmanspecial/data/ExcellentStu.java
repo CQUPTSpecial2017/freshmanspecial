@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by Administrator on 2017/8/9 0009.
  */
     //优秀学生
-public class ExcellentStudent implements Serializable{
+public class ExcellentStu implements Serializable{
 
     /**
      * name : 丛广林
@@ -19,6 +19,11 @@ public class ExcellentStudent implements Serializable{
     private String name;
     private String resume;
     private String url;
+    /**
+     * motto : e路有你，书写无悔青春
+     */
+
+    private String motto;
 
     public String getName() {
         return name;
@@ -42,5 +47,13 @@ public class ExcellentStudent implements Serializable{
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getMotto() {
+        return motto;
+    }
+
+    public void setMotto(String motto) {
+        this.motto = motto;
     }
 }
