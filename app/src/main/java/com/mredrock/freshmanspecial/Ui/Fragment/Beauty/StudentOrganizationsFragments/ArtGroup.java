@@ -37,7 +37,7 @@ public class ArtGroup extends Fragment{
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.beauty_in_cqupt_recycle);
+        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.art_group_recycle);
         //请求 获取
 
 
@@ -46,6 +46,7 @@ public class ArtGroup extends Fragment{
 
         mContext = getContext();
         mAdapter = new StudentOrganizationAdapter(mContext);
+        mStudentOrganizations.add(new StudentOrganization());
 
         mAdapter.setStudentOrganizations(mStudentOrganizations);
 
@@ -54,4 +55,5 @@ public class ArtGroup extends Fragment{
 
         super.onActivityCreated(savedInstanceState);
     }
+
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:layout_marginTop="6dp">
+    <TextView
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="18dp"
+        android:layout_width="3dp"
+        android:layout_height="16dp"
+        android:background="@drawable/special_2017_change_color"
+        />
+    <TextView
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/item_requirement_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/Special_2017_text_title"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
+        android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+        android:layout_marginTop="@dimen/Special_2017_activity_horizontal_margin"
+        android:layout_below="@id/item_requirement_title"
+        android:id="@+id/item_requirement_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

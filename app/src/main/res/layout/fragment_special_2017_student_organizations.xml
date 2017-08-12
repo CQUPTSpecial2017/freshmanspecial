@@ -4,15 +4,23 @@
     >
 
 <LinearLayout
+
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <android.support.design.widget.TabLayout
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:paddingLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/item_special_2017_student_organizations_magic_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/Special_2017_whileBack"></net.lucode.hackware.magicindicator.MagicIndicator>
+
+    <com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager
+        android:layout_marginTop="6dp"
+        android:id="@+id/item_special_2017_student_organizations_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="50dp"></android.support.design.widget.TabLayout>
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content"></com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager>
 
 </LinearLayout>
     </layout>

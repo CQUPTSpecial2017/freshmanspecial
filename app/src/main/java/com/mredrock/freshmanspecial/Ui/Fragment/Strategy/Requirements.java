@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
+import com.mredrock.freshmanspecial.Ui.Adapter.RequirementsAdapter;
+import com.mredrock.freshmanspecial.data.RequirementTitle;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -22,6 +26,8 @@ public class Requirements extends Fragment {
     private ViewDataBinding mDataBinding;
     private RecyclerView mRecyclerView;
     private Context mContext ;
+    private ArrayList<RequirementTitle> mDatas =new ArrayList<>();
+    private RequirementsAdapter mAdapter;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_requirements,container,false);
@@ -32,8 +38,13 @@ public class Requirements extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
         mContext = getContext();
-//        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.excellent_students_recycle);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+
+
+
+        mAdapter = new RequirementsAdapter(this.getContext(),mDatas);
+        mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.item_requirement_recycle);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
 
         super.onActivityCreated(savedInstanceState);

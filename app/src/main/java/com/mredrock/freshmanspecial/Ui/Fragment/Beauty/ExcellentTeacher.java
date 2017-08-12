@@ -38,6 +38,7 @@ public class ExcellentTeacher extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.excellent_teachers_recycle);
+        if (mTeachers.size() == 0)
         mTeachers.add(new com.mredrock.freshmanspecial.data.ExcellentTeacher("陈琪琪","传媒艺术学院","sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",""));
         mContext = getContext();
         mAdapter = new ExcellentTeacherAdapter(mContext);

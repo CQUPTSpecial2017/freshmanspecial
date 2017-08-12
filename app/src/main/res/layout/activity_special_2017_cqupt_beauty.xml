@@ -64,7 +64,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/cqupt_beauty_viewpager"
-        android:layout_marginTop="6dp"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/Special_2017_cqupt_beauty_background"

@@ -54,19 +54,19 @@ public class Special_2017_MyCircleView extends View {
     public Special_2017_MyCircleView(Context context) {
         super(context);
         mContext = context;
-        circleWeight = dip2px(mContext,6);
+        circleWeight = dip2px(mContext,5);
     }
 
     public Special_2017_MyCircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-        circleWeight = dip2px(mContext,6);
+        circleWeight = dip2px(mContext,5);
     }
 
     public Special_2017_MyCircleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-        circleWeight = dip2px(mContext,6);
+        circleWeight = dip2px(mContext,5);
     }
     public Paint getStrokePaint() {
         return mStrokePaint;
@@ -345,8 +345,8 @@ public class Special_2017_MyCircleView extends View {
     }
 
     public void startAnimation() {
-        if (percent>=95)
-            animation = ValueAnimator.ofInt(0,95);
+        if (percent>=90)
+            animation = ValueAnimator.ofInt(0,90);
         else
             animation = ValueAnimator.ofInt(0,percent);
         animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
