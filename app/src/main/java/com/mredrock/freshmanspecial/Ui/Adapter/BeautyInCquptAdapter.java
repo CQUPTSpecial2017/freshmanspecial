@@ -3,7 +3,6 @@ package com.mredrock.freshmanspecial.Ui.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +12,10 @@ import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_BeautyImageClickActivity;
-import com.mredrock.freshmanspecial.Ui.Special_2017_ImageClickActivity;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.SchoolCanteen;
 import com.mredrock.freshmanspecial.data.SchoolDormitory;
-import com.mredrock.freshmanspecial.data.SchoolEnvironment;
+import com.mredrock.freshmanspecial.data.SchoolBuilding;
 
 import java.util.ArrayList;
 
@@ -34,7 +32,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
     private ArrayList<com.mredrock.freshmanspecial.data.SchoolDormitory> mDormitories = new ArrayList<>();
     private ArrayList<SchoolCanteen> mCanteens = new ArrayList<>();
     private ArrayList<com.mredrock.freshmanspecial.data.BeautyInCqupt> mBeautyInCqupts = new ArrayList<>();
-    private ArrayList<SchoolEnvironment> mEnvironments = new ArrayList<>();
+    private ArrayList<SchoolBuilding> mEnvironments = new ArrayList<>();
 
     private BeautyInCquptAdapter.BeautyHolder mViewHolder;
 
@@ -75,11 +73,11 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
         type = 1;
     }
 
-    public ArrayList<SchoolEnvironment> getEnvironments() {
+    public ArrayList<SchoolBuilding> getEnvironments() {
         return mEnvironments;
     }
 
-    public void setEnvironments(ArrayList<SchoolEnvironment> environments) {
+    public void setEnvironments(ArrayList<SchoolBuilding> environments) {
         mEnvironments = environments;
         type = 3;
     }
@@ -155,7 +153,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
         private BeautyInCqupt mBeautyInCqupt;
         private SchoolDormitory mDormitory;
         private SchoolCanteen mCanteen;
-        private SchoolEnvironment mEnvironment;
+        private SchoolBuilding mEnvironment;
 
 
         public BeautyHolder(View itemView) {

@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Administrator on 2017/8/9 0009.
  */
         //校园环境
-public class SchoolEnvironment implements Serializable {
+public class SchoolBuilding implements Serializable {
 
 
     /**

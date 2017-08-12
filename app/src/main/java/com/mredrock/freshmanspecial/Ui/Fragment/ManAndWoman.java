@@ -20,9 +20,10 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
 import com.mredrock.freshmanspecial.data.SexRatio;
-import com.mredrock.freshmanspecial.httptools.GetDataFromServer;
+import com.mredrock.freshmanspecial.httptools.PostDataToServer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -49,7 +50,7 @@ public class ManAndWoman extends Fragment  {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mSubscriber = new Subscriber<ArrayList<SexRatio>>() {
+        PostDataToServer.getInstance().getSexRatio(new Subscriber<List<SexRatio>>() {
             @Override
             public void onCompleted() {
 
@@ -57,16 +58,17 @@ public class ManAndWoman extends Fragment  {
 
             @Override
             public void onError(Throwable e) {
-
+        e.printStackTrace();
             }
 
             @Override
-            public void onNext(ArrayList<SexRatio> sexRatios) {
+            public void onNext(List<SexRatio> sexRatios) {
                 mSexRatios.addAll(sexRatios);
                 initOptionItem();
             }
-        };
-        GetDataFromServer.getInstance().getSexRatio(mSubscriber,"SexRatio");
+        },"SexRatio");
+
+
         initOptionPicker();
         binding.setVariable(BR.special_2017_man_and_woman_presenter,new ManAndWoman.Presenter());
         blueCircleView = (Special_2017_MyCircleView)binding.getRoot().findViewById(R.id.special_2017_data_man_and_woman_blue);

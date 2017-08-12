@@ -36,5 +36,9 @@ public interface DataService<T> {
 
 
     @GET("QQGroup")
-    Observable<HttpResult<List<QQGroupNumber>>> getQQGroup(@Query("RequestType") String dataName);
+    Observable<HttpResult<QQGroupNumber>> getQQGroup(@Query("RequestType") String dataName);
+
+
+    @GET("SchoolBuildings")
+    Observable<HttpResult<List<QQGroupNumber>>> getSchoolBuilding(@Query("RequestType") String dataName);
 }

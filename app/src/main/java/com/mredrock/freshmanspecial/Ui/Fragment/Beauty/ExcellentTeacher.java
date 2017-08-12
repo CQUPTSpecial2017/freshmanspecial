@@ -4,8 +4,10 @@ import android.content.Context;
 import android.database.DatabaseUtils;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +36,7 @@ public class ExcellentTeacher extends Fragment {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_excellent_teacher,container,false);
         return mDataBinding.getRoot();
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
