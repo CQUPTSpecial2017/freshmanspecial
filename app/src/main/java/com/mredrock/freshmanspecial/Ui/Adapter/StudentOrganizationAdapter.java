@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
 
-import com.mredrock.freshmanspecial.data.StudentOrganization;
+import com.mredrock.freshmanspecial.data.Organizations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +21,15 @@ import java.util.List;
 
 public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrganizationAdapter.StudentOrganizationViewHolder> {
     private Context mContext;
-    private List<StudentOrganization> mStudentOrganizations = new ArrayList<>();
+    private List<Organizations> mOrganizationses = new ArrayList<>();
     private StudentOrganizationViewHolder mViewHolder;
 
-    public List<StudentOrganization> getStudentOrganizations() {
-        return mStudentOrganizations;
+    public List<Organizations> getStudentOrganizations() {
+        return mOrganizationses;
     }
 
-    public void setStudentOrganizations(List<StudentOrganization> studentOrganizations) {
-        mStudentOrganizations = studentOrganizations;
+    public void setStudentOrganizations(List<Organizations> organizationses) {
+        mOrganizationses = organizationses;
     }
 
     @Override
@@ -41,9 +41,9 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
 
     @Override
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
-        holder.mStudentOrganization = mStudentOrganizations.get(position);
-        holder.title.setText(holder.mStudentOrganization.getDepartment().get(position).getName());
-        holder.content.setText(holder.mStudentOrganization.getDepartment().get(position).getResume());
+        holder.mOrganizations = mOrganizationses.get(position);
+        holder.title.setText(holder.mOrganizations.getDepartment().get(position).getName());
+        holder.content.setText(holder.mOrganizations.getDepartment().get(position).getResume());
         if (position == 0){
             holder.distinct.setVisibility(View.GONE);
         }
@@ -51,7 +51,7 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
 
     @Override
     public int getItemCount() {
-        return mStudentOrganizations.size();
+        return mOrganizationses.size();
     }
 
     public StudentOrganizationAdapter() {
@@ -62,16 +62,16 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
         mContext = context;
     }
 
-    public StudentOrganizationAdapter(Context context, List<StudentOrganization> studentOrganizations) {
+    public StudentOrganizationAdapter(Context context, List<Organizations> organizationses) {
         mContext = context;
-        mStudentOrganizations = studentOrganizations;
+        mOrganizationses = organizationses;
     }
 
     class StudentOrganizationViewHolder extends RecyclerView.ViewHolder{
         private TextView title;
         private TextView content;
         private TextView distinct;
-        private StudentOrganization mStudentOrganization;
+        private Organizations mOrganizations;
         public StudentOrganizationViewHolder(View itemView) {
             super(itemView);
             title = (TextView)itemView.findViewById(R.id.item_special_2017_student_organization_name);

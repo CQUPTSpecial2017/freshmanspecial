@@ -20,7 +20,7 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
 import com.mredrock.freshmanspecial.data.SexRatio;
-import com.mredrock.freshmanspecial.httptools.PostDataToServer;
+import com.mredrock.freshmanspecial.httptools.RatioData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class ManAndWoman extends Fragment  {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PostDataToServer.getInstance().getSexRatio(new Subscriber<List<SexRatio>>() {
+        RatioData.getInstance().getSexRatio(new Subscriber<List<SexRatio>>() {
             @Override
             public void onCompleted() {
 

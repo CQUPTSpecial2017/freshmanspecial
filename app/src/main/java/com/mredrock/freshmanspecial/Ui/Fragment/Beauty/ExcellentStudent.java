@@ -3,10 +3,8 @@ package com.mredrock.freshmanspecial.Ui.Fragment.Beauty;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,7 +23,7 @@ import java.util.ArrayList;
  */
 
 public class ExcellentStudent  extends Fragment{
-    private ArrayList<com.mredrock.freshmanspecial.data.ExcellentStudent> mStudents = new ArrayList<>();
+    private ArrayList<ExcellentStu> mStudents = new ArrayList<>();
     private ExcellentTeacherAdapter mAdapter;
     private Context mContext ;
 

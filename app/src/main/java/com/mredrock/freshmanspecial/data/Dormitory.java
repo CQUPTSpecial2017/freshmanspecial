@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Administrator on 2017/8/9 0009.
  */
         //校园宿舍
-public class SchoolDormitory implements Serializable{
+public class Dormitory implements Serializable{
 
     /**
      * name : 明理苑（24—31,39）

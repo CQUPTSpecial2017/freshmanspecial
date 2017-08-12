@@ -23,7 +23,7 @@ import com.mredrock.freshmanspecial.Ui.View.MyPickerView.lib.WheelView;
 import com.mredrock.freshmanspecial.Ui.View.MyPickerView.listener.CustomListener;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_MyCircleView;
 import com.mredrock.freshmanspecial.data.FailPlus;
-import com.mredrock.freshmanspecial.httptools.PostDataToServer;
+import com.mredrock.freshmanspecial.httptools.RatioData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class TheHardestObject extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         binding.setVariable(BR.special_2017_the_hardest_object_presenter,new Presenter());
-        PostDataToServer.getInstance().getFailRatio(new Subscriber<List<FailPlus>>() {
+        RatioData.getInstance().getFailRatio(new Subscriber<List<FailPlus>>() {
             @Override
             public void onCompleted() {
 

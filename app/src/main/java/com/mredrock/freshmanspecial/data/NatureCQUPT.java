@@ -1,16 +1,13 @@
 package com.mredrock.freshmanspecial.data;
 
-import java.io.Serializable;
-
 /**
- * Created by Administrator on 2017/8/8 0008.
+ * Created by 700-15isk on 2017/8/12.
  */
-    //优秀老师
-public class ExcellentTeacher implements Serializable{
 
+public class NatureCQUPT {
     /**
-     * name : 彭语良
-     * url : http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/cyfc_yxjs/9.彭语良.jpg
+     * name : 看见重邮
+     * url : http://v.youku.com/v_show/id_XNzExODM3Njk2.html?from=y1.2-1-95.3.12-2.1-1-1-11-0
      */
 
     private String name;

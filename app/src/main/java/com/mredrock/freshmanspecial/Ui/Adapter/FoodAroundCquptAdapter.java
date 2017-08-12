@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
-import com.mredrock.freshmanspecial.data.BeautyAroundCqupt;
-import com.mredrock.freshmanspecial.data.DailyLife;
-import com.mredrock.freshmanspecial.data.FoodAroundCqupt;
+import com.mredrock.freshmanspecial.data.BeautyInNear;
+import com.mredrock.freshmanspecial.data.LifeInNear;
+import com.mredrock.freshmanspecial.data.Cate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +23,9 @@ import java.util.List;
 public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCquptAdapter.FoodViewHolder>{
 
     private Context mContext;
-    private List<FoodAroundCqupt> mFoods = new ArrayList<>();
-    private List<BeautyAroundCqupt> mBeautyAroundCqupts = new ArrayList<>();
-    private List<DailyLife> mDailyLifes = new ArrayList<>();
+    private List<Cate> mFoods = new ArrayList<>();
+    private List<BeautyInNear> mBeautyInNears = new ArrayList<>();
+    private List<LifeInNear> mDailyLifes = new ArrayList<>();
 
     private int type;
     private FoodViewHolder mViewHolder;
@@ -40,30 +40,30 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
 
     }
 
-    public List<FoodAroundCqupt> getFoods() {
+    public List<Cate> getFoods() {
         return mFoods;
     }
 
-    public void setFoods(List<FoodAroundCqupt> foods) {
+    public void setFoods(List<Cate> foods) {
         mFoods .addAll(foods);
         type = 0;
 
     }
 
-    public List<BeautyAroundCqupt> getBeautyAroundCqupts() {
-        return mBeautyAroundCqupts;
+    public List<BeautyInNear> getBeautyAroundCqupts() {
+        return mBeautyInNears;
     }
 
-    public void setBeautyAroundCqupts(List<BeautyAroundCqupt> beautyAroundCqupts) {
-        mBeautyAroundCqupts .addAll(beautyAroundCqupts);
+    public void setBeautyAroundCqupts(List<BeautyInNear> beautyInNears) {
+        mBeautyInNears.addAll(beautyInNears);
         type = 1;
     }
 
-    public List<DailyLife> getDailyLifes() {
+    public List<LifeInNear> getDailyLifes() {
         return mDailyLifes;
     }
 
-    public void setDailyLifes(List<DailyLife> dailyLifes) {
+    public void setDailyLifes(List<LifeInNear> dailyLifes) {
         mDailyLifes = dailyLifes;
     }
 
@@ -77,10 +77,10 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
     @Override
     public void onBindViewHolder(FoodViewHolder holder, int position) {
         if (type ==1 ) {
-            holder.mBeautyAroundCqupt = mBeautyAroundCqupts.get(position);
-            holder.name.setText(holder.mBeautyAroundCqupt.getName());
-            holder.describe.setText(holder.mBeautyAroundCqupt.getResume());
-            holder.way.setText(holder.mBeautyAroundCqupt.getLocation());
+            holder.mBeautyInNear = mBeautyInNears.get(position);
+            holder.name.setText(holder.mBeautyInNear.getName());
+            holder.describe.setText(holder.mBeautyInNear.getResume());
+            holder.way.setText(holder.mBeautyInNear.getLocation());
 
 
         }else if (type == 0){
@@ -104,7 +104,7 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
     public int getItemCount() {
 
         if (type == 1)
-            return mBeautyAroundCqupts.size();
+            return mBeautyInNears.size();
         else if(type ==0)
             return mFoods.size();
         else
@@ -119,9 +119,9 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
         private TextView describe;
         private ImageView image;
         private TextView way;
-        private FoodAroundCqupt mFood;
-        private BeautyAroundCqupt mBeautyAroundCqupt;
-        private DailyLife mDailyLife;
+        private Cate mFood;
+        private BeautyInNear mBeautyInNear;
+        private LifeInNear mDailyLife;
 
 
         public FoodViewHolder(View itemView) {

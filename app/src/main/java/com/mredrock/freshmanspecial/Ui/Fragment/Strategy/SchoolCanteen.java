@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.BeautyInCquptAdapter;
+import com.mredrock.freshmanspecial.data.Canteen;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class SchoolCanteen extends Fragment {
     private ViewDataBinding mDataBinding;
     private RecyclerView mRecyclerView;
     private Context mContext ;
-    private ArrayList<com.mredrock.freshmanspecial.data.SchoolCanteen> mCanteens = new ArrayList<>();
+    private ArrayList<Canteen> mCanteens = new ArrayList<>();
     private BeautyInCquptAdapter mAdapter;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

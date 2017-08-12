@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.StudentOrganizationAdapter;
-import com.mredrock.freshmanspecial.data.StudentOrganization;
+import com.mredrock.freshmanspecial.data.Organizations;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class SchoolYouthAssociation  extends Fragment{
     private RecyclerView mRecyclerView;
     private StudentOrganizationAdapter mAdapter ;
     private Context mContext ;
-    private ArrayList<StudentOrganization> mStudentOrganizations  = new ArrayList<>();
+    private ArrayList<Organizations> mOrganizationses = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_school_youth_association,container,false);
@@ -46,7 +46,7 @@ public class SchoolYouthAssociation  extends Fragment{
         mAdapter = new StudentOrganizationAdapter(mContext);
 
 
-        mAdapter.setStudentOrganizations(mStudentOrganizations);
+        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

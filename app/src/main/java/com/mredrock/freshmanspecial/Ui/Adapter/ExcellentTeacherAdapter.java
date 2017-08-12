@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_ImageClickActivity;
-import com.mredrock.freshmanspecial.data.ExcellentStudent;
-import com.mredrock.freshmanspecial.data.ExcellentTeacher;
+import com.mredrock.freshmanspecial.data.ExcellentStu;
+import com.mredrock.freshmanspecial.data.excellentTech;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeacherAdapter.TeacherViewHolder>{
     private LayoutInflater mLayoutInflater;
     private Context mContext;
-    private List<ExcellentTeacher> mTeachers = new ArrayList<>();
-    private List<ExcellentStudent> mStudents = new ArrayList<>();
+    private List<excellentTech> mTeachers = new ArrayList<>();
+    private List<ExcellentStu> mStudents = new ArrayList<>();
 
     private int type;
     private TeacherViewHolder mViewHolder;
@@ -37,20 +37,20 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
     }
 
-    public List<ExcellentTeacher> getTeachers() {
+    public List<excellentTech> getTeachers() {
         return mTeachers;
     }
 
-    public void setTeachers(List<ExcellentTeacher> teachers) {
+    public void setTeachers(List<excellentTech> teachers) {
         mTeachers = teachers;
         type = 1;
     }
 
-    public List<ExcellentStudent> getStudents() {
+    public List<ExcellentStu> getStudents() {
         return mStudents;
     }
 
-    public void setStudents(List<ExcellentStudent> students) {
+    public void setStudents(List<ExcellentStu> students) {
         mStudents = students;
         type = 0;
     }
@@ -99,8 +99,8 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
         private TextView name;
         private TextView major;
         private CircleImageView avatar;
-        private ExcellentTeacher mTeacher;
-        private ExcellentStudent mStudent;
+        private excellentTech mTeacher;
+        private ExcellentStu mStudent;
 
 
         public TeacherViewHolder(View itemView) {

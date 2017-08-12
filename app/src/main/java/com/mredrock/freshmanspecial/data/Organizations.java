@@ -7,7 +7,7 @@ import java.util.List;
  */
 //学生组织都用这一个
 
-public class StudentOrganization {
+public class Organizations {
     /**
      * name : 重庆邮电大学团委各部室
      * resume :

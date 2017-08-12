@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_BeautyImageClickActivity;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
-import com.mredrock.freshmanspecial.data.SchoolCanteen;
-import com.mredrock.freshmanspecial.data.SchoolDormitory;
+import com.mredrock.freshmanspecial.data.Canteen;
+import com.mredrock.freshmanspecial.data.Dormitory;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
 
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
     private Context mContext;
     //type = 0 学校宿舍 , type = 1 学校食堂 , type = 2 美在重邮 , type = 3 学校环境
     private int type;
-    private ArrayList<com.mredrock.freshmanspecial.data.SchoolDormitory> mDormitories = new ArrayList<>();
-    private ArrayList<SchoolCanteen> mCanteens = new ArrayList<>();
+    private ArrayList<Dormitory> mDormitories = new ArrayList<>();
+    private ArrayList<Canteen> mCanteens = new ArrayList<>();
     private ArrayList<com.mredrock.freshmanspecial.data.BeautyInCqupt> mBeautyInCqupts = new ArrayList<>();
     private ArrayList<SchoolBuilding> mEnvironments = new ArrayList<>();
 
@@ -55,20 +55,20 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
         type = 2;
     }
 
-    public ArrayList<SchoolDormitory> getDormitories() {
+    public ArrayList<Dormitory> getDormitories() {
         return mDormitories;
     }
 
-    public void setDormitories(ArrayList<SchoolDormitory> dormitories) {
+    public void setDormitories(ArrayList<Dormitory> dormitories) {
         mDormitories = dormitories;
         type = 0;
     }
 
-    public ArrayList<SchoolCanteen> getCanteens() {
+    public ArrayList<Canteen> getCanteens() {
         return mCanteens;
     }
 
-    public void setCanteens(ArrayList<SchoolCanteen> canteens) {
+    public void setCanteens(ArrayList<Canteen> canteens) {
         mCanteens = canteens;
         type = 1;
     }
@@ -151,8 +151,8 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
         private RelativeLayout mCountLayout;
         private TextView mCount;
         private BeautyInCqupt mBeautyInCqupt;
-        private SchoolDormitory mDormitory;
-        private SchoolCanteen mCanteen;
+        private Dormitory mDormitory;
+        private Canteen mCanteen;
         private SchoolBuilding mEnvironment;
 
 

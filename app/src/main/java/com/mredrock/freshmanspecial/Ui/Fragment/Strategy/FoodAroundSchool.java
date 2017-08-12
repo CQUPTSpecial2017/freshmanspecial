@@ -27,7 +27,7 @@ public class FoodAroundSchool extends Fragment {
     private RecyclerView mRecyclerView;
     private Context mContext ;
     private FoodAroundCquptAdapter mAdapter;
-    private ArrayList<com.mredrock.freshmanspecial.data.FoodAroundCqupt> mFoods = new ArrayList<>();
+    private ArrayList<Cate> mFoods = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_special_2017_food_around_school,container,false);

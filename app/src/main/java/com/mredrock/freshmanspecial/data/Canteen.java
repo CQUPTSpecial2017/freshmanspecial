@@ -1,23 +1,21 @@
 package com.mredrock.freshmanspecial.data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/10 0010.
+ * Created by Administrator on 2017/8/9 0009.
  */
-        //日常生活
-public class DailyLife {
+    //学校食堂
+public class Canteen implements Serializable {
 
     /**
-     * name : ZAKKA生活小铺
-     * location : 重庆邮电大学旁，新校门出门，左转直走，老校门出门，右转直走
-     * resume :
-     文具等用品齐全
-     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_rcsh/ZAKKA生活小铺.jpg"]
+     * name : 中心食堂
+     * resume : 地理位置的优越不仅来源于它历史的悠久，更是因为中心特色小面的支持，这里一砖一瓦都沉淀着岁月的气息。又大又好吃又便宜的素菜包子和肉花卷、馒头加豆浆，是早餐的不二选择。
+     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_xsst/中心食堂.jpg"]
      */
 
     private String name;
-    private String location;
     private String resume;
     private List<String> url;
 
@@ -27,14 +25,6 @@ public class DailyLife {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getResume() {
