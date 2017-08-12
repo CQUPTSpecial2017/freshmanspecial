@@ -15,8 +15,12 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.FoodAroundCquptAdapter;
 import com.mredrock.freshmanspecial.data.*;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -44,9 +48,30 @@ public class FoodAroundSchool extends Fragment {
         //请求数据
 
 
-        mAdapter = new FoodAroundCquptAdapter(mContext);
-        mAdapter.setFoods(mFoods);
+
 
         super.onActivityCreated(savedInstanceState);
+    }
+    public void initView(){
+        mAdapter = new FoodAroundCquptAdapter(mContext);
+
+        DataAboutFresh.getInstance().getCate(new Subscriber<List<Cate>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(List<Cate> cates) {
+                    mFoods.addAll(cates);
+                    mAdapter.setFoods(cates);
+                    mRecyclerView.setAdapter(mAdapter);
+            }
+        },"Cate");
     }
 }
