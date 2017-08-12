@@ -31,7 +31,7 @@
         </activity>
         <activity
             android:name=".Ui.Special_2017_BeautyImageClickActivity"
-            android:theme="@style/dialogstyle">
+            android:theme="@style/dialoAppgstyle">
         </activity>
 
     </application>

@@ -62,7 +62,7 @@ public class Techlink extends Fragment{
                     mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
-            },"Organizations");
+            },"organizations");
         }
 
 
@@ -75,4 +75,9 @@ public class Techlink extends Fragment{
         super.onActivityCreated(savedInstanceState);
     }
 
+    @Override
+    public void onPause() {
+        mOrganizationses.clear();
+        super.onPause();
+    }
 }

@@ -13,18 +13,18 @@
         android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/Special_2017_content"
+        android:background="@color/all_inter"
         />
-        <TextView
-            android:layout_marginTop="18dp"
-
-            android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
-            android:id="@+id/item_special_2017_student_organization_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="@dimen/Special_2017_text_title"
-            />
+    <TextView
+        android:id="@+id/item_special_2017_student_organization_name"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#000000"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/Special_2017_text_title"
+        />
     <TextView
         android:id="@+id/item_special_2017_student_organization_content"
         android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/Special_2017_content"
-        android:textColor="@color/Special_2017_distinct"
+        android:textColor="#666666"
         android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

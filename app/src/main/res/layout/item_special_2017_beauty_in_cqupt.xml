@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/item_beauty_in_cqupt_image"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:layout_marginRight="18dp"
             android:layout_marginLeft="18dp"

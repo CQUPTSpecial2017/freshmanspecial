@@ -1,6 +1,7 @@
 package com.mredrock.freshmanspecial.Ui.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +43,10 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
 
         holder.mDepartmentBean = mDepartmentBeen.get(position);
-        holder.title.setText(holder.mDepartmentBean.getName());
+
         holder.content.setText(holder.mDepartmentBean.getResume());
+        holder.title.setTextColor(Color.parseColor("#666666"));
+        holder.title.setText(holder.mDepartmentBean.getName());
         if (position == 0){
             holder.distinct.setVisibility(View.GONE);
         }

@@ -65,7 +65,7 @@ public class ExcellentStudent  extends Fragment{
                 mAdapter.setStudents(mStudents);
                 mAdapter.notifyDataSetChanged();
             }
-        },"ExcellentStu");
+        },"excellentStu");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
         super.onActivityCreated(savedInstanceState);

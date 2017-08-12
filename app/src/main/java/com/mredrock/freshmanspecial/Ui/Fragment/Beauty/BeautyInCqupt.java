@@ -59,7 +59,7 @@ public class BeautyInCqupt extends Fragment {
                     mAdapter.setBeautyInCqupts(mBeautyInCqupts);
                     mAdapter.notifyDataSetChanged();
                 }
-            },"BeautyInCqupt");
+            },"beautyInCQUPT");
         }
 
 
