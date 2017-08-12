@@ -9,7 +9,9 @@ import java.util.List;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -26,13 +28,13 @@ public interface DataService<T> {
     @POST("FailPlus")
     Observable<HttpResult<List<FailPlus>>> postFailRatio(@Field("RequestType") String dataName);
 
-    @FormUrlEncoded
-    @POST("QQGroupNumber")
-    Observable<HttpResult<List<QQGroupNumber>>> postQQGroupNumber(@Field("RequestType") String dataName);
-
 
     @FormUrlEncoded
     @POST("WorkRatio")
     Observable<HttpResult<List<WorkRatio>>> postWorkRatio(@Field("RequestType") String dataName);
 
+
+
+    @GET("QQGroup")
+    Observable<HttpResult<List<QQGroupNumber>>> getQQGroup(@Query("RequestType") String dataName);
 }

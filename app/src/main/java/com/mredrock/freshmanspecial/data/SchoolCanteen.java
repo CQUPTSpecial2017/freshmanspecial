@@ -1,59 +1,45 @@
 package com.mredrock.freshmanspecial.data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
  */
     //学校食堂
 public class SchoolCanteen implements Serializable {
-    private String imageUrl;
-    private String title;
-    private String content;
-    private String imageCount;
 
-    public String getImageUrl() {
-        return imageUrl;
+    /**
+     * name : 中心食堂
+     * resume : 地理位置的优越不仅来源于它历史的悠久，更是因为中心特色小面的支持，这里一砖一瓦都沉淀着岁月的气息。又大又好吃又便宜的素菜包子和肉花卷、馒头加豆浆，是早餐的不二选择。
+     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_xsst/中心食堂.jpg"]
+     */
+
+    private String name;
+    private String resume;
+    private List<String> url;
+
+    public String getName() {
+        return name;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getResume() {
+        return resume;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
-    public String getContent() {
-        return content;
+    public List<String> getUrl() {
+        return url;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getImageCount() {
-        return imageCount;
-    }
-
-    public void setImageCount(String imageCount) {
-        this.imageCount = imageCount;
-    }
-
-    public SchoolCanteen(String imageUrl, String title, String content) {
-        this.imageUrl = imageUrl;
-        this.title = title;
-        this.content = content;
-    }
-
-    public SchoolCanteen(String imageUrl, String title, String content, String imageCount) {
-        this.imageUrl = imageUrl;
-        this.title = title;
-        this.content = content;
-        this.imageCount = imageCount;
+    public void setUrl(List<String> url) {
+        this.url = url;
     }
 }

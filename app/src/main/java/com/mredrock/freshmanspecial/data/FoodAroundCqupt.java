@@ -1,22 +1,24 @@
 package com.mredrock.freshmanspecial.data;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/8/10 0010.
  */
     //周边美食
 public class FoodAroundCqupt {
+
+    /**
+     * name : 李记串串
+     * location : 永辉超市旁边
+     * resume : 口味独特，麻辣鲜香
+     * url : ["http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/yzgl_zbms/李记串串.jpg"]
+     */
+
     private String name;
-    private String describe;
-    private String way;
-    private String imageUrl;
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    private String location;
+    private String resume;
+    private List<String> url;
 
     public String getName() {
         return name;
@@ -26,19 +28,27 @@ public class FoodAroundCqupt {
         this.name = name;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getLocation() {
+        return location;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getWay() {
-        return way;
+    public String getResume() {
+        return resume;
     }
 
-    public void setWay(String way) {
-        this.way = way;
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
+    public List<String> getUrl() {
+        return url;
+    }
+
+    public void setUrl(List<String> url) {
+        this.url = url;
     }
 }
