@@ -2,6 +2,7 @@ package com.mredrock.freshmanspecial.Ui.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,13 +101,12 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mDormitory = mDormitories.get(position);
                 holder.title.setText(holder.mDormitory.getName());
                 holder.information.setText(holder.mDormitory.getResume());
-<<<<<<< HEAD
+
                 Glide.with(mContext)
-                        .load(holder.mDormitory.getUrl())
+                        .load(holder.mDormitory.getUrl().get(0))
                         .crossFade()
                         .into(holder.image);
-=======
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
+
                 holder.mCountLayout.setVisibility(View.VISIBLE);
                 holder.mCount.setText(holder.mDormitory.getUrl().size()+"张");
                 holder.count = holder.mDormitory.getUrl().size();
@@ -115,10 +115,12 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mCanteen = mCanteens.get(position);
                 holder.title.setText(holder.mCanteen.getName());
                 holder.information.setText(holder.mCanteen.getResume());
+
                 Glide.with(mContext)
-                        .load(holder.mCanteen.getUrl())
+                        .load(holder.mCanteen.getUrl().get(0))
                         .crossFade()
                         .into(holder.image);
+
                 holder.mCountLayout.setVisibility(View.VISIBLE);
                 holder.mCount.setText(holder.mCanteen.getUrl().size()+"张");
                 holder.count = holder.mCanteen.getUrl().size();
@@ -135,10 +137,11 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
 
                 holder.mCountLayout.setVisibility(View.GONE);
                 break;
-            case 4:
+            case 3:
                 holder.mEnvironment = mEnvironments.get(position);
                 holder.title.setText(holder.mEnvironment.getTitle());
                 holder.information.setText(holder.mEnvironment.getContent());
+
                 Glide.with(mContext)
                         .load(holder.mEnvironment.getUrl())
                         .crossFade()
@@ -157,9 +160,19 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
     @Override
     public int getItemCount() {
 
-        if (type == 1)
-            return mBeautyInCqupts.size();
-        else return mDormitories.size();
+        switch (type){
+            case 0:
+                return mDormitories.size();
+            case 1:
+                return mCanteens.size();
+            case 2:
+                return mBeautyInCqupts.size();
+            case 3:
+                return mEnvironments.size();
+            default:
+                return 0;
+        }
+
     }
 
 
@@ -182,7 +195,9 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
             super(itemView);
 
             title = (TextView) itemView.findViewById(R.id.item_beauty_in_cqupt_title);
+            title.setTextColor(Color.parseColor("#666666"));
             information = (TextView) itemView.findViewById(R.id.item_beauty_in_cqupt_information);
+            information.setTextColor(Color.parseColor("#999999"));
             image = (ImageView) itemView.findViewById(R.id.item_beauty_in_cqupt_image);
             mCountLayout = (RelativeLayout)itemView.findViewById(R.id.item_beauty_in_cqupt_count);
             mCount = (TextView)itemView.findViewById(R.id.item_beauty_in_cqupt_count_text);

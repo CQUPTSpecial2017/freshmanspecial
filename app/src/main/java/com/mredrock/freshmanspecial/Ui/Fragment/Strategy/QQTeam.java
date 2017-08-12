@@ -65,7 +65,7 @@ public class QQTeam extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
+
         if (mStrings.size() == 0 ){
             DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
                 @Override
@@ -75,42 +75,31 @@ public class QQTeam extends Fragment {
 
                 @Override
                 public void onError(Throwable e) {
-=======
-        DataAboutFresh.getInstance().getQQgroupNumber(new Subscriber<QQGroupNumber>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-              e.printStackTrace();
-            }
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
 
                 }
 
                 @Override
                 public void onNext(QQGroupNumber qqGroupNumber) {
 
-                    mNumber =qqGroupNumber;
+                    mNumber = qqGroupNumber;
                     mStrings.add("新生群");
-                    for (int i = 0; i <qqGroupNumber.getCollege().size() ; i++) {
-                        mStrings.add(qqGroupNumber.getCollege().get(i).getGroupName()+" : "+qqGroupNumber.getCollege().get(i).getNumber());
+                    for (int i = 0; i < qqGroupNumber.getCollege().size(); i++) {
+                                mStrings.add(qqGroupNumber.getCollege().get(i).getGroupName() + " : " + qqGroupNumber.getCollege().get(i).getNumber());
                     }
                     mStrings.add("老乡群");
-                    for (int i = 0; i <qqGroupNumber.getHomeland().size() ; i++) {
-                        mStrings.add(qqGroupNumber.getHomeland().get(i).getGroupName()+" : "+qqGroupNumber.getHomeland().get(i).getNumber());
+                    for (int i = 0; i < qqGroupNumber.getHomeland().size(); i++) {
+                        mStrings.add(qqGroupNumber.getHomeland().get(i).getGroupName() + " : " + qqGroupNumber.getHomeland().get(i).getNumber());
                     }
-                    mCollegeAdapter.setStrings(mStrings,1);
+                    mCollegeAdapter.setStrings(mStrings, 1);
                     mCollegeAdapter.notifyDataSetChanged();
 
-                    Log.d(TAG,qqGroupNumber.getCollege().size()+"");
-                    Log.d(TAG,qqGroupNumber.getHomeland().size()+"");
+                    Log.d(TAG, qqGroupNumber.getCollege().size() + "");
+                    Log.d(TAG, qqGroupNumber.getHomeland().size() + "");
 
                 }
-            },"QQGroup");
+            }, "QQGroup");
         }
+
 
 
         mSearchContent = (LinearLayout)mDataBinding.getRoot().findViewById(R.id.special_2017_qq_group_search_content) ;

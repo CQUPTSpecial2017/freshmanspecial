@@ -10,12 +10,12 @@ import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.BeautyImageClick;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.data.Canteen;
-<<<<<<< HEAD
-import com.mredrock.freshmanspecial.data.*;
-=======
+
+
+
 import com.mredrock.freshmanspecial.data.Dormitory;
 
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
+
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017BeautyImageClickBinding;
 

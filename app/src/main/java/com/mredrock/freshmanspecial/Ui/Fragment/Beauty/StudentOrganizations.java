@@ -23,8 +23,7 @@ import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragm
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.SchoolYouthAssociation;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.Techlink;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.YouthLeagueCommittee;
-import com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager;
-import com.mredrock.freshmanspecial.databinding.FragmentSpecial2017StudentOrganizationsBinding;
+
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

@@ -1,4 +1,4 @@
-package com.mredrock.freshmanspecial.httptools.Interceptor;
+package com.mredrock.freshmanspecial.httptools.interceptor;
 
 import android.app.Application;
 import android.content.Context;

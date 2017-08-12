@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="300dp"
-    android:background="@color/Special_2017_whileBack">
+              android:layout_height="wrap_content"
+    android:background="@color/Special_2017_whileBack"
+    android:layout_marginBottom="6dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp">
@@ -63,6 +64,7 @@
         android:layout_marginRight="18dp"
         android:textSize="@dimen/Special_2017_content"
         android:layout_marginTop="10dp"
-        android:lineSpacingExtra ="5dp" />
+        android:lineSpacingExtra ="5dp"
+        android:layout_marginBottom="@dimen/Special_2017_activity_horizontal_margin"/>
 
 </LinearLayout>

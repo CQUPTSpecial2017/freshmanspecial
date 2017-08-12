@@ -11,7 +11,7 @@ import com.mredrock.freshmanspecial.data.MilitaryTrainingPhoto;
 import com.mredrock.freshmanspecial.data.MilitaryTrainingVideo;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
-//import com.mredrock.freshmanspecial.httptools.Interceptor.MyApp;
+import com.mredrock.freshmanspecial.httptools.interceptor.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,22 +43,19 @@ public class DataAboutFresh<T> {
     public static String BASE_URL = "http://www.yangruixin.com/test/apiForGuide.php/";
     private Retrofit retrofit;
     private DataService dataService;
-<<<<<<< HEAD
+
     private long DEFAULT_CACHE_SIZE = 3 * 1024 * 1024;
 //    private File cacheFile = new File(MyApp.context.getCacheDir(), "cacheData");
    // private Cache cache = new Cache(cacheFile, DEFAULT_CACHE_SIZE);
-=======
 
-
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
 
 
     private DataAboutFresh() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-<<<<<<< HEAD
+
        // httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).cache(cache).addInterceptor(new mIntercept()).
          //       addNetworkInterceptor(new mIntercept());
-=======
+
         Log.d("Tag", String.valueOf(MyApp.context));
        File cacheDir = new File(MyApp.context.getCacheDir(), "response");
         Cache cache = new Cache(cacheDir, 1024 * 1024 * 3);
@@ -66,7 +63,7 @@ public class DataAboutFresh<T> {
 
        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).addInterceptor(new CacheInterceptor()).
                addNetworkInterceptor(new CacheInterceptor());
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
+
         OkHttpClient okHttpClient = httpClient.build();
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).
 
@@ -166,36 +163,36 @@ public class DataAboutFresh<T> {
         }
     }
 
-<<<<<<< HEAD
-//    private class mIntercept implements Interceptor {
-//        @Override
-//        public Response intercept(Chain chain) throws IOException {
-//            Request request = chain.request();
-//            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-//                request = request.newBuilder()
-//                        .cacheControl(CacheControl.FORCE_CACHE)
-//                        .build();
-//
-//            }
-//            Response originalResponse = chain.proceed(request);
-//            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
-//
-//                String cacheControl = request.cacheControl().toString();
-//                return originalResponse.newBuilder()
-//                        .header("Cache-Control", cacheControl)
-//                        .removeHeader("Pragma")
-//                        .build();
-//            } else {
-//                return originalResponse.newBuilder()
-//                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
-//                        .removeHeader("Pragma")
-//                        .build();
-//            }
-//        }
-//
-//        ;
-//    }
-=======
+
+    private class mIntercept implements Interceptor {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            if (!NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+                request = request.newBuilder()
+                        .cacheControl(CacheControl.FORCE_CACHE)
+                        .build();
+
+            }
+            Response originalResponse = chain.proceed(request);
+            if (NetWorkUtil.isNetworkAvailable(MyApp.context)) {
+
+                String cacheControl = request.cacheControl().toString();
+                return originalResponse.newBuilder()
+                        .header("Cache-Control", cacheControl)
+                        .removeHeader("Pragma")
+                        .build();
+            } else {
+                return originalResponse.newBuilder()
+                        .header("Cache-Control", "public, only-if-cached, max-stale=2419200")
+                        .removeHeader("Pragma")
+                        .build();
+            }
+        }
+
+        ;
+    }
+
     private static class SingletonHolder {
         private static final DataAboutFresh INSTANCE = new DataAboutFresh();
     }
@@ -235,7 +232,7 @@ public class DataAboutFresh<T> {
     }
 
 
->>>>>>> bbafffc13b39f532ecefac3f0edd4f59d0a4847a
+
 }
 
 

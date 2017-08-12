@@ -60,7 +60,7 @@ public class SchoolCanteen extends Fragment {
                 }
 
                 @Override
-                public void onNext(List<com.mredrock.freshmanspecial.data.Canteen> canteens) {
+                public void onNext(List<Canteen> canteens) {
                     mCanteens.addAll(canteens);
                     mAdapter.setCanteens(mCanteens);
                     mAdapter.notifyDataSetChanged();
