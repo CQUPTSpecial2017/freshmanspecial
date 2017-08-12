@@ -145,7 +145,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="头皮发麻"
                 android:textColor="#969494"
                 android:textSize="@dimen/Special_2017_content"
                 android:layout_marginTop="2dp"/>
@@ -168,7 +168,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="畏惧"
                 android:textColor="#969494"
                 android:textSize="@dimen/Special_2017_content"
                 android:layout_marginTop="2dp"
@@ -195,7 +195,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="小难"
                 android:textColor="#969494"
                 android:textSize="@dimen/Special_2017_content"/>
         </LinearLayout>

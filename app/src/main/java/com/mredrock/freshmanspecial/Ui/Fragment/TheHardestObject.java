@@ -84,10 +84,8 @@ public class TheHardestObject extends Fragment {
                     ArrayList<String> test = new ArrayList<>();
                     for (int j = 0; j < failPluses.get(i).getMajor().size(); j++) {
 
-
                         test.add(failPluses.get(i).getMajor().get(j).getMajor());
                         Log.d("size",failPluses.size()+"");
-                        departmentItems.get(i).add( failPluses.get(i).getMajor().get(j).getMajor());
 
                     }
 
@@ -192,7 +190,7 @@ public class TheHardestObject extends Fragment {
 
                 int position1 = mPickerView.getOption1();
                 int position2 = mPickerView.getOption2();
-                 binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
+                binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
                 binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
 
                 yellowCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(0).getRatio()*100));
