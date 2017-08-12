@@ -123,7 +123,8 @@ public class QQTeam extends Fragment {
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mSearchAdapter.clearString();
+                mSearchResult.clear();
+
             }
 
             @Override
@@ -136,7 +137,6 @@ public class QQTeam extends Fragment {
                 getSearch(editable.toString());
                 mSearchAdapter.setStrings(mSearchResult,0);
                 mSearchAdapter.notifyDataSetChanged();
-                mSearchResult.clear();
 
             }
         });

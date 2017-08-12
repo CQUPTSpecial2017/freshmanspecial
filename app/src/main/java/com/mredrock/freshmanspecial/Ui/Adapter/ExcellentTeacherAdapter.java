@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Special_2017_ImageClickActivity;
 import com.mredrock.freshmanspecial.data.ExcellentStu;
@@ -73,10 +74,17 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
             holder.mTeacher = mTeachers.get(position);
             holder.name.setText(holder.mTeacher.getName());
 
+
         }else {
             holder.mStudent = mStudents.get(position);
-            holder.name.setText(holder.mStudent.getName());
 
+            Glide.with(mContext)
+                    .load(holder.mStudent.getUrl())
+                    .crossFade()
+                    .into(holder.avatar);
+
+            holder.name.setText(holder.mStudent.getName());
+            holder.major.setText(holder.mStudent.getMotto());
         }
 
 

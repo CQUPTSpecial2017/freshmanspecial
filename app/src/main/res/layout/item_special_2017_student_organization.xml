@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:textSize="@dimen/Special_2017_title"
+            android:textSize="@dimen/Special_2017_text_title"
             />
     <TextView
         android:id="@+id/item_special_2017_student_organization_content"
@@ -32,7 +32,7 @@
         android:layout_marginTop="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/Special_2017_title"
+        android:textSize="@dimen/Special_2017_content"
         android:textColor="@color/Special_2017_distinct"
         android:layout_marginBottom="20dp"/>
 

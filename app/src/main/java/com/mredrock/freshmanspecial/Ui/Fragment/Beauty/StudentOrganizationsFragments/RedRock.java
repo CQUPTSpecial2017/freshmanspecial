@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class RedRock  extends Fragment{
     private RecyclerView mRecyclerView;
     private StudentOrganizationAdapter mAdapter ;
     private Context mContext ;
+    private String TAG = "RedRock";
     private ArrayList<Organizations> mOrganizationses = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +43,10 @@ public class RedRock  extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.red_rock_recycle);
-        if (mOrganizationses.size() != 0 ){
+
+        mContext = getContext();
+        mAdapter = new StudentOrganizationAdapter(mContext);
+        if (mOrganizationses.size() == 0 ){
             CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
                 @Override
                 public void onCompleted() {
@@ -50,13 +55,13 @@ public class RedRock  extends Fragment{
 
                 @Override
                 public void onError(Throwable e) {
-
+                    Log.d(TAG,e.toString());
                 }
 
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(1));
-                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
             },"Organizations");
@@ -66,11 +71,7 @@ public class RedRock  extends Fragment{
 
 
 
-        mContext = getContext();
-        mAdapter = new StudentOrganizationAdapter(mContext);
-        mOrganizationses.add(new Organizations());
 
-        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

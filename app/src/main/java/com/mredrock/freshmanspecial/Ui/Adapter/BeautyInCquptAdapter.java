@@ -143,7 +143,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.information.setText(holder.mEnvironment.getContent());
 
                 Glide.with(mContext)
-                        .load(holder.mEnvironment.getUrl())
+                        .load(holder.mEnvironment.getUrl().get(0))
                         .crossFade()
                         .into(holder.image);
 

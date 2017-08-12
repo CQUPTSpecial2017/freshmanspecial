@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.data.BeautyInNear;
 import com.mredrock.freshmanspecial.data.LifeInNear;
@@ -64,7 +65,9 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
     }
 
     public void setDailyLifes(List<LifeInNear> dailyLifes) {
-        mDailyLifes = dailyLifes;
+
+        mDailyLifes.addAll(dailyLifes);
+        type = 2;
     }
 
     @Override
@@ -78,19 +81,33 @@ public class FoodAroundCquptAdapter  extends RecyclerView.Adapter<FoodAroundCqup
     public void onBindViewHolder(FoodViewHolder holder, int position) {
         if (type ==1 ) {
             holder.mBeautyInNear = mBeautyInNears.get(position);
+            Glide.with(mContext)
+                    .load(holder.mBeautyInNear.getUrl().get(0))
+                    .crossFade()
+                    .into(holder.image);
             holder.name.setText(holder.mBeautyInNear.getName());
             holder.describe.setText(holder.mBeautyInNear.getResume());
             holder.way.setText(holder.mBeautyInNear.getLocation());
 
 
         }else if (type == 0){
+
             holder.mFood = mFoods.get(position);
+            Glide.with(mContext)
+                    .load(holder.mFood.getUrl().get(0))
+                    .crossFade()
+                    .into(holder.image);
             holder.name.setText(holder.mFood.getName());
             holder.describe.setText(holder.mFood.getResume());
             holder.way.setText(holder.mFood.getLocation());
 
         }else {
+
             holder.mDailyLife = mDailyLifes.get(position);
+            Glide.with(mContext)
+                    .load(holder.mDailyLife.getUrl().get(0))
+                    .crossFade()
+                    .into(holder.image);
             holder.name.setText(holder.mDailyLife.getName());
             holder.describe.setText(holder.mDailyLife.getResume());
             holder.way.setText(holder.mDailyLife.getLocation());

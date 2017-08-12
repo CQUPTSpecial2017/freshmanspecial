@@ -43,18 +43,19 @@ public class DailyLife extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.daily_life_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        //请求数据
+
         mContext = getContext();
-       initView();
-
-
-
-
+        initView();
 
         super.onActivityCreated(savedInstanceState);
     }
+
+
     public void initView(){
         mAdapter = new FoodAroundCquptAdapter(mContext);
+
+        mRecyclerView.setAdapter(mAdapter);
+
         DataAboutFresh.getInstance().getLifeInNear(new Subscriber<List<LifeInNear>>() {
             @Override
             public void onCompleted() {
@@ -70,7 +71,7 @@ public class DailyLife extends Fragment {
             public void onNext(List<LifeInNear> lifeInNears) {
                 mDailyLifes.addAll(lifeInNears);
                 mAdapter.setDailyLifes(mDailyLifes);
-                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
         },"LifeInNear");
 

@@ -21,15 +21,14 @@ import java.util.List;
 
 public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrganizationAdapter.StudentOrganizationViewHolder> {
     private Context mContext;
-    private List<Organizations> mOrganizationses = new ArrayList<>();
+
+    private List<Organizations.DepartmentBean> mDepartmentBeen = new ArrayList<>();
     private StudentOrganizationViewHolder mViewHolder;
 
-    public List<Organizations> getStudentOrganizations() {
-        return mOrganizationses;
-    }
 
-    public void setStudentOrganizations(List<Organizations> organizationses) {
-        mOrganizationses = organizationses;
+
+    public void setDepartmentBeen(List<Organizations.DepartmentBean> departmentBeen) {
+        mDepartmentBeen = departmentBeen;
     }
 
     @Override
@@ -41,19 +40,18 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
 
     @Override
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
-        if (mOrganizationses.size()!= 0){
-        holder.mDepartmentBean = mOrganizationses.get(0).getDepartment().get(position);
+
+        holder.mDepartmentBean = mDepartmentBeen.get(position);
         holder.title.setText(holder.mDepartmentBean.getName());
         holder.content.setText(holder.mDepartmentBean.getResume());
         if (position == 0){
             holder.distinct.setVisibility(View.GONE);
         }
-        }
     }
 
     @Override
     public int getItemCount() {
-        return mOrganizationses.size();
+        return mDepartmentBeen.size();
     }
 
     public StudentOrganizationAdapter() {
@@ -64,9 +62,9 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
         mContext = context;
     }
 
-    public StudentOrganizationAdapter(Context context, List<Organizations> organizationses) {
+    public StudentOrganizationAdapter(Context context, List<Organizations.DepartmentBean> departmentBeen) {
         mContext = context;
-        mOrganizationses = organizationses;
+        mDepartmentBeen .addAll(departmentBeen) ;
     }
 
     class StudentOrganizationViewHolder extends RecyclerView.ViewHolder{

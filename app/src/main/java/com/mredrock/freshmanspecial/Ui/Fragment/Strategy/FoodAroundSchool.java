@@ -45,7 +45,7 @@ public class FoodAroundSchool extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
-        //请求数据
+        initView();
 
 
 
@@ -54,7 +54,7 @@ public class FoodAroundSchool extends Fragment {
     }
     public void initView(){
         mAdapter = new FoodAroundCquptAdapter(mContext);
-
+        mRecyclerView.setAdapter(mAdapter);
         DataAboutFresh.getInstance().getCate(new Subscriber<List<Cate>>() {
             @Override
             public void onCompleted() {
@@ -70,7 +70,7 @@ public class FoodAroundSchool extends Fragment {
             public void onNext(List<Cate> cates) {
                     mFoods.addAll(cates);
                     mAdapter.setFoods(cates);
-                    mRecyclerView.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
             }
         },"Cate");
     }

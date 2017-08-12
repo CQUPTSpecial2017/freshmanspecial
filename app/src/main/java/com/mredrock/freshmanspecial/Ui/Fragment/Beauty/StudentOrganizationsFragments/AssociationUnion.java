@@ -41,7 +41,10 @@ public class AssociationUnion extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.association_union_recycle);
-        if (mOrganizationses.size() != 0 ){
+        mContext = getContext();
+        mAdapter = new StudentOrganizationAdapter(mContext);
+
+        if (mOrganizationses.size() == 0 ){
             CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
                 @Override
                 public void onCompleted() {
@@ -56,7 +59,7 @@ public class AssociationUnion extends Fragment {
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(4));
-                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
             },"Organizations");
@@ -66,11 +69,7 @@ public class AssociationUnion extends Fragment {
 
 
 
-        mContext = getContext();
-        mAdapter = new StudentOrganizationAdapter(mContext);
-        mOrganizationses.add(new Organizations());
 
-        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

@@ -41,7 +41,10 @@ public class Techlink extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.techlink_recycle);
-        if (mOrganizationses.size() != 0 ){
+
+        mContext = getContext();
+        mAdapter = new StudentOrganizationAdapter(mContext);
+        if (mOrganizationses.size() == 0 ){
             CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
                 @Override
                 public void onCompleted() {
@@ -56,7 +59,7 @@ public class Techlink extends Fragment{
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(3));
-                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
             },"Organizations");
@@ -65,11 +68,6 @@ public class Techlink extends Fragment{
 
 
 
-        mContext = getContext();
-        mAdapter = new StudentOrganizationAdapter(mContext);
-        mOrganizationses.add(new Organizations());
-
-        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

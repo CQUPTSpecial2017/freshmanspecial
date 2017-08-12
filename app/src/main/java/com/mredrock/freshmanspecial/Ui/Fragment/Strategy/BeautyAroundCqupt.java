@@ -52,6 +52,8 @@ public class BeautyAroundCqupt extends Fragment {
 
 
     public void initView(){
+
+        mAdapter = new FoodAroundCquptAdapter(mContext);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         //请求数据
         DataAboutFresh.getInstance().getBeautyInNear(new Subscriber<List<BeautyInNear>>() {
@@ -68,11 +70,13 @@ public class BeautyAroundCqupt extends Fragment {
             @Override
             public void onNext(List<BeautyInNear> beautyInNears) {
                 mAroundCqupts.addAll(beautyInNears);
+                mAdapter.setBeautyAroundCqupts(mAroundCqupts);
+                mAdapter.notifyDataSetChanged();
             }
         },"BeautyInNear");
 
-        mAdapter = new FoodAroundCquptAdapter(mContext);
-        mAdapter.setBeautyAroundCqupts(mAroundCqupts);
+
+
         mRecyclerView.setAdapter(mAdapter);
 
 

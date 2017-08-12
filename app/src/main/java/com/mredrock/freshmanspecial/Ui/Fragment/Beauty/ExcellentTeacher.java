@@ -42,7 +42,9 @@ public class ExcellentTeacher extends Fragment {
 
         mContext = getContext();
         mAdapter = new ExcellentTeacherAdapter(mContext);
-        mAdapter.setTeachers(mTeachers);
+
+
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
         super.onActivityCreated(savedInstanceState);

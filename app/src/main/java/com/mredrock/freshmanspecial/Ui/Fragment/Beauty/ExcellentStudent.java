@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,12 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.ExcellentTeacherAdapter;
 import com.mredrock.freshmanspecial.data.*;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/7 0007.
@@ -43,7 +48,24 @@ public class ExcellentStudent  extends Fragment{
 
         mContext = getContext();
         mAdapter = new ExcellentTeacherAdapter(mContext);
-        mAdapter.setStudents(mStudents);
+        CquptMienData.getInstance().getExcellentStu(new Subscriber<List<ExcellentStu>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d("ExcellentStudent",e.toString());
+            }
+
+            @Override
+            public void onNext(List<ExcellentStu> excellentStus) {
+                mStudents.addAll(excellentStus);
+                mAdapter.setStudents(mStudents);
+                mAdapter.notifyDataSetChanged();
+            }
+        },"ExcellentStu");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
         super.onActivityCreated(savedInstanceState);

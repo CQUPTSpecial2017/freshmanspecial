@@ -41,6 +41,9 @@ public class ArtGroup extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.art_group_recycle);
+        mContext = getContext();
+        mAdapter = new StudentOrganizationAdapter(mContext);
+
         if (mOrganizationses.size() == 0 ){
             CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
                 @Override
@@ -56,21 +59,13 @@ public class ArtGroup extends Fragment{
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(6));
-                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
             },"Organizations");
         }
 
 
-
-
-
-        mContext = getContext();
-        mAdapter = new StudentOrganizationAdapter(mContext);
-        mOrganizationses.add(new Organizations());
-
-        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

@@ -41,7 +41,11 @@ public class SchoolYouthAssociation  extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_youth_association_recycle);
-        if (mOrganizationses.size() != 0 ){
+
+        mContext = getContext();
+        mAdapter = new StudentOrganizationAdapter(mContext);
+
+        if (mOrganizationses.size() == 0 ){
             CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
                 @Override
                 public void onCompleted() {
@@ -56,20 +60,13 @@ public class SchoolYouthAssociation  extends Fragment{
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(5));
-                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
             },"Organizations");
         }
 
 
-
-
-        mContext = getContext();
-        mAdapter = new StudentOrganizationAdapter(mContext);
-
-
-        mAdapter.setStudentOrganizations(mOrganizationses);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);

@@ -46,7 +46,7 @@ public class SchoolEnvironment extends Fragment {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_environment_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
-        if (mEnvironments.size() == 0) {
+
             DataAboutFresh.getInstance().getSchoolBuilding(new Subscriber<List<SchoolBuilding>>() {
                 @Override
                 public void onCompleted() {
@@ -60,12 +60,13 @@ public class SchoolEnvironment extends Fragment {
 
                 @Override
                 public void onNext(List<SchoolBuilding> schoolBuildings) {
+                    mEnvironments.clear();
                     mEnvironments.addAll(schoolBuildings);
                     mAdapter.setEnvironments(mEnvironments);
                     mAdapter.notifyDataSetChanged();
                 }
-            }, "SchoolBuilding");
-        }
+            }, "SchoolBuildings");
+
 
         mAdapter = new BeautyInCquptAdapter(mContext);
         mAdapter.setEnvironments(mEnvironments);
