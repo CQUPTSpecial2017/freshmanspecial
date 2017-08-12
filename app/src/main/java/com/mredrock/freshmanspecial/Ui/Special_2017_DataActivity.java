@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mredrock.freshmanspecial.BR;
+import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.MenAndWomen;
@@ -56,7 +58,12 @@ public class Special_2017_DataActivity extends FragmentActivity {
 
         binding.dataTabLayout.setTabMode(TabLayout.MODE_FIXED);
         binding.dataTabLayout.setupWithViewPager(binding.dataViewpager);
+        binding.setVariable(BR.onClick,new Special_2017_DataActivity.Presenter());
     }
+    public class Presenter implements Presenterable {
+        public void onBack() {
+            finish();
+        }
 
-
+    }
 }

@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mredrock.freshmanspecial.BR;
+import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.BeautyInCqupt;
@@ -59,5 +61,12 @@ public class Special_2017_BeautyActivity extends FragmentActivity {
         mBinding.cquptBeautyViewpager.setOffscreenPageLimit(4);
         mBinding.cquptBeautyTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mBinding.cquptBeautyTabLayout.setupWithViewPager(mBinding.cquptBeautyViewpager);
+        mBinding.setVariable(BR.onClick,new Special_2017_BeautyActivity.Presenter());
+    }
+    public class Presenter implements Presenterable {
+        public void onBack() {
+            finish();
+        }
+
     }
 }

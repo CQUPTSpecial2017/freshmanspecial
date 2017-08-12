@@ -15,8 +15,12 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.StudentOrganizationAdapter;
 import com.mredrock.freshmanspecial.data.Organizations;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/7 0007.
@@ -38,8 +42,26 @@ public class YouthLeagueCommittee extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.youth_league_committee_recycle);
 
-        // TODO: 2017/8/10 0010 获取信息
+        if (mOrganizationses.size() == 0 ){
+            CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
+                @Override
+                public void onCompleted() {
 
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(List<Organizations> organizationses) {
+                    mOrganizationses.add(organizationses.get(0));
+                    mAdapter.setStudentOrganizations(mOrganizationses);
+                    mAdapter.notifyDataSetChanged();
+                }
+            },"Organizations");
+        }
 
 
 

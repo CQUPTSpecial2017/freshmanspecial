@@ -41,11 +41,13 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
 
     @Override
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
-        holder.mOrganizations = mOrganizationses.get(position);
-        holder.title.setText(holder.mOrganizations.getDepartment().get(position).getName());
-        holder.content.setText(holder.mOrganizations.getDepartment().get(position).getResume());
+        if (mOrganizationses.size()!= 0){
+        holder.mDepartmentBean = mOrganizationses.get(0).getDepartment().get(position);
+        holder.title.setText(holder.mDepartmentBean.getName());
+        holder.content.setText(holder.mDepartmentBean.getResume());
         if (position == 0){
             holder.distinct.setVisibility(View.GONE);
+        }
         }
     }
 
@@ -71,7 +73,7 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
         private TextView title;
         private TextView content;
         private TextView distinct;
-        private Organizations mOrganizations;
+        private Organizations.DepartmentBean mDepartmentBean;
         public StudentOrganizationViewHolder(View itemView) {
             super(itemView);
             title = (TextView)itemView.findViewById(R.id.item_special_2017_student_organization_name);

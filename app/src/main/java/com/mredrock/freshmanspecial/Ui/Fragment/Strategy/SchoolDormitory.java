@@ -15,8 +15,12 @@ import android.view.ViewGroup;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.BeautyInCquptAdapter;
 import com.mredrock.freshmanspecial.data.*;
+import com.mredrock.freshmanspecial.httptools.DataAboutFresh;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/9 0009.
@@ -41,12 +45,33 @@ public class SchoolDormitory extends Fragment {
         mRecyclerView =(RecyclerView) mDataBinding.getRoot().findViewById(R.id.school_dormitory_recycle);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
-        //请求数据
+
+        if (mDormitories.size() == 0){
+            DataAboutFresh.getInstance().getDormitory(new Subscriber<List<Dormitory>>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(List<com.mredrock.freshmanspecial.data.Dormitory> dormitories) {
+                    mDormitories.addAll(dormitories);
+                    mAdapter.setDormitories(mDormitories);
+                    mAdapter.notifyDataSetChanged();
+                }
+            },"Dormitory");
+        }
 
 
         mAdapter = new BeautyInCquptAdapter(mContext);
         mAdapter.setDormitories(mDormitories);
 
+        mRecyclerView.setAdapter(mAdapter);
 
         super.onActivityCreated(savedInstanceState);
     }
