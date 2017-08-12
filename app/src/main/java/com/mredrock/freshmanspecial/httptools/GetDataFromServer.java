@@ -62,14 +62,7 @@ public class GetDataFromServer<T> {
                 .subscribe(subscriber);
     }
 
-    public void getQQgroupNumber(Subscriber<List<T>> subscriber, String RequestType) {
-        dataService.postQQGroupNumber(RequestType)
-                .map(new HttpResultFunc<>())
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-    }
+
     public void getWorkRatio(Subscriber<List<T>> subscriber, String RequestType) {
         dataService.postWorkRatio(RequestType)
                 .map(new HttpResultFunc<>())
@@ -79,7 +72,14 @@ public class GetDataFromServer<T> {
                 .subscribe(subscriber);
     }
 
-
+    public void getQQgroupNumber(Subscriber<List<T>> subscriber, String RequestType) {
+        dataService.getQQGroup(RequestType)
+                .map(new HttpResultFunc<>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 
     private static class SingletonHolder {
         private static final GetDataFromServer INSTANCE = new GetDataFromServer();

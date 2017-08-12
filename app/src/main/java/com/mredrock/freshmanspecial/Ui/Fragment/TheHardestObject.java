@@ -83,13 +83,12 @@ public class TheHardestObject extends Fragment {
                     collegeItems.add(failPluses.get(i).getCollege());
                     ArrayList<String> test = new ArrayList<>();
                     for (int j = 0; j < failPluses.get(i).getMajor().size(); j++) {
-<<<<<<< HEAD
+
 
                         test.add(failPluses.get(i).getMajor().get(j).getMajor());
-=======
                         Log.d("size",failPluses.size()+"");
                         departmentItems.get(i).add( failPluses.get(i).getMajor().get(j).getMajor());
->>>>>>> 922a1efeb4b5de7485663361aee4db8a8211875f
+
                     }
 
                     departmentItems.add(test);
@@ -147,7 +146,7 @@ public class TheHardestObject extends Fragment {
         mPickerView.setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(Object o) {
-<<<<<<< HEAD
+
                 position1 = mPickerView.getOption1();
 
                 binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
@@ -193,12 +192,12 @@ public class TheHardestObject extends Fragment {
                 position2 = mMajorPickerView.getOption1();
 
                 binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
-=======
+
                 int position1 = mPickerView.getOption1();
                 int position2 = mPickerView.getOption2();
-              //  binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
-              //  binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
->>>>>>> 922a1efeb4b5de7485663361aee4db8a8211875f
+                 binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
+                binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
+
                 yellowCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(0).getRatio()*100));
                 greenCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(1).getRatio()*100));
                 blueCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(2).getRatio()*100));

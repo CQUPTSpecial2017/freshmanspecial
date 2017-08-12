@@ -7,33 +7,18 @@ import java.io.Serializable;
  */
     //优秀学生
 public class ExcellentStudent implements Serializable{
+
+    /**
+     * name : 丛广林
+     * resume : 重邮小帮手背后的技术好能手，用创意传递团思党意；红岩网校里辛勤的代码探索者，用产品激活青春正能量。用原创游戏贴近同学，建专题网站打造主流，带技能培训熔炼团队，抓宣传跟帖清朗网络。他就是将实践服务融入网络的社会主义核心价值观传播者。
+
+     ——e路有你，书写无悔青春
+     * url : http://hongyan.cqupt.edu.cn/welcome/2017/photoForWelcome/cyfc_yxxs/1/1.JPG
+     */
+
     private String name;
-    private String information;
-    private String avatarUrl;
-    private String says;
-
-
-    public String getSays(){
-        return says;
-    }
-
-    public void setSays(String says) {
-        this.says = says;
-    }
-
-    public ExcellentStudent() {
-    }
-
-    public ExcellentStudent(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public ExcellentStudent(String name, String says,String information, String avatarUrl) {
-        this.says = says;
-        this.name = name;
-        this.information = information;
-        this.avatarUrl = avatarUrl;
-    }
+    private String resume;
+    private String url;
 
     public String getName() {
         return name;
@@ -43,19 +28,19 @@ public class ExcellentStudent implements Serializable{
         this.name = name;
     }
 
-    public String getInformation() {
-        return information;
+    public String getResume() {
+        return resume;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

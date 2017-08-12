@@ -63,7 +63,7 @@ public class FailPlus {
                  */
 
                 private String course;
-                private String ratio;
+                private float ratio;
 
                 public String getCourse() {
                     return course;
@@ -73,11 +73,11 @@ public class FailPlus {
                     this.course = course;
                 }
 
-                public String getRatio() {
+                public float getRatio() {
                     return ratio;
                 }
 
-                public void setRatio(String ratio) {
+                public void setRatio(float ratio) {
                     this.ratio = ratio;
                 }
             }
