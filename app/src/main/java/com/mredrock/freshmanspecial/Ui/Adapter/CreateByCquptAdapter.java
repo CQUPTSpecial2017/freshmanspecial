@@ -73,6 +73,7 @@ public class CreateByCquptAdapter extends RecyclerView.Adapter<CreateByCquptAdap
                     .load(holder.mExcellentTech.getUrl())
                     .crossFade()
                     .into(holder.mImageView);
+            holder.actionStart.setVisibility(View.INVISIBLE);
         }
 
            else if (type == 0) {
@@ -118,10 +119,12 @@ public class CreateByCquptAdapter extends RecyclerView.Adapter<CreateByCquptAdap
         TextView name;
         ExcellentTech mExcellentTech;
         NatureCQUPT mCQUPT;
+        ImageView actionStart ;
         public CreateByCquptViewHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView)itemView.findViewById(R.id.special_2017_create_by_cqupt_image);
             name = (TextView) itemView.findViewById(R.id.special_2017_create_by_cqupt_name);
+            actionStart = (ImageView)itemView.findViewById(R.id.special_2017_create_by_cqupt_start_action);
 
         }
     }

@@ -26,6 +26,7 @@
             android:scaleType="fitXY"
             />
             <ImageView
+                android:id="@+id/special_2017_create_by_cqupt_start_action"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_centerInParent="true"

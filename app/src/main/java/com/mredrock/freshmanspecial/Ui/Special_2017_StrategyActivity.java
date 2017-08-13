@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -67,7 +68,23 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         }
         mBeautyViewPagerAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
         mBeautyViewPagerAdapter.setTitles(mTitles);
+        mBinding.cquptStrategyViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (positionOffsetPixels == 4)
+                QQTeam.hideInput(mFragments.get(positionOffsetPixels).getView());
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         mBinding.cquptStrategyViewpager.setAdapter(mBeautyViewPagerAdapter);
         mBinding.cquptStrategyTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mBinding.cquptStrategyTabLayout.setupWithViewPager(mBinding.cquptStrategyViewpager);

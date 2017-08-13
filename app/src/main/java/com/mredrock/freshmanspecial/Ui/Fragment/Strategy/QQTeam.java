@@ -223,6 +223,7 @@ public class QQTeam extends Fragment {
     public void onPause() {
         isSearching = false ;
         mStrings.clear();
+        hideInput(this.searchEdit);
         super.onPause();
     }
 }
