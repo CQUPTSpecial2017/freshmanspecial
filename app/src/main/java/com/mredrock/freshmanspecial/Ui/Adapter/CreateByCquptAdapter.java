@@ -93,7 +93,9 @@ public class CreateByCquptAdapter extends RecyclerView.Adapter<CreateByCquptAdap
                     intent.setAction("android.intent.action.VIEW");
                     Uri content_url = Uri.parse(mCreates.get(position).getUrl());
                     intent.setData(content_url);
-                    intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
+                    intent.addCategory("android.intent.category.DEFAULT");
+                 //   intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
+
                     mContext.startActivity(intent);
                 }
             });
