@@ -44,8 +44,9 @@ public class TheHardestObject extends Fragment {
     private TextView yellowText;
     private TextView greenText;
     private TextView blueText;
-    int position1 ;
+    int position1 = -1;
     int position2 ;
+
     private ArrayList<String> collegeItems  = new ArrayList<>();
     private ArrayList<ArrayList<String>> departmentItems = new ArrayList<ArrayList<String>>();
 
@@ -115,22 +116,16 @@ public class TheHardestObject extends Fragment {
 
 
             }
-        })      .setLayoutRes(R.layout.pickerview_academy, new CustomListener() {
-            @Override
-            public void customLayout(View v) {
-
-            }
         })
-                .setTitleBgColor(Color.parseColor("#f2fafa"))
-                .setContentTextSize(16)
+                .setTitleBgColor(Color.WHITE)
                 .setCancelText("")
-                .setCancelColor(Color.parseColor("#f2fafa"))
+                .setCancelColor(Color.WHITE)
                 .setBgColor(Color.WHITE)
-                .setContentTextSize(18)
+                .setContentTextSize(16)
                 .setLineSpacingMultiplier(2)
-                .setTextColorCenter(Color.BLACK)
+                .setTextColorCenter(Color.WHITE)
                 .setDividerType(WheelView.DividerType.FILL)
-                .setSubCalSize(14)
+                .setSubCalSize(17)
                 .setSubmitText("完成")
                 .setSubmitColor(Color.parseColor("#81C0FE"))
                 .isDialog(false)
@@ -160,24 +155,21 @@ public class TheHardestObject extends Fragment {
 
 
             }
-        })      .setLayoutRes(R.layout.pickerview_academy, new CustomListener() {
-            @Override
-            public void customLayout(View v) {
-
-            }
         })
-                .setTitleBgColor(Color.parseColor("#f2fafa"))
-                .setContentTextSize(16)
+
+                .setTitleBgColor(Color.WHITE)
                 .setCancelText("")
-                .setCancelColor(Color.parseColor("#f2fafa"))
+                .setCancelColor(Color.WHITE)
                 .setBgColor(Color.WHITE)
-                .setContentTextSize(18)
-                .setLineSpacingMultiplier(2)
-                .setTextColorCenter(Color.BLACK)
-                .setDividerType(WheelView.DividerType.FILL)
-                .setSubCalSize(14)
-                .setSubmitText("完成")
                 .setSubmitColor(Color.parseColor("#81C0FE"))
+                .setSubCalSize(17)
+                .setContentTextSize(17)
+                .setLineSpacingMultiplier(2)
+                .setTextColorCenter(Color.WHITE)
+                .setDividerType(WheelView.DividerType.FILL)
+
+                .setSubmitText("完成")
+
                 .isDialog(false)
                 .build();
 
@@ -187,18 +179,17 @@ public class TheHardestObject extends Fragment {
             @Override
             public void onDismiss(Object o) {
 
-                position2 = mMajorPickerView.getOption1();
-
-                binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
 
                 int position1 = mPickerView.getOption1();
-                int position2 = mPickerView.getOption2();
+                int position2 = mMajorPickerView.getOption1();
+
                 binding.setVariable(BR.special_2017_the_hardest_object_college,collegeItems.get(position1));
                 binding.setVariable(BR.special_2017_the_hardest_object_major,departmentItems.get(position1).get(position2));
 
                 yellowCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(0).getRatio()*100));
                 greenCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(1).getRatio()*100));
                 blueCircleView.setPercent((int) (mData.get(position1).getMajor().get(position2).getCourse().get(2).getRatio()*100));
+                binding.invalidateAll();
                 yellowCircleView.startAnimation();
                 greenCircleView.startAnimation();
                 blueCircleView.startAnimation();
@@ -217,6 +208,7 @@ public class TheHardestObject extends Fragment {
             mPickerView.show();
         }
         public void onMajorClick(){
+            if (position1>=0)
             mMajorPickerView.show();
         }
     }

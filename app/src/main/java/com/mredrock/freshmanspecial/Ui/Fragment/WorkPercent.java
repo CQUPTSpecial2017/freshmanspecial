@@ -72,26 +72,6 @@ public class WorkPercent extends Fragment {
             }
         },"WorkRatio");
 
-     /*   mSubscriber = new Subscriber<ArrayList<WorkRatio>>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d("WorkPercent",e.toString());
-            }
-
-            @Override
-            public void onNext(ArrayList<WorkRatio> workRatios) {
-                mWorkRatios.addAll(workRatios);
-                initOptionItems();
-                Log.d("WorkPercent",mWorkRatios.get(0).getCollege());
-
-            }
-        };
-        RatioData.getInstance().getWorkRatio(mSubscriber,"WorkRatio");*/
         initOptionPicker();
 
 
@@ -124,18 +104,17 @@ public class WorkPercent extends Fragment {
 
             }
         })
-//                .setTitleBgColor(Color.parseColor("#f2fafa"))
-                .setContentTextSize(16)
+                .setTitleBgColor(Color.WHITE)
                 .setCancelText("")
-                .setCancelColor(Color.parseColor("#f2fafa"))
-                .setBgColor(Color.parseColor("#ffffff"))
-                .setContentTextSize(18)
+                .setCancelColor(Color.WHITE)
+                .setBgColor(Color.WHITE)
+                .setContentTextSize(16)
                 .setLineSpacingMultiplier(2)
                 .setTextColorCenter(Color.WHITE)
                 .setDividerType(WheelView.DividerType.FILL)
-                .setSubCalSize(14)
-//                .setSubmitText("完成")
-//                .setSubmitColor(Color.parseColor("#81C0FE"))
+                .setSubCalSize(17)
+                .setSubmitText("完成")
+                .setSubmitColor(Color.parseColor("#81C0FE"))
                 .isDialog(false)
                 .build();
         mPickerView.setPicker(optionItems);

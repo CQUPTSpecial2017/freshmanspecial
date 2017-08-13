@@ -41,7 +41,10 @@ public class Special_2017_BeautyActivity extends FragmentActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_cqupt_beauty);
         initView();
     }
+
+
     private void initView(){
+
         mFragments = new ArrayList<>();
         mFragments.add(new StudentOrganizations());
         mFragments.add(new CreateByCqupt());
@@ -63,6 +66,8 @@ public class Special_2017_BeautyActivity extends FragmentActivity {
         mBinding.cquptBeautyTabLayout.setupWithViewPager(mBinding.cquptBeautyViewpager);
         mBinding.setVariable(BR.onClick,new Special_2017_BeautyActivity.Presenter());
     }
+
+
     public class Presenter implements Presenterable {
         public void onBack() {
             finish();

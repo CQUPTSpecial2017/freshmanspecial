@@ -40,7 +40,7 @@
                     android:id="@+id/special_2017_data_work_percent_academy_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                     android:hint="请选择学院"
                     android:textColorHint="#969494"

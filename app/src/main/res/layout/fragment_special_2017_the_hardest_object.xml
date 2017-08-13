@@ -45,13 +45,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@{special_2017_the_hardest_object_college}"
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择学院"
                 android:textColorHint="#969494"
                 android:textSize="@dimen/Special_2017_text_title"
-                android:textColor="#000"
+                android:textColor="#666"
                 />
         </android.support.v7.widget.CardView>
 
@@ -75,13 +75,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@{special_2017_the_hardest_object_major}"
                 android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
                 android:hint="请选择专业"
                 android:textColorHint="#969494"
                 android:textSize="@dimen/Special_2017_text_title"
-                android:textColor="#000"
+                android:textColor="#666"
                 />
         </android.support.v7.widget.CardView>
     </RelativeLayout>

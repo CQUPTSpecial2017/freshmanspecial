@@ -89,22 +89,16 @@ public class MenAndWomen extends Fragment  {
 
                 binding.invalidateAll();
             }
-        }).setLayoutRes(R.layout.pickerview_academy, new CustomListener() {
-            @Override
-            public void customLayout(View v) {
-
-            }
         })
-                .setTitleBgColor(Color.parseColor("#f2fafa"))
-                .setContentTextSize(16)
+                .setTitleBgColor(Color.WHITE)
                 .setCancelText("")
-                .setCancelColor(Color.parseColor("#f2fafa"))
-                .setBgColor(Color.parseColor("#ffffff"))
-                .setContentTextSize(18)
+                .setCancelColor(Color.WHITE)
+                .setBgColor(Color.WHITE)
+                .setContentTextSize(16)
                 .setLineSpacingMultiplier(2)
-                .setTextColorCenter(Color.BLACK)
+                .setTextColorCenter(Color.WHITE)
                 .setDividerType(WheelView.DividerType.FILL)
-                .setSubCalSize(14)
+                .setSubCalSize(17)
                 .setSubmitText("完成")
                 .setSubmitColor(Color.parseColor("#81C0FE"))
                 .isDialog(false)

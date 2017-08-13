@@ -69,12 +69,12 @@
     
     </RelativeLayout>
 
-    <com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/cqupt_beauty_viewpager"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/Special_2017_cqupt_beauty_background"
-        ></com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager>
+        ></android.support.v4.view.ViewPager>
     </LinearLayout>
 </layout>
