@@ -117,7 +117,7 @@ public class Requirements extends Fragment {
         spannableString= SpannableString.valueOf("注意交通安全:不乘坐“黑车”和存在安全隐患的车辆。");
         spannableString.setSpan(foregroundColorSpan,0,7, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         Caution_for_translate.setText(spannableString);
-        spannableString= SpannableString.valueOf("遇到情况及时与公安机关联系。在遇到不法侵害时,要及时与公安机关(110)或者学校保卫处联系(62461018,62460110)");
+        spannableString= SpannableString.valueOf("遇到情况及时与公安机关联系。在遇到不法侵害时,要及时与公安机关（110）或者学校保卫处联系（62461018,62460110）");
         safe_warning.setText(spannableString);
         spannableString= SpannableString.valueOf("迎新接站：报道期间，我校将在重庆火车北站南、北广场设新生接待站，有同学负责引导新生到指定地点乘车");
         spannableString.setSpan(foregroundColorSpan,0,5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

@@ -151,6 +151,9 @@ public class TheHardestObject extends Fragment {
 
             }
         });
+
+
+
         mMajorPickerView = new OptionsPickerView.Builder(this.getContext(), new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {

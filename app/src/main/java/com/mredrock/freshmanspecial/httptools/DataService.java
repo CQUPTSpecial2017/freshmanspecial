@@ -106,7 +106,7 @@ public interface DataService<T> {
 
     @Headers("Cache-Control: public, max-age=3600")
     @GET("MilitaryTrainingPhoto")
-    Observable<HttpResult<List<MilitaryTrainingPhoto>>> getMilitaryTrainingPhoto(@Query("RequestType") String dataName);
+    Observable<HttpResult<MilitaryTrainingPhoto>> getMilitaryTrainingPhoto(@Query("RequestType") String dataName);
 
 
     @Headers("Cache-Control: public, max-age=3600")

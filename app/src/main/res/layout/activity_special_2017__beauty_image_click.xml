@@ -3,16 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v4.view.ViewPager
-            android:id="@+id/special_2017_beauty_image_click_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        </android.support.v4.view.ViewPager>
+    >
+    <data>
+        <variable
+            name="onClick"
+            type="com.mredrock.freshmanspecial.Ui.Special_2017_BeautyImageClickActivity.Presenter"
+            >
+        </variable>
+    </data>
+    <RelativeLayout
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{() -> onClick.onBack()}"
+        >
+       <TextView
+           android:id="@+id/activity_image_click_count"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textSize="@dimen/Special_2017_title"
+           android:textColor="#fff"
+           android:gravity="center"
+           android:layout_margin="25dp"
+           android:onClick="@{() -> onClick.onBack()}"
+           />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_image_click_viewpager"
+            android:layout_below="@+id/activity_image_click_count"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{() -> onClick.onBack()}"
+            ></android.support.v4.view.ViewPager>
 
     </RelativeLayout>
 

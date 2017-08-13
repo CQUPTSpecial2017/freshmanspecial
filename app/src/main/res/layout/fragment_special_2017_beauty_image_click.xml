@@ -2,51 +2,25 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-<RelativeLayout
-android:layout_height="wrap_content"
-android:layout_width="260dp"
-android:layout_centerHorizontal="true"
-android:background="@color/Special_2017_whileBack"
->
-<ImageView
-android:id="@+id/special_2017_image_click_cancel"
-android:layout_width="23dp"
-android:layout_height="23dp"
-android:layout_alignParentRight="true"
-android:layout_marginRight="10dp"
-android:layout_marginTop="10dp"
-android:background="@drawable/cancel"
-/>
-<de.hdodenhof.circleimageview.CircleImageView
-android:id="@+id/special_2017_image_click_avatar"
-android:layout_width="106dp"
-android:layout_height="106dp"
-android:layout_below="@+id/special_2017_image_click_cancel"
-android:layout_centerHorizontal="true"
-/>
-<TextView
-android:id="@+id/special_2017_image_click_name"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_below="@+id/special_2017_image_click_avatar"
-android:layout_centerHorizontal="true"
-android:layout_marginTop="12dp"
-android:textSize="@dimen/Special_2017_text_title"
-android:textColor="#000"
-/>
-<TextView
-android:id="@+id/special_2017_image_click_information"
-android:layout_marginBottom="26dp"
-android:layout_marginLeft="21dp"
-android:layout_marginRight="21dp"
-android:layout_marginTop="19dp"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_centerHorizontal="true"
-android:layout_below="@id/special_2017_image_click_name"
-android:textSize="@dimen/Special_2017_content"
-android:lineSpacingExtra ="8dp"
-android:textColor="#000"/>
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+
+    >
+        <ImageView
+            android:id="@+id/item_image_click_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/item_image_click_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/Special_2017_title"
+            android:gravity="center"
+            android:layout_below="@id/item_image_click_image"/>
+
 
 </RelativeLayout>
 </layout>

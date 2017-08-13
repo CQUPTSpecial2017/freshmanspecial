@@ -3,14 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:layout_marginTop="6dp"
+
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:background="@color/Special_2017_whileBack"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="6dp"
             android:id="@+id/excellent_teachers_recycle"
             android:layout_width="match_parent"

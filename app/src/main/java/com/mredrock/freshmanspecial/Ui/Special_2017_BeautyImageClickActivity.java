@@ -1,11 +1,18 @@
 package com.mredrock.freshmanspecial.Ui;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.widget.TextView;
 
+import com.mredrock.freshmanspecial.BR;
+import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
+
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.BeautyImageClick;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
@@ -20,15 +27,19 @@ import com.mredrock.freshmanspecial.data.SchoolBuilding;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017BeautyImageClickBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
     private ActivitySpecial2017BeautyImageClickBinding mBinding;
+
     private Special_2017_ViewPagerAdapter mAdapter;
-    private ArrayList<Canteen> mCanteens = new ArrayList<>() ;
-    private ArrayList<SchoolBuilding> mEnvironments =  new ArrayList<>();
-    private ArrayList<Dormitory> mDormitories = new ArrayList<>();
-    private ArrayList<BeautyInCqupt> mBeautyInCqupts = new ArrayList<>();
-    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private Canteen mCanteen = new Canteen ();
+    private Context mContext =this;
+    private Dormitory mDormitorie = new Dormitory();
+    private List<Fragment> mImageClicks = new ArrayList<>();
+
+
+    private ArrayList<String> mStrings = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,47 +48,105 @@ public class Special_2017_BeautyImageClickActivity extends AppCompatActivity {
 
     }
     private void initView(){
+
+
+
         String type = getIntent().getStringExtra("type");
-        int length = getIntent().getIntExtra("length",0);
+        final int length = getIntent().getIntExtra("length",0);
+        mBinding.activityImageClickCount.setText("1/"+length);
         if (type.equals("canteen")){
+            mCanteen = (Canteen) getIntent().getSerializableExtra("canteen");
+            mStrings.clear();
             for (int i = 0; i < length ; i++) {
-                mCanteens.add((Canteen) getIntent().getSerializableExtra("canteen"));
-                mFragments.add(new BeautyImageClick());
+                mStrings.add(mCanteen.getUrl().get(i));
+                BeautyImageClick beautyImageClick = new BeautyImageClick();
+                beautyImageClick.setUrl(mStrings.get(i));
+                beautyImageClick.setContent(mCanteen.getName());
+                mImageClicks.add(beautyImageClick);
             }
-            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
-            mBinding.special2017BeautyImageClickViewpager.setAdapter(mAdapter);
+            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mImageClicks);
+            mBinding.activityImageClickViewpager.setAdapter(mAdapter);
+            mBinding.activityImageClickViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        } else if (type.equals("environment")){
-            for (int i = 0; i < length ; i++) {
-                mEnvironments.add((SchoolBuilding) getIntent().getSerializableExtra(type+i));
-                mFragments.add(new BeautyImageClick());
-            }
-            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
-            mBinding.special2017BeautyImageClickViewpager.setAdapter(mAdapter);
+                }
 
-        } else if (type.equals("dormitory")){
-            for (int i = 0; i < length ; i++) {
-                mDormitories.add((Dormitory) getIntent().getSerializableExtra(type+i));
-                mFragments.add(new BeautyImageClick());
-            }
-            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
-            mBinding.special2017BeautyImageClickViewpager.setAdapter(mAdapter);
+                @Override
+                public void onPageSelected(int position) {
+                    mBinding.activityImageClickCount.setText(position+1+"/"+length);
+                }
 
-        } else if (type.equals("beauty")){
+                @Override
+                public void onPageScrollStateChanged(int state) {
 
-            for (int i = 0; i < length ; i++) {
-                mBeautyInCqupts.add((BeautyInCqupt) getIntent().getSerializableExtra(type+i));
-                mFragments.add(new BeautyImageClick());
-            }
-            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
-            mBinding.special2017BeautyImageClickViewpager.setAdapter(mAdapter);
-
+                }
+            });
         }
+        else if (type.equals("dormitory")){
+            mDormitorie = (Dormitory) getIntent().getSerializableExtra("dormitory");
+            mStrings.clear();
+            for (int i = 0; i < length ; i++) {
+                mStrings.add(mDormitorie.getUrl().get(i));
+                BeautyImageClick beautyImageClick = new BeautyImageClick();
+                beautyImageClick.setUrl(mStrings.get(i));
+                beautyImageClick.setContent(mCanteen.getName());
+                mImageClicks.add(beautyImageClick);
+            }
+            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mImageClicks);
+            mBinding.activityImageClickViewpager.setAdapter(mAdapter);
+            mBinding.activityImageClickViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+                }
 
+                @Override
+                public void onPageSelected(int position) {
+                    mBinding.activityImageClickCount.setText(position+1+"/"+length);
+                }
 
+                @Override
+                public void onPageScrollStateChanged(int state) {
 
+                }
+            });
+        }
+        else if (type.equals("training")) {
+            mStrings.clear();
+            for (int i = 0; i < length; i++) {
+                mStrings.add(getIntent().getStringExtra(i + "url"));
+                BeautyImageClick beautyImageClick = new BeautyImageClick();
+                beautyImageClick.setUrl(mStrings.get(i));
+                beautyImageClick.setContent(getIntent().getStringExtra(i + "name"));
+                mImageClicks.add(beautyImageClick);
+            }
+            mAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(), mImageClicks);
+            mBinding.activityImageClickViewpager.setAdapter(mAdapter);
+            mBinding.activityImageClickViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+                }
+
+                @Override
+                public void onPageSelected(int position) {
+                    mBinding.activityImageClickCount.setText(position + 1 + "/" +length);
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+
+                }
+            });
+        }
+        mBinding.setVariable(BR.onClick,new Presenter());
+
+    }
+    public class Presenter implements Presenterable {
+        public void onBack() {
+            finish();
+        }
 
     }
 }

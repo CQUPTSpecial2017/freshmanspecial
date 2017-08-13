@@ -122,6 +122,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                         .into(holder.image);
 
                 holder.mCountLayout.setVisibility(View.VISIBLE);
+
                 holder.mCount.setText(holder.mCanteen.getUrl().size()+"张");
                 holder.count = holder.mCanteen.getUrl().size();
                 break;

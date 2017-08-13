@@ -412,6 +412,9 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
 
             btnSubmit.setTag(TAG_SUBMIT);
             btnCancel.setTag(TAG_CANCEL);
+            wheelOptions.getView().setOnClickListener(this);
+            wheelOptions.getView().setTag(TAG_SUBMIT);
+
             btnSubmit.setOnClickListener(this);
             btnCancel.setOnClickListener(this);
 
