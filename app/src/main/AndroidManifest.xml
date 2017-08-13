@@ -33,7 +33,8 @@
             android:name=".Ui.Special_2017_BeautyImageClickActivity"
             android:theme="@style/dialoAppgstyle">
         </activity>
-
+        <activity android:name=".Ui.Special_2017_MilitaryTrainingActivity">
+        </activity>
     </application>
 
 </manifest>

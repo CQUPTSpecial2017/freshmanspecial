@@ -44,5 +44,9 @@ public class Special_2017_HomePagerActivity extends AppCompatActivity {
             startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_BeautyActivity.class));
 
         }
+        public void onTrainingClick(){
+            startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_MilitaryTrainingActivity.class));
+
+        }
     }
 }

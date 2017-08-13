@@ -2,13 +2,12 @@ package com.mredrock.freshmanspecial.Ui;
 
 import android.databinding.DataBindingUtil;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.BR;
@@ -16,49 +15,57 @@ import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.MenAndWomen;
+import com.mredrock.freshmanspecial.Ui.Fragment.MilitaryTraining.Specail_2017_MartialArtOfMilitaryTraining;
+import com.mredrock.freshmanspecial.Ui.Fragment.MilitaryTraining.Special_2017_MilitaryTrainingTips;
 import com.mredrock.freshmanspecial.Ui.Fragment.TheHardestObject;
 import com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017DataBinding;
+import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017MilitaryTrainingBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/8/3 0003.
- */
-
-public class Special_2017_DataActivity extends FragmentActivity {
+public class Special_2017_MilitaryTrainingActivity extends AppCompatActivity {
     private List<Fragment> mFragments;
-    private  Special_2017_ViewPagerAdapter mDataViewPagerAdapter;
-    private String[] mTitles = {"男女比例","最难科目","就业比例"};
-    private ActivitySpecial2017DataBinding binding;
+    private Special_2017_ViewPagerAdapter mDataViewPagerAdapter;
+    private String[] mTitles = {"军训贴士","军训特辑"};
+    private ActivitySpecial2017MilitaryTrainingBinding binding;
     private TextView inter;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_data);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_special_2017_military_training);
+        initView();
 
+    }
+
+
+    private void initView(){
         mFragments = new ArrayList<>();
-        mFragments.add(new MenAndWomen());
-        mFragments.add(new TheHardestObject());
-        mFragments.add(new WorkPercent());
-        inter = (TextView)binding.getRoot().findViewById(R.id.special_2017_data_inter);
+
+        mFragments.add(new Special_2017_MilitaryTrainingTips());
+        mFragments.add(new Specail_2017_MartialArtOfMilitaryTraining());
+
+        inter = (TextView)binding.getRoot().findViewById(R.id.special_2017_military_inter);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
 
             inter.setVisibility(View.GONE);
         }
         mDataViewPagerAdapter = new Special_2017_ViewPagerAdapter(getSupportFragmentManager(),mFragments);
         mDataViewPagerAdapter.setTitles(mTitles);
-        binding.dataViewpager.setAdapter(mDataViewPagerAdapter);
-        binding.dataViewpager.setOffscreenPageLimit(2);
+        binding.militaryViewpager.setAdapter(mDataViewPagerAdapter);
+        binding.militaryViewpager.setOffscreenPageLimit(2);
 
 
-        binding.dataTabLayout.setTabMode(TabLayout.MODE_FIXED);
-        binding.dataTabLayout.setupWithViewPager(binding.dataViewpager);
-        binding.setVariable(BR.onClick,new Special_2017_DataActivity.Presenter());
+        binding.militaryTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        binding.militaryTabLayout.setupWithViewPager(binding.militaryViewpager);
+        binding.setVariable(BR.onClick,new Special_2017_MilitaryTrainingActivity.Presenter());
     }
+
+
+
     public class Presenter implements Presenterable {
         public void onBack() {
             finish();

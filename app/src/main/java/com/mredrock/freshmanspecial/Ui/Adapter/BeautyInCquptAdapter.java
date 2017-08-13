@@ -101,7 +101,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mDormitory = mDormitories.get(position);
                 holder.title.setText(holder.mDormitory.getName());
                 holder.information.setText(holder.mDormitory.getResume());
-                holder.image.setScaleType(ImageView.ScaleType.CENTER);
+                holder.image.setScaleType(ImageView.ScaleType.FIT_XY);
                 Glide.with(mContext)
                         .load(holder.mDormitory.getUrl().get(0))
                         .crossFade()
@@ -115,7 +115,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mCanteen = mCanteens.get(position);
                 holder.title.setText(holder.mCanteen.getName());
                 holder.information.setText(holder.mCanteen.getResume());
-
+                holder.image.setScaleType(ImageView.ScaleType.FIT_XY);
                 Glide.with(mContext)
                         .load(holder.mCanteen.getUrl().get(0))
                         .crossFade()
@@ -129,7 +129,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mBeautyInCqupt = mBeautyInCqupts.get(position);
                 holder.title.setText(holder.mBeautyInCqupt.getTitle());
                 holder.information.setText(holder.mBeautyInCqupt.getContent());
-                holder.image.setScaleType(ImageView.ScaleType.CENTER);
+                holder.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 Glide.with(mContext)
                         .load(holder.mBeautyInCqupt.getUrl())
                         .crossFade()
@@ -141,7 +141,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mEnvironment = mEnvironments.get(position);
                 holder.title.setText(holder.mEnvironment.getTitle());
                 holder.information.setText(holder.mEnvironment.getContent());
-
+                holder.image.setScaleType(ImageView.ScaleType.CENTER);
                 Glide.with(mContext)
                         .load(holder.mEnvironment.getUrl().get(0))
                         .crossFade()
