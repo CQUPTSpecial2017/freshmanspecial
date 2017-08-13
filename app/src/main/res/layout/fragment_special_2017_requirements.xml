@@ -1,10 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/special_2017_requirements_recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></RelativeLayout>
+            android:layout_height="match_parent"
+
+            >
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/you_should_know"
+    android:background="@color/Special_2017_whileBack">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:id="@+id/lineA"
+            android:layout_width="3dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="23dp"
+            app:cardBackgroundColor="#699ffb"
+            app:cardUseCompatPadding="false">
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/fresh_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/lineA"
+            android:text="新生清单"
+            android:textColor="#666"
+            android:textSize="@dimen/Special_2017_title" />
+    </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/register_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="14dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/register_thing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_date"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+
+            <TextView
+                android:id="@+id/wash_spulies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_thing"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+
+            <TextView
+                android:id="@+id/clothes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wash_spulies"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/my_thing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/clothes"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
 </LinearLayout>
+            <LinearLayout
+            android:background="@color/Special_2017_whileBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/you_should_know"
+            android:orientation="vertical"
+                android:id="@+id/something_about_safe"
+            android:layout_marginTop="6dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/lineB"
+                    android:layout_width="3dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="23dp"
+                    app:cardBackgroundColor="#699ffb"
+                    app:cardUseCompatPadding="false">
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/about_safe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/lineB"
+                    android:text="安全须知"
+                    android:textColor="#666"
+                    android:textSize="@dimen/Special_2017_title" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/prevent_deception"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/about_safe"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/cash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/prevent_deception"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+            <TextView
+                android:id="@+id/refusing_sale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cash"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/against_theft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/refusing_sale"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+            <TextView
+                android:id="@+id/Caution_for_fire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/against_theft"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+            <TextView
+                android:id="@+id/Caution_for_traslate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Caution_for_fire"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+
+            <TextView
+                android:id="@+id/safe_warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Caution_for_traslate"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1111"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+        </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@id/something_about_safe"
+      android:id="@+id/toute"
+      android:orientation="vertical"
+      android:background="@color/Special_2017_whileBack"
+      android:layout_marginTop="6dp">
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <android.support.v7.widget.CardView
+              android:id="@+id/lineC"
+              android:layout_width="3dp"
+              android:layout_height="16dp"
+              android:layout_marginLeft="18dp"
+              android:layout_marginTop="23dp"
+              app:cardBackgroundColor="#699ffb"
+              app:cardUseCompatPadding="false">
+
+          </android.support.v7.widget.CardView>
+
+          <TextView
+              android:id="@+id/bus_route"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="8dp"
+              android:layout_marginTop="20dp"
+              android:layout_toRightOf="@+id/lineC"
+              android:text="乘车路线"
+              android:textColor="#666"
+              android:textSize="@dimen/Special_2017_title" />
+
+      </RelativeLayout>
+
+      <TextView
+          android:id="@+id/route_1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="18dp"
+          android:layout_marginRight="18dp"
+          android:layout_marginTop="18dp"
+          android:lineSpacingExtra="5dp"
+          android:text="1111"
+          android:textColor="#999"
+          android:textSize="@dimen/Special_2017_content" />
+
+      <TextView
+          android:id="@+id/route_2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/route_1"
+          android:layout_marginLeft="18dp"
+          android:layout_marginRight="18dp"
+          android:layout_marginTop="14dp"
+          android:lineSpacingExtra="5dp"
+          android:text="1111"
+          android:textColor="#999"
+          android:textSize="@dimen/Special_2017_content" />
+      <TextView
+          android:id="@+id/route_3"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/route_2"
+          android:layout_marginLeft="18dp"
+          android:layout_marginRight="18dp"
+          android:layout_marginTop="14dp"
+          android:lineSpacingExtra="5dp"
+          android:text="1111"
+          android:textColor="#999"
+          android:textSize="@dimen/Special_2017_content" />
+      <TextView
+          android:id="@+id/route_4"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/route_3"
+          android:layout_marginLeft="18dp"
+          android:layout_marginRight="18dp"
+          android:layout_marginTop="14dp"
+          android:lineSpacingExtra="5dp"
+          android:text="1111"
+          android:textColor="#999"
+          android:textSize="@dimen/Special_2017_content" />
+
+
+      <TextView
+          android:id="@+id/route_5"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/route_4"
+          android:layout_marginBottom="23dp"
+          android:layout_marginLeft="18dp"
+          android:layout_marginRight="18dp"
+          android:layout_marginTop="14dp"
+          android:lineSpacingExtra="5dp"
+          android:text="1111"
+          android:textColor="#999"
+          android:textSize="@dimen/Special_2017_content"/>
+       </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</layout>

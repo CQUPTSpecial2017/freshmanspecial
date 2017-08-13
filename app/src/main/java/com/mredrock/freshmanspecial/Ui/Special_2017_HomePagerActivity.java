@@ -5,12 +5,19 @@ import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
+import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017HomePagerBinding;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
+
+import java.util.List;
+
+import rx.Subscriber;
 
 public class Special_2017_HomePagerActivity extends AppCompatActivity {
     private TextView inter;
@@ -25,6 +32,22 @@ public class Special_2017_HomePagerActivity extends AppCompatActivity {
 
             inter.setVisibility(View.GONE);
         }
+        CquptMienData.getInstance().getBeautyInCqupt(new Subscriber<List<BeautyInCqupt>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(List<BeautyInCqupt> beautyInCqupts) {
+                Log.d("s",beautyInCqupts.size()+"");
+            }
+        },"BeautyInCqupt");
 
 
     }
