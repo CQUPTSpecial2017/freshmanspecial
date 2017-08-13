@@ -71,13 +71,14 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         mBinding.cquptStrategyViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (positionOffsetPixels == 4)
-                QQTeam.hideInput(mFragments.get(positionOffsetPixels).getView());
+
             }
 
             @Override
             public void onPageSelected(int position) {
-
+                    if (position == 3||position ==5){
+                    QQTeam.hideInput(mFragments.get(position).getView());
+                    }
             }
 
             @Override
