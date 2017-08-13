@@ -1,10 +1,439 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/special_2017_requirements_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+
+            <LinearLayout
+                android:id="@+id/you_should_know"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/Special_2017_whileBack"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/lineA"
+                        android:layout_width="3dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="23dp"
+                        app:cardBackgroundColor="#699ffb"
+                        app:cardUseCompatPadding="false">
+
+                    </android.support.v7.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/fresh_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@+id/lineA"
+                        android:text="饮食篇"
+                        android:textColor="#666"
+                        android:textSize="@dimen/Special_2017_title" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/food_advice1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_food1"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+                e
+
+                <TextView
+                    android:id="@+id/food_advice2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/food_advice1"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_food2"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+
+                <TextView
+                    android:id="@+id/food_advice3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/food_advice2"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_food3"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+
+                <TextView
+                    android:id="@+id/food_advice4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/food_advice3"
+                    android:layout_marginBottom="23dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_food4"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/something_about_safe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/you_should_know"
+                android:layout_marginTop="6dp"
+                android:background="@color/Special_2017_whileBack"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/lineB"
+                        android:layout_width="3dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="23dp"
+                        app:cardBackgroundColor="#699ffb"
+                        app:cardUseCompatPadding="false">
+
+                    </android.support.v7.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/avoid_sun"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@+id/lineB"
+                        android:text="防晒篇"
+                        android:textColor="#666"
+                        android:textSize="@dimen/Special_2017_title" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/sun_advice1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avoid_sun"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_sun1"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/sun_advice2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_sun2"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/sun_advice3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_sun3"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/sun_advice4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                   android:text="@string/advice_about_sun4"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/sun_advice5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_sun5"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content"
+                    android:layout_marginBottom="23dp"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                 android:id="@+id/medcine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/something_about_safe"
+                android:layout_marginTop="6dp"
+                android:background="@color/Special_2017_whileBack"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/lineC"
+                        android:layout_width="3dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="23dp"
+                        app:cardBackgroundColor="#699ffb"
+                        app:cardUseCompatPadding="false">
+
+                    </android.support.v7.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/med_adv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@+id/lineC"
+                        android:text="药品篇"
+                        android:textColor="#666"
+                        android:textSize="@dimen/Special_2017_title" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/med_adv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="18dp"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="#999"
+                    android:text="@string/advice_about_med1"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/med_adv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_med2"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/med_adv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_med3"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/med_adv4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_med4"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+
+
+                <TextView
+                    android:id="@+id/med_adv5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/route_4"
+                    android:layout_marginBottom="23dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/advice_about_med5"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@id/medcine"
+                android:background="@color/Special_2017_whileBack"
+                android:layout_marginTop="6dp"
+                >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/lineD"
+                    android:layout_width="3dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="23dp"
+                    app:cardBackgroundColor="#699ffb"
+                    app:cardUseCompatPadding="false">
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/oth_adv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/lineD"
+                    android:text="其他"
+                    android:textColor="#666"
+                    android:textSize="@dimen/Special_2017_title" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/oth_adv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="18dp"
+                android:lineSpacingExtra="5dp"
+                android:textColor="#999"
+                android:text="@string/oth_adv"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/oth_adv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/oth_adv2"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/oth_adv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/oth_adv3"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+            <TextView
+                android:id="@+id/oth_adv4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/oth_adv4"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+
+            <TextView
+                android:id="@+id/oth_adv5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/oth_adv5"
+                android:textColor="#999"
+                android:textSize="@dimen/Special_2017_content" />
+
+                <TextView
+                    android:id="@+id/oth_adv6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="23dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/oth_adv6"
+                    android:textColor="#999"
+                    android:textSize="@dimen/Special_2017_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
 </layout>
