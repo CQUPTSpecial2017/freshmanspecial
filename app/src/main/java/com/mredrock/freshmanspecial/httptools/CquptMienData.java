@@ -7,7 +7,7 @@ import com.mredrock.freshmanspecial.data.ExcellentStu;
 import com.mredrock.freshmanspecial.data.ExcellentTech;
 import com.mredrock.freshmanspecial.data.NatureCQUPT;
 import com.mredrock.freshmanspecial.data.Organizations;
-import com.mredrock.freshmanspecial.httptools.interceptor.MyApp;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -134,7 +134,7 @@ public class CquptMienData<T> {
         @Override
         public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            boolean netAvailable = NetWorkUtil.isNetworkAvailable(com.mredrock.freshmanspecial.httptools.interceptor.MyApp.context);
+            boolean netAvailable = NetWorkUtil.isNetworkAvailable(MyApp.context);
 
             if (netAvailable) {
                 request = request.newBuilder()

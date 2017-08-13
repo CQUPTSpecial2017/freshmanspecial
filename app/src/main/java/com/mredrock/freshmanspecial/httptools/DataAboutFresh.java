@@ -11,7 +11,7 @@ import com.mredrock.freshmanspecial.data.MilitaryTrainingPhoto;
 import com.mredrock.freshmanspecial.data.MilitaryTrainingVideo;
 import com.mredrock.freshmanspecial.data.QQGroupNumber;
 import com.mredrock.freshmanspecial.data.SchoolBuilding;
-import com.mredrock.freshmanspecial.httptools.interceptor.*;
+
 
 import java.io.File;
 import java.io.IOException;
