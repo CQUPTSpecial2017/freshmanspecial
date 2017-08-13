@@ -101,7 +101,7 @@ public class BeautyInCquptAdapter extends RecyclerView.Adapter<BeautyInCquptAdap
                 holder.mDormitory = mDormitories.get(position);
                 holder.title.setText(holder.mDormitory.getName());
                 holder.information.setText(holder.mDormitory.getResume());
-                holder.image.setScaleType(ImageView.ScaleType.FIT_XY);
+                holder.image.setScaleType(ImageView.ScaleType.CENTER);
                 Glide.with(mContext)
                         .load(holder.mDormitory.getUrl().get(0))
                         .crossFade()

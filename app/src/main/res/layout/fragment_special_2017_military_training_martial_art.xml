@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <ScrollView
+    android:layout_marginTop="6dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -153,7 +154,7 @@
             android:orientation="vertical"
             android:layout_marginTop="8dp"
             android:background="@color/Special_2017_whileBack"
-            android:layout_marginBottom="10dp">
+            android:paddingBottom="10dp">
             <LinearLayout
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"

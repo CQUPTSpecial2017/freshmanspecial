@@ -44,7 +44,7 @@
                 android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/Special_2017_content"
-                android:text="3张"
+
                 />
         </RelativeLayout>
     </RelativeLayout>

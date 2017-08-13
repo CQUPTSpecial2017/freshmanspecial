@@ -63,7 +63,7 @@
     <!--背景是否模糊显示-->
     <item name="android:backgroundDimEnabled">true</item>
 </style>
-    <style name="dialoAppgstyle" parent="Theme.AppCompat.Dialog">
+    <style name="dialoAppgstyle" >
         <!--设置dialog的背景-->
         <item name="android:windowBackground">@color/blackback</item>
         <!--设置Dialog的windowFrame框为无-->

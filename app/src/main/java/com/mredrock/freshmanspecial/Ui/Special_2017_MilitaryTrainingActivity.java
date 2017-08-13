@@ -14,12 +14,8 @@ import com.mredrock.freshmanspecial.BR;
 import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
-import com.mredrock.freshmanspecial.Ui.Fragment.MenAndWomen;
 import com.mredrock.freshmanspecial.Ui.Fragment.MilitaryTraining.Specail_2017_MartialArtOfMilitaryTraining;
 import com.mredrock.freshmanspecial.Ui.Fragment.MilitaryTraining.Special_2017_MilitaryTrainingTips;
-import com.mredrock.freshmanspecial.Ui.Fragment.TheHardestObject;
-import com.mredrock.freshmanspecial.Ui.Fragment.WorkPercent;
-import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017DataBinding;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017MilitaryTrainingBinding;
 
 import java.util.ArrayList;
