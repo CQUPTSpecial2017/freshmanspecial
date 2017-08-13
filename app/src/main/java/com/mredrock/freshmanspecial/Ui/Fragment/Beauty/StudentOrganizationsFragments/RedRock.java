@@ -64,7 +64,7 @@ public class RedRock  extends Fragment{
                     mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
-            },"Organizations");
+            },"organizations");
         }
 
 
@@ -77,6 +77,11 @@ public class RedRock  extends Fragment{
         mRecyclerView.setAdapter(mAdapter);
 
         super.onActivityCreated(savedInstanceState);
+    }
+    @Override
+    public void onPause() {
+        mOrganizationses.clear();
+        super.onPause();
     }
 
 }

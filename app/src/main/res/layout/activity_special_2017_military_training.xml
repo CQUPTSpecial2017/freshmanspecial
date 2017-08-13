@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="onClick"
+            type="com.mredrock.freshmanspecial.Ui.Special_2017_MilitaryTrainingActivity.Presenter"
+            ></variable>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f7f7f7"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/special_2017_change_color"
+            >
+
+
+            <TextView
+                android:id="@+id/special_2017_military_inter"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/special_2017_military_inter">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="军训特辑"
+                    android:textColor="@color/Special_2017_whileBack"
+                    android:textSize="@dimen/Special_2017_title"
+                    android:layout_marginBottom="20dp"/>
+                <ImageView
+                    android:id="@+id/special_2017_military_back"
+                    android:layout_width="13dp"
+                    android:layout_height="23dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/special_2017_back"
+                    android:layout_marginLeft="18dp"
+                    android:onClick="@{() -> onClick.onBack()}"
+                    /></RelativeLayout>
+
+        </RelativeLayout>
+
+        <com.mredrock.freshmanspecial.Ui.View.Special_2017_MyTab
+            android:id="@+id/military_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:tabIndicatorColor="@color/Special_2017_onChoice"
+            app:tabIndicatorHeight="4dp"
+            app:tabSelectedTextColor="@color/Special_2017_colorAccent"
+            app:tabTextColor="@color/Special_2017_onTextNoChoice"
+            >
+        </com.mredrock.freshmanspecial.Ui.View.Special_2017_MyTab>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/military_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></android.support.v4.view.ViewPager>>
+
+    </LinearLayout>
+</layout>

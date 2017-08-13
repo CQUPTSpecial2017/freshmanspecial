@@ -63,7 +63,7 @@ public class SchoolYouthAssociation  extends Fragment{
                     mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
                     mAdapter.notifyDataSetChanged();
                 }
-            },"Organizations");
+            },"organizations");
         }
 
 
@@ -72,6 +72,11 @@ public class SchoolYouthAssociation  extends Fragment{
         mRecyclerView.setAdapter(mAdapter);
 
         super.onActivityCreated(savedInstanceState);
+    }
+    @Override
+    public void onPause() {
+        mOrganizationses.clear();
+        super.onPause();
     }
 
 }

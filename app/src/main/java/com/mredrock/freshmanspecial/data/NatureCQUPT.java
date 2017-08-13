@@ -12,6 +12,9 @@ public class NatureCQUPT {
 
     private String name;
     private String url;
+    private String cover;
+
+
 
     public String getName() {
         return name;
@@ -27,5 +30,12 @@ public class NatureCQUPT {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 }

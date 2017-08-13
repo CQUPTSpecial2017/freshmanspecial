@@ -27,10 +27,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeacherAdapter.TeacherViewHolder>{
     private LayoutInflater mLayoutInflater;
     private Context mContext;
-    private List<ExcellentTech> mTeachers = new ArrayList<>();
+
     private List<ExcellentStu> mStudents = new ArrayList<>();
 
-    private int type;
+
     private TeacherViewHolder mViewHolder;
 
     public ExcellentTeacherAdapter(Context context) {
@@ -38,14 +38,7 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
     }
 
-    public List<ExcellentTech> getTeachers() {
-        return mTeachers;
-    }
 
-    public void setTeachers(List<ExcellentTech> teachers) {
-        mTeachers = teachers;
-        type = 1;
-    }
 
     public List<ExcellentStu> getStudents() {
         return mStudents;
@@ -53,7 +46,7 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
     public void setStudents(List<ExcellentStu> students) {
         mStudents = students;
-        type = 0;
+
     }
 
     public ExcellentTeacherAdapter() {
@@ -70,12 +63,10 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
     @Override
     public void onBindViewHolder(TeacherViewHolder holder, int position) {
-        if (type ==1 ) {
-            holder.mTeacher = mTeachers.get(position);
-            holder.name.setText(holder.mTeacher.getName());
 
 
-        }else {
+
+
             holder.mStudent = mStudents.get(position);
 
             Glide.with(mContext)
@@ -85,7 +76,7 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
 
             holder.name.setText(holder.mStudent.getName());
             holder.major.setText(holder.mStudent.getMotto());
-        }
+
 
 
 
@@ -95,9 +86,8 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
     @Override
     public int getItemCount() {
 
-        if (type == 1)
-            return mTeachers.size();
-        else return mStudents.size();
+
+        return mStudents.size();
     }
 
 
@@ -107,7 +97,7 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
         private TextView name;
         private TextView major;
         private CircleImageView avatar;
-        private ExcellentTech mTeacher;
+
         private ExcellentStu mStudent;
 
 
@@ -123,14 +113,8 @@ public class ExcellentTeacherAdapter extends RecyclerView.Adapter<ExcellentTeach
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, Special_2017_ImageClickActivity.class);
-            if (type == 1){
-                intent.putExtra("type","teacher");
-                intent.putExtra("teacher",mTeacher);
-            }
-            else {
-                intent.putExtra("type","student");
+
                 intent.putExtra("student",mStudent);
-            }
             view.getContext().startActivity(intent);
         }
     }
