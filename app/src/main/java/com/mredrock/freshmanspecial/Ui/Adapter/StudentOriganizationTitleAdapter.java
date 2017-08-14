@@ -70,14 +70,14 @@ public class StudentOriganizationTitleAdapter extends RecyclerView.Adapter<Stude
     public void onBindViewHolder(final StudentOriganizationTitleViewHolder holder, final int position) {
         holder.s = titles[position];
         if (position == 0){
-            holder.mCardView.setBackgroundColor(Color.parseColor("#ECF6FF"));
+            holder.title.setBackgroundResource(R.drawable.special_2017_circle_image);
         }
         holder.title.setText(holder.s);
-        holder.mCardView.setOnClickListener(new View.OnClickListener() {
+        holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clearColor();
-                holder.mCardView.setBackgroundColor(Color.parseColor("#ECF6FF"));
+                holder.title.setBackgroundResource(R.drawable.special_2017_circle_image);
                 mContentAdapter.setLocation(position);
             }
         });
@@ -90,12 +90,12 @@ public class StudentOriganizationTitleAdapter extends RecyclerView.Adapter<Stude
     }
 
     class StudentOriganizationTitleViewHolder extends RecyclerView.ViewHolder{
-        CardView mCardView;
+//        CardView mCardView;
         TextView title;
         String s;
         public StudentOriganizationTitleViewHolder(View itemView) {
             super(itemView);
-            mCardView = (CardView)itemView.findViewById(R.id.item_special_2017_organization_card);
+//            mCardView = (CardView)itemView.findViewById(R.id.item_special_2017_organization_card);
             title = (TextView) itemView.findViewById(R.id.item_special_2017_organization_title);
 
         }
@@ -104,7 +104,7 @@ public class StudentOriganizationTitleAdapter extends RecyclerView.Adapter<Stude
 
     public void clearColor(){
         for (int j = 0; j < mViewHolders.size(); j++) {
-            mViewHolders.get(j).mCardView.setBackgroundColor(Color.WHITE);
+            mViewHolders.get(j).title.setBackgroundColor(Color.WHITE);
         }
     }
 }
