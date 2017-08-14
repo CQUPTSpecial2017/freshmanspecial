@@ -145,7 +145,7 @@
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="17dp"
                                 android:layout_height="17dp"
-                                android:src="#FBFEB9"
+                                android:src="@drawable/yellow"
                                 />
                             <TextView
                                 android:id="@+id/special_2017_data_the_hardest_object_yellow_text"
@@ -155,7 +155,7 @@
                                 android:text="头皮发麻"
                                 android:textColor="#969494"
                                 android:textSize="@dimen/Special_2017_content"
-                                android:layout_marginTop="2dp"/>
+                                />
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/special_2017_data_the_hardest_object_green_button"
@@ -169,7 +169,7 @@
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="17dp"
                                 android:layout_height="17dp"
-                                android:src="#9EFCEE"/>
+                                android:src="@drawable/green"/>
                             <TextView
                                 android:id="@+id/special_2017_data_the_hardest_object_green_text"
                                 android:layout_marginLeft="10dp"
@@ -178,7 +178,7 @@
                                 android:text="畏惧"
                                 android:textColor="#969494"
                                 android:textSize="@dimen/Special_2017_content"
-                                android:layout_marginTop="2dp"
+
                                 />
                         </LinearLayout>
                         <LinearLayout
@@ -194,11 +194,11 @@
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="17dp"
                                 android:layout_height="17dp"
-                                android:src="#B9E5FE"
+                                android:src="@drawable/blue"
                                 />
                             <TextView
                                 android:id="@+id/special_2017_data_the_hardest_object_blue_text"
-                                android:layout_marginTop="2dp"
+
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

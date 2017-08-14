@@ -64,9 +64,12 @@
         app:tabTextColor="@color/Special_2017_onTextNoChoice"
 
         >
-        
+
     </android.support.design.widget.TabLayout>
-    
+
+
+
+
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager
@@ -76,5 +79,6 @@
         android:layout_height="match_parent"
         android:background="@color/Special_2017_cqupt_beauty_background"
         ></android.support.v4.view.ViewPager>
+
     </LinearLayout>
 </layout>

@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +18,8 @@ import android.view.ViewGroup;
 
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.Ui.Adapter.Special_2017_ViewPagerAdapter;
+import com.mredrock.freshmanspecial.Ui.Adapter.StudentOrganizationAdapter;
+import com.mredrock.freshmanspecial.Ui.Adapter.StudentOriganizationTitleAdapter;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.ArtGroup;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.AssociationUnion;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.RedRock;
@@ -24,18 +28,14 @@ import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragm
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.Techlink;
 import com.mredrock.freshmanspecial.Ui.Fragment.Beauty.StudentOrganizationsFragments.YouthLeagueCommittee;
 import com.mredrock.freshmanspecial.Ui.View.Special_2017_NoScrollViewPager;
-import com.mredrock.freshmanspecial.databinding.FragmentSpecial2017StudentOrganizationsBinding;
+import com.mredrock.freshmanspecial.data.Organizations;
+import com.mredrock.freshmanspecial.httptools.CquptMienData;
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.WrapPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/8/7 0007.
@@ -43,11 +43,13 @@ import java.util.ArrayList;
 
 public class StudentOrganizations extends Fragment{
     private ViewDataBinding mDataBinding;
-    private Special_2017_ViewPagerAdapter mViewPagerAdapter;
-    private ViewPager mViewPager;
-    private MagicIndicator mMagicIndicator;
+    private RecyclerView titleRecycler;
+    private RecyclerView contentRecycler;
+    private StudentOrganizationAdapter mContentAdapter ;
+    private StudentOriganizationTitleAdapter mTitleAdapter;
+    private Context mContext;
     private String[] mTitles  = {"团委部门","红岩","校学生会","科联","社联","校青协","大艺团"};
-    private ArrayList<Fragment> mFragments  =new ArrayList<>();
+    private ArrayList<Organizations> mOrganizationses = new ArrayList<>();
 
     @Nullable
     @Override
@@ -59,8 +61,40 @@ public class StudentOrganizations extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mMagicIndicator = (MagicIndicator) mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_magic_indicator);
-        mViewPager = (ViewPager) mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_viewpager);
+        titleRecycler = (RecyclerView)mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_title_recycler);
+        contentRecycler = (RecyclerView)mDataBinding.getRoot().findViewById(R.id.item_special_2017_student_organizations_content_recycler);
+        mContentAdapter = new StudentOrganizationAdapter(mContext);
+        mTitleAdapter = new StudentOriganizationTitleAdapter(mContext);
+        mTitleAdapter.setTitles(mTitles);
+
+        CquptMienData.getInstance().getOrganizations(new Subscriber<List<Organizations>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(List<Organizations> organizationses) {
+
+                mOrganizationses.addAll(organizationses);
+                mContentAdapter.setDepartmentBeen(mOrganizationses);
+                mContentAdapter.notifyDataSetChanged();
+            }
+        },"organizations");
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+        contentRecycler.setAdapter(mContentAdapter);
+        contentRecycler.setLayoutManager(linearLayoutManager);
+
+        titleRecycler.setAdapter(mTitleAdapter);
+        mTitleAdapter.setContentAdapter(mContentAdapter);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(mContext);
+        linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        titleRecycler.setLayoutManager(linearLayoutManager1);
 
         initView();
 
@@ -68,54 +102,12 @@ public class StudentOrganizations extends Fragment{
 
 
     private void initView(){
-        mFragments.add(new YouthLeagueCommittee());
-        mFragments.add(new RedRock());
-        mFragments.add(new SchoolStudentUnion());
-        mFragments.add(new Techlink());
-        mFragments.add(new AssociationUnion());
-        mFragments.add(new SchoolYouthAssociation());
-        mFragments.add(new ArtGroup());
 
 
-        mViewPagerAdapter = new Special_2017_ViewPagerAdapter(getFragmentManager(),mFragments);
-        mViewPagerAdapter.setTitles(mTitles);
-        mViewPager.setAdapter(mViewPagerAdapter);
 
-        CommonNavigator commonNavigator = new CommonNavigator(this.getContext());
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return 7;
-            }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
-                colorTransitionPagerTitleView.setSelectedColor(Color.GRAY);
-                colorTransitionPagerTitleView.setTextSize(13);
-                colorTransitionPagerTitleView.setText(mTitles[index]);
 
-                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mViewPager.setCurrentItem(index);
-                    }
-                });
-                return colorTransitionPagerTitleView;
-            }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                WrapPagerIndicator indicator = new WrapPagerIndicator(context);
-                indicator.setFillColor(Color.parseColor("#ECF6FF"));
-                indicator.setRoundRadius(10);
-                return indicator;
-            }
-        });
-        mMagicIndicator.setNavigator(commonNavigator);
-
-        ViewPagerHelper.bind(mMagicIndicator, mViewPager);
 
     }
 }

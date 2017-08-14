@@ -22,13 +22,21 @@ import java.util.List;
 
 public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrganizationAdapter.StudentOrganizationViewHolder> {
     private Context mContext;
-
-    private List<Organizations.DepartmentBean> mDepartmentBeen = new ArrayList<>();
+    private int location  = 0;
+    private List<Organizations> mDepartmentBeen = new ArrayList<>();
     private StudentOrganizationViewHolder mViewHolder;
 
 
+    public int getLocation() {
+        return location;
+    }
 
-    public void setDepartmentBeen(List<Organizations.DepartmentBean> departmentBeen) {
+    public void setLocation(int location) {
+        this.location = location;
+        notifyDataSetChanged();
+    }
+
+    public void setDepartmentBeen(List<Organizations> departmentBeen) {
         mDepartmentBeen = departmentBeen;
     }
 
@@ -42,7 +50,7 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
     @Override
     public void onBindViewHolder(StudentOrganizationViewHolder holder, int position) {
 
-        holder.mDepartmentBean = mDepartmentBeen.get(position);
+        holder.mDepartmentBean = mDepartmentBeen.get(location).getDepartment().get(position);
 
         holder.content.setText(holder.mDepartmentBean.getResume());
         holder.title.setTextColor(Color.parseColor("#666666"));
@@ -54,7 +62,9 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
 
     @Override
     public int getItemCount() {
-        return mDepartmentBeen.size();
+        if (mDepartmentBeen.size()!=0)
+        return mDepartmentBeen.get(location).getDepartment().size();
+        return 0;
     }
 
     public StudentOrganizationAdapter() {
@@ -65,7 +75,7 @@ public class StudentOrganizationAdapter extends RecyclerView.Adapter<StudentOrga
         mContext = context;
     }
 
-    public StudentOrganizationAdapter(Context context, List<Organizations.DepartmentBean> departmentBeen) {
+    public StudentOrganizationAdapter(Context context, List<Organizations> departmentBeen) {
         mContext = context;
         mDepartmentBeen .addAll(departmentBeen) ;
     }

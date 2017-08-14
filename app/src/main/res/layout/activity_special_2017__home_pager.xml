@@ -10,11 +10,9 @@
             >
         </variable>
     </data>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:background="@color/Special_2017_whileBack">
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,14 +55,18 @@
 
             </RelativeLayout>
 
-
+            <com.mredrock.freshmanspecial.Ui.View.RatioLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginTop="20dp"
+                app:ratio="0.381">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="match_parent"
+
                     app:cardElevation ="0dp"
                     android:background="#fff"
                     android:onClick="@{() -> onClick.onStrategyClick()}"
@@ -76,15 +78,18 @@
 
 
                 </android.support.v7.widget.CardView>
-
-
+            </com.mredrock.freshmanspecial.Ui.View.RatioLayout>
+            <com.mredrock.freshmanspecial.Ui.View.RatioLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
+            android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+            android:layout_marginTop="20dp"
+            app:ratio="0.381">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="match_parent"
                 app:cardElevation = "0dp"
-                android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
-                android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
-                android:layout_marginTop="20dp"
                 android:onClick="@{() -> onClick.onBeautyClick()}"
                 >
 
@@ -94,14 +99,17 @@
                     android:background="@drawable/special_2017_cqupt_beauty"/>
             </android.support.v7.widget.CardView>
 
-
-
+            </com.mredrock.freshmanspecial.Ui.View.RatioLayout>
+            <com.mredrock.freshmanspecial.Ui.View.RatioLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginTop="20dp"
+                app:ratio="0.381">
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="match_parent"
                     app:cardElevation = "0dp"
                     android:onClick="@{() -> onClick.onDataClick()}"
                     >
@@ -112,24 +120,31 @@
                         android:background="@drawable/special_2017_cqupt_data"/>
                 </android.support.v7.widget.CardView>
 
-
-
+            </com.mredrock.freshmanspecial.Ui.View.RatioLayout>
+            <com.mredrock.freshmanspecial.Ui.View.RatioLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
+                android:layout_marginTop="20dp"
+                app:ratio="0.381">
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
+                    android:layout_height="match_parent"
                     app:cardElevation = "0dp"
-                    android:layout_marginLeft="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/Special_2017_activity_horizontal_margin"
-                    android:layout_marginTop="20dp"
-                    android:onClick="@{() -> onClick.onTrainingClick()}"
+
                     >
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/special_2017_military_training"/>
+                        android:background="@drawable/special_2017_military_training"
+                        android:onClick="@{() -> onClick.onTrainingClick()}"
+                        />
                 </android.support.v7.widget.CardView>
+
+            </com.mredrock.freshmanspecial.Ui.View.RatioLayout>
 
         </LinearLayout>
     </ScrollView>
-
 </layout>

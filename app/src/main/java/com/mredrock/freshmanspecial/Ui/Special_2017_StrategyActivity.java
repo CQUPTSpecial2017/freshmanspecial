@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
     private Special_2017_ViewPagerAdapter mBeautyViewPagerAdapter;
     private TextView inter;
     private String[] mTitles = {"校园环境","学生寝室","学校食堂","入学须知","QQ群","日常生活","周边美食","周边美景"};
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +73,21 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
         mBinding.cquptStrategyViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                if (position - 2>= 0){
+                    mBinding.activityBeautyTabLeftShadow.setVisibility(View.VISIBLE);
+                }
+                else
+                    mBinding.activityBeautyTabLeftShadow.setVisibility(View.INVISIBLE);
+                if (position+ 2 >= 7){
+                    mBinding.activityBeautyTabRightShadow.setVisibility(View.INVISIBLE);
+                }else
+                    mBinding.activityBeautyTabRightShadow.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onPageSelected(int position) {
                     if (position == 3||position ==5){
-                    QQTeam.hideInput(mFragments.get(position).getView());
+                        QQTeam.hideInput(mFragments.get(position).getView());
                     }
             }
 
@@ -86,10 +96,14 @@ public class Special_2017_StrategyActivity extends AppCompatActivity {
 
             }
         });
+
+
+
         mBinding.cquptStrategyViewpager.setAdapter(mBeautyViewPagerAdapter);
         mBinding.cquptStrategyTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mBinding.cquptStrategyTabLayout.setupWithViewPager(mBinding.cquptStrategyViewpager);
         mBinding.setVariable(BR.onClick,new Special_2017_StrategyActivity.Presenter());
+
     }
     public class Presenter implements Presenterable {
         public void onBack() {

@@ -60,7 +60,7 @@ public class SchoolYouthAssociation  extends Fragment{
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(5));
-                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
+                    mAdapter.setDepartmentBeen(mOrganizationses);
                     mAdapter.notifyDataSetChanged();
                 }
             },"organizations");

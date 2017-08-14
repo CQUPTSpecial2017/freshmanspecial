@@ -59,7 +59,7 @@ public class AssociationUnion extends Fragment {
                 @Override
                 public void onNext(List<Organizations> organizationses) {
                     mOrganizationses.add(organizationses.get(4));
-                    mAdapter.setDepartmentBeen(mOrganizationses.get(0).getDepartment());
+                    mAdapter.setDepartmentBeen(mOrganizationses);
                     mAdapter.notifyDataSetChanged();
                 }
             },"organizations");

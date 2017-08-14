@@ -7,19 +7,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <net.lucode.hackware.magicindicator.MagicIndicator
-            android:id="@+id/item_special_2017_student_organizations_magic_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+        <!--<net.lucode.hackware.magicindicator.MagicIndicator-->
+            <!--android:id="@+id/item_special_2017_student_organizations_magic_indicator"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:background="@color/Special_2017_whileBack"-->
+            <!--android:paddingLeft="10dp"></net.lucode.hackware.magicindicator.MagicIndicator>-->
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/item_special_2017_student_organizations_viewpager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="6dp"></android.support.v4.view.ViewPager>-->
+        <android.support.v7.widget.RecyclerView
+           android:background="@color/Special_2017_whileBack"
             android:layout_marginTop="2dp"
-            android:background="@color/Special_2017_whileBack"
-            android:paddingLeft="10dp"></net.lucode.hackware.magicindicator.MagicIndicator>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/item_special_2017_student_organizations_viewpager"
+            android:id="@+id/item_special_2017_student_organizations_title_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"></android.support.v4.view.ViewPager>
+            android:layout_height="50dp">
 
+        </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="6dp"
+
+            android:id="@+id/item_special_2017_student_organizations_content_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 </layout>

@@ -123,10 +123,9 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="17dp"
                     android:layout_height="17dp"
-                    android:src="#9EFCEE"
+                    android:src="@drawable/green"
                     />
                 <TextView
-                    android:layout_marginTop="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,10 +146,9 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="17dp"
                     android:layout_height="17dp"
-                    android:src="#B9E5FE"
+                    android:src="@drawable/blue"
                     />
                 <TextView
-                    android:layout_marginTop="2dp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
