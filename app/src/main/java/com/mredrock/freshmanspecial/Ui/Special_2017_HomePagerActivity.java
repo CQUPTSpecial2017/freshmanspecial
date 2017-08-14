@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mredrock.freshmanspecial.Interface.Presenterable;
 import com.mredrock.freshmanspecial.R;
 import com.mredrock.freshmanspecial.data.BeautyInCqupt;
 import com.mredrock.freshmanspecial.databinding.ActivitySpecial2017HomePagerBinding;
 import com.mredrock.freshmanspecial.httptools.CquptMienData;
+import com.mredrock.freshmanspecial.httptools.NetWorkUtil;
 
 import java.util.List;
 
@@ -58,17 +60,41 @@ public class Special_2017_HomePagerActivity extends AppCompatActivity {
             finish();
         }
         public void onStrategyClick(){
-            startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_StrategyActivity.class));
+            if (NetWorkUtil.isNetworkAvailable(Special_2017_HomePagerActivity.this))
+            {      startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_StrategyActivity.class));
+
+            }
+            else
+                Toast.makeText(Special_2017_HomePagerActivity.this,"网络不可用",Toast.LENGTH_SHORT).show();
+
         }
         public void onDataClick(){
-            startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_DataActivity.class));
+            if (NetWorkUtil.isNetworkAvailable(Special_2017_HomePagerActivity.this))
+            {        startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_DataActivity.class));
+
+            }
+            else
+                Toast.makeText(Special_2017_HomePagerActivity.this,"网络不可用",Toast.LENGTH_SHORT).show();
+
         }
         public void onBeautyClick(){
-            startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_BeautyActivity.class));
+            if (NetWorkUtil.isNetworkAvailable(Special_2017_HomePagerActivity.this))
+            {    startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_BeautyActivity.class));
+
+            }
+            else
+                Toast.makeText(Special_2017_HomePagerActivity.this,"网络不可用",Toast.LENGTH_SHORT).show();
 
         }
         public void onTrainingClick(){
-            startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_MilitaryTrainingActivity.class));
+            if (NetWorkUtil.isNetworkAvailable(Special_2017_HomePagerActivity.this))
+            
+            {        startActivity(new Intent(Special_2017_HomePagerActivity.this,Special_2017_MilitaryTrainingActivity.class));
+
+            }
+            else
+                Toast.makeText(Special_2017_HomePagerActivity.this,"网络不可用",Toast.LENGTH_SHORT).show();
+
 
         }
     }
