@@ -136,7 +136,7 @@ public class Specail_2017_MartialArtOfMilitaryTraining extends Fragment  impleme
                 intent.setAction("android.intent.action.VIEW");
                 Uri content_url = Uri.parse(url.get(0));
                 intent.setData(content_url);
-                intent.setClassName("com.android.browser","com.android.browser.BrowserActivity");
+                intent.addCategory("android.intent.category.DEFAULT");
                 mContext.startActivity(intent);
                 break;
             case R.id.special_2017_military_martial_video_image_2:
