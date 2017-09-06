@@ -24,7 +24,7 @@ import rx.schedulers.Schedulers;
 
 public class RatioData<T> {
     private static final int DEFAULT_TIMEOUT = 5;
-    public static String BASE_URL = "http://www.yangruixin.com/test/apiRatio.php/";
+    public static String BASE_URL = "http://hongyan.cqupt.edu.cn/welcome/2017/api/apiRatio.php/";
     private Retrofit retrofit;
     private DataService dataService;
 

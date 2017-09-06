@@ -39,8 +39,9 @@ import rx.schedulers.Schedulers;
  */
 
 public class DataAboutFresh<T> {
+    public static String BASE_URL = "http://hongyan.cqupt.edu.cn/welcome/2017/api/apiForGuide.php/";
     private static final int DEFAULT_TIMEOUT = 5;
-    public static String BASE_URL = "http://www.yangruixin.com/test/apiForGuide.php/";
+
     private Retrofit retrofit;
     private DataService dataService;
 
@@ -61,12 +62,11 @@ public class DataAboutFresh<T> {
         Cache cache = new Cache(cacheDir, 1024 * 1024 * 3);
         httpClient.cache(cache);
 
-       httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).addInterceptor(new CacheInterceptor()).
+        httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).addInterceptor(new CacheInterceptor()).
                addNetworkInterceptor(new CacheInterceptor());
 
         OkHttpClient okHttpClient = httpClient.build();
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).
-
                 addConverterFactory(GsonConverterFactory.create()).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         dataService = retrofit.create(DataService.class);
@@ -196,6 +196,8 @@ public class DataAboutFresh<T> {
     private static class SingletonHolder {
         private static final DataAboutFresh INSTANCE = new DataAboutFresh();
     }
+
+
     public class CacheInterceptor implements Interceptor {
 
         @Override

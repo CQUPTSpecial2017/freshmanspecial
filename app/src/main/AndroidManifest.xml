@@ -16,8 +16,7 @@
         <activity android:name=".Ui.Special_2017_HomePagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <data android:scheme="http"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

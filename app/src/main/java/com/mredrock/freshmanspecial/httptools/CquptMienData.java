@@ -36,7 +36,7 @@ import rx.schedulers.Schedulers;
 
 public class CquptMienData<T> {
     private static final int DEFAULT_TIMEOUT = 5;
-    public static String BASE_URL = "http://yangruixin.com/test/apiForText.php/";
+    public static String BASE_URL = "http://hongyan.cqupt.edu.cn/welcome/2017/api/apiForText.php/";
     private Retrofit retrofit;
     private DataService dataService;
     private long DEFAULT_CACHE_SIZE = 3 * 1024 * 1024;
